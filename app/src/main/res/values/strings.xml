@@ -4,6 +4,8 @@
     <string name="etEmail">E-mail</string>
     <string name="etSenha">Senha</string>
     <string name="etConfSenha">Confirmar Senha</string>
-    <string name="btRegistrar">Registrar</string>
+    <string name="btnRegistrar">Registrar</string>
+    <string name="btnEntrar">Entrar</string>
     <string name="tvEntrar">Entrar</string>
+    <string name="tvNaoTemUmaConta">Não tem uma conta?</string>
 </resources>

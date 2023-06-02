@@ -8,13 +8,13 @@
 
     <ImageView
         android:id="@+id/imvLogo"
-        android:layout_width="300px"
-        android:layout_height="300px"
+        android:layout_width="400px"
+        android:layout_height="400px"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/logo" />
 
     <EditText
         android:id="@+id/etEmail"
@@ -24,8 +24,9 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="@string/etPlaceholderEmail"
+        android:hint="@string/etEmail"
         android:inputType="textEmailAddress"
+        android:backgroundTint="@color/azul_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imvLogo" />
@@ -38,8 +39,9 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="@string/etPlaceholderSenha"
+        android:hint="@string/etSenha"
         android:inputType="textPassword"
+        android:backgroundTint="@color/azul_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmail" />
@@ -59,7 +61,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/tvNaoTemConta"
+        android:text="@string/tvNaoTemUmaConta"
+        android:textColor="@color/azul_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
@@ -69,7 +72,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="@string/tvWheelieway"
+        android:text="@string/app_name"
+        android:textColor="@color/azul_2"
         android:textSize="60sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
