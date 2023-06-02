@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Wheelieway</string>
+    <string name="etNome">Nome</string>
+    <string name="etEmail">E-mail</string>
+    <string name="etSenha">Senha</string>
+    <string name="etConfSenha">Confirmar Senha</string>
+    <string name="btRegistrar">Registrar</string>
+    <string name="tvEntrar">Entrar</string>
 </resources>
