@@ -8,14 +8,14 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="300px"
-        android:layout_height="300px"
+        android:layout_width="400px"
+        android:layout_height="400px"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/logo" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
@@ -24,6 +24,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/azul_3"
         android:ems="10"
         android:hint="@string/etNome"
         android:inputType="textPersonName"
@@ -39,6 +40,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/azul_3"
         android:ems="10"
         android:hint="@string/etEmail"
         android:inputType="textEmailAddress"
@@ -53,7 +55,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/azul_3"
         android:ems="10"
+        android:foregroundTint="#FF0303"
         android:hint="@string/etSenha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,6 +71,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/azul_3"
         android:ems="10"
         android:hint="@string/etConfSenha"
         android:inputType="textPassword"
