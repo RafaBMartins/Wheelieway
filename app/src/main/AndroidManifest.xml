@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Wheelieway"
         tools:targetApi="31">
         <activity
-            android:name=".PesquisaActivity"
+            android:name=".HomeActivity"
             android:exported="false" />
         <activity
             android:name=".RegistroActivity"
