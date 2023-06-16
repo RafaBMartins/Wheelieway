@@ -3,19 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:icon="@drawable/logo"
-        android:title="Item"
+        android:icon="@drawable/ic_home"
         app:showAsAction="always" />
     <item
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Item"
+        android:icon="@drawable/ic_map"
+        android:title="@string/mapa_icon_title"
         app:showAsAction="always" />
     <item
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Item"
+        android:icon="@drawable/ic_favorito"
         app:showAsAction="always" />
     <item
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Item"
+        android:icon="@drawable/ic_perfil"
         app:showAsAction="always" />
 </menu>
