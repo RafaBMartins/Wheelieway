@@ -22,4 +22,24 @@
     <string name="title_activity_main2">MainActivity2</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="tipos_estabelecimento">
+        <item>Loja</item>
+        <item>Centro educativo</item>
+        <item>Hospital</item>
+        <item>Áreas públicas de lazer e esporte</item>
+        <item>Estabelecimento assistencial de saúde</item>
+        <item>Centro comercial</item>
+        <item>Restaurante</item>
+        <item>Bar</item>
+        <item>Padaria</item>
+        <item>Fast-food</item>
+        <item>Food-truck</item>
+        <item>Cafeteria</item>
+        <item>Churrascaria</item>
+        <item>Pizzaria</item>
+        <item>Hamburgueria</item>
+        <item>Estabelecimento de culinária oriental</item>
+        <item>Estabelecimento de culinária vegana</item>
+    </string-array>
+
 </resources>
