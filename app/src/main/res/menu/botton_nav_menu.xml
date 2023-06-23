@@ -4,6 +4,7 @@
 
     <item
         android:icon="@drawable/ic_home"
+        android:title="@string/principal_icon_title"
         app:showAsAction="always" />
     <item
         android:icon="@drawable/ic_map"
@@ -11,8 +12,10 @@
         app:showAsAction="always" />
     <item
         android:icon="@drawable/ic_favorito"
+        android:title="@string/favoritos_icon_title"
         app:showAsAction="always" />
     <item
         android:icon="@drawable/ic_perfil"
+        android:title="@string/perfil_icon_title"
         app:showAsAction="always" />
 </menu>
