@@ -5,6 +5,7 @@
     <color name="azul_3">#005DB2</color>
     <color name="azul_4">#4DA9FF</color>
     <color name="azul_5">#00427F</color>
+    <color name="azul_6">#4D4da9ff</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
