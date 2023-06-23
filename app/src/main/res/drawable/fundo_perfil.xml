@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Elemento que ocupa 20% da altura da tela -->
+    <item android:top="0dp" android:bottom="80dp">
+        <shape>
+            <solid android:color="#0000FF" /> <!-- Cor do elemento -->
+            <gradient
+                android:startColor="@color/azul_5"
+                android:endColor="@color/azul_3"
+                android:angle="90"/>
+        </shape>
+    </item>
+
+    <!-- Elemento que ocupa 80% da altura da tela -->
+    <item android:top="150dp" android:bottom="0dp">
+        <shape>
+            <solid android:color="#FFFFFF" /> <!-- Cor do elemento -->
+            <corners
+                android:bottomRightRadius="0dp"
+                android:bottomLeftRadius="0dp"
+                android:topRightRadius="30dp"
+                android:topLeftRadius="30dp"
+                ></corners>
+        </shape>
+    </item>
+</layer-list>
