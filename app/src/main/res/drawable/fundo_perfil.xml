@@ -4,6 +4,10 @@
     <item android:top="0dp" android:bottom="80dp">
         <shape>
             <solid android:color="#0000FF" /> <!-- Cor do elemento -->
+            <gradient
+                android:startColor="@color/azul_5"
+                android:endColor="@color/azul_3"
+                android:angle="90"/>
         </shape>
     </item>
 
