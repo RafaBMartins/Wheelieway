@@ -167,7 +167,8 @@
             android:src="@android:drawable/ic_menu_camera"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="Botão para inserir foto do estabelecimento" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -189,14 +190,15 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="75dp" />
 
-        <ImageView
-            android:id="@+id/imageView10"
+        <ImageButton
+            android:id="@+id/imageButton7"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@drawable/baseline_arrow_forward_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvProximo"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="Botão para seguir com a avaliação" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
