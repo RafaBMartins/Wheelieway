@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imvFotoPerfilComentario"
-        android:layout_width="320px"
-        android:layout_height="320px"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,47 +28,23 @@
         app:layout_constraintStart_toEndOf="@+id/imvFotoPerfilComentario"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imvEstrelaComentario"
-        android:layout_width="80px"
-        android:layout_height="80px"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/imvFotoPerfilComentario"
-        app:layout_constraintTop_toBottomOf="@+id/tvNomeUsuarioComentario"
-        app:srcCompat="@drawable/baseline_star_24" />
-
-    <ImageView
-        android:id="@+id/imvAbrirImagensAnexadas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/imvFotoPerfilComentario"
-        app:layout_constraintTop_toBottomOf="@+id/imvEstrelaComentario"
-        app:srcCompat="@drawable/baseline_auto_awesome_motion_24" />
-
-    <TextView
-        android:id="@+id/tvNotaAvaliacaoComentario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:text="4.5"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imvEstrelaComentario"
-        app:layout_constraintTop_toBottomOf="@+id/tvNomeUsuarioComentario" />
-
     <TextView
         android:id="@+id/tvDescricaoAvaliacaoComentario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="Eu gostei muito do estabelecimento, ele ebem acessivel, contem rampas boas e banheiro acessivel para cadeirantes, so o atendimento que eu acho que pode melhorar um pouco"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imvFotoPerfilComentario" />
