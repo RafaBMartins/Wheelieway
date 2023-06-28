@@ -7,7 +7,7 @@
     tools:context=".RegistroActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imvLogoRegistro"
         android:layout_width="400px"
         android:layout_height="400px"
         android:layout_marginTop="16dp"
@@ -18,7 +18,7 @@
         tools:srcCompat="@drawable/logo" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/etNomeRegistro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -31,10 +31,10 @@
         android:singleLine="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imvLogoRegistro" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/etEmailRegistro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -46,10 +46,10 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/etNomeRegistro" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/etSenhaRegistro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -62,10 +62,10 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmailRegistro" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/etConfirmarSenhaRegistro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -78,10 +78,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/etSenhaRegistro" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvWheeliewayRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -94,7 +94,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnRegistrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -103,10 +103,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        app:layout_constraintTop_toBottomOf="@+id/etConfirmarSenhaRegistro" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvEntrarRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -115,5 +115,5 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistrar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
