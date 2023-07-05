@@ -16,6 +16,7 @@
             android:exported="false" />
         <activity
             android:name=".RegistroActivity"
+            android:theme="@style/Theme.Wheelieway.NoActionBar2"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

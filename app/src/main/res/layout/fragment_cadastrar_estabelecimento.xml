@@ -191,7 +191,7 @@
             tools:layout_editor_absoluteX="75dp" />
 
         <ImageButton
-            android:id="@+id/imageButton7"
+            android:id="@+id/imbCadastrarEstabelecimento"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@drawable/baseline_arrow_forward_24"
