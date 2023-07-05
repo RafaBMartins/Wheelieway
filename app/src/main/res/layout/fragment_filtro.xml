@@ -8,7 +8,7 @@
     tools:context=".FiltroFragment" >
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/tvTipoEstabelecimentoFiltro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/tvDistanciaEstabelecimentoFiltro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -29,10 +29,10 @@
         android:textColor="@color/azul_5"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+        app:layout_constraintTop_toBottomOf="@+id/spEstabelecimentoFiltroTipo" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/tvSeloEstabelecimentoFiltro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/tvNotaEstabelecimentoFiltro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -56,33 +56,33 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spEstabelecimentoFiltroTipo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:entries="@array/tipos_estabelecimento"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTipoEstabelecimentoFiltro" />
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/sbDistanciaEstabelecimentoFiltro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDistanciaEstabelecimentoFiltro" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnAplicarFiltro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Aplicar filtros"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/sbDistanciaEstabelecimentoFiltro" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"
@@ -93,10 +93,10 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18">
+        app:layout_constraintTop_toBottomOf="@+id/tvSeloEstabelecimentoFiltro">
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/imbSeloOuroFiltro"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="8dp"
@@ -107,18 +107,18 @@
             android:contentDescription="Botão selo bronze"  />
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/imbSeloPrataFiltro"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/baseline_wheelchair_pickup_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton4"
-            app:layout_constraintStart_toEndOf="@+id/imageButton2"
+            app:layout_constraintEnd_toStartOf="@+id/imbSeloOuroFiltro"
+            app:layout_constraintStart_toEndOf="@+id/imbSeloBronzeFiltro"
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="Botão selo prata" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/imbSeloBronzeFiltro"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="8dp"
@@ -131,12 +131,12 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
-        android:layout_width="496dp"
+        android:layout_width="0dp"
         android:layout_height="59dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17">
+        app:layout_constraintTop_toBottomOf="@+id/tvNotaEstabelecimentoFiltro">
 
         <RadioButton
             android:id="@+id/rb1Filtro"
@@ -152,10 +152,12 @@
             android:id="@+id/rb2Filtro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
             android:text="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/rb1Filtro"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.545" />
 
         <RadioButton
             android:id="@+id/rb3Filtro"
@@ -171,6 +173,7 @@
             android:id="@+id/rb4Filtro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
             android:text="4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/rb5Filtro"
