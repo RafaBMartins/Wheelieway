@@ -14,9 +14,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/azul_3"
         android:ems="10"
+        android:hint="Nome"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,7 +29,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        android:background="@color/azul_6"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etInserirNomeEstabelecimento">
@@ -40,11 +41,12 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="Insira uma foto do estabelecimento (preferencialmente uma da fachada)."
+            android:text="Foto do estabelecimento."
             android:textColor="#000000"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/imbtnInserirFoto"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
@@ -53,10 +55,25 @@
             android:id="@+id/imbtnInserirFoto"
             android:layout_width="85dp"
             android:layout_height="76dp"
-            android:src="@android:drawable/ic_menu_camera"
+            android:backgroundTint="#FFFFFF"
+            android:src="@drawable/baseline_photo_camera_24"
+            android:tint="@color/azul_3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(preferencialmente uma da fachada)"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imbtnInserirFoto"
+            app:layout_constraintTop_toBottomOf="@+id/tvInformacoesInserirFoto"
+            app:layout_constraintVertical_bias="0.36" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -80,6 +97,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/azul_3"
         android:entries="@array/tipos_estabelecimento"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,6 +112,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:background="@color/azul_6"
+        android:backgroundTint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spiTiposEstabelecimento">
@@ -116,6 +135,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
+            android:progressBackgroundTint="#ffd700"
+            android:secondaryProgressTint="#8A8A8A"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -129,9 +150,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/azul_3"
         android:ems="10"
+        android:gravity="start|top"
+        android:hint="Avaliação"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +167,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@color/azul_6"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etComentarioEstabelecimentoCadastrar">
@@ -154,21 +177,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Adicionar fotos à avaliação."
+            android:textColor="#000000"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imbtnAdicionarFotoAvaliacao"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.489" />
 
         <ImageButton
             android:id="@+id/imbtnAdicionarFotoAvaliacao"
             android:layout_width="94dp"
             android:layout_height="71dp"
-            android:src="@android:drawable/ic_menu_camera"
+            android:backgroundTint="@color/white"
+            android:contentDescription="Botão para inserir foto do estabelecimento"
+            android:src="@drawable/baseline_photo_camera_24"
+            android:tint="@color/azul_3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="Botão para inserir foto do estabelecimento" />
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -187,18 +215,24 @@
             android:textColor="@color/azul_5"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton7"
+            app:layout_constraintHorizontal_bias="0.941"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="75dp" />
+            app:layout_constraintVertical_bias="0.512" />
 
         <ImageButton
             android:id="@+id/imageButton7"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="132dp"
+            android:backgroundTint="@color/white"
+            android:contentDescription="Botão para seguir com a avaliação"
             android:src="@drawable/baseline_arrow_forward_24"
+            android:tint="@color/azul_3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvProximo"
             app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="Botão para seguir com a avaliação" />
+            app:layout_constraintVertical_bias="0.521" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
