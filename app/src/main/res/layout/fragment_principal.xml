@@ -7,7 +7,7 @@
     tools:context=".HomeFragment" >
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/etBarraPesquisaEstabelecimento"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -16,12 +16,12 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintEnd_toStartOf="@+id/imbAbrirFiltros"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imbAbrirFiltros"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -32,17 +32,18 @@
         tools:src="@drawable/ic_filter" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvEstabelecimentos"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        app:layout_constraintTop_toBottomOf="@+id/etBarraPesquisaEstabelecimento"
         app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/fabAdicionarEstabelecimento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
