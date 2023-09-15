@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FiltroFragment" >
+    tools:context=".FiltroFragment">
 
     <TextView
         android:id="@+id/tvTipoEstabelecimentoFiltro"
@@ -100,33 +100,33 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="8dp"
+            android:contentDescription="Botão selo bronze"
             android:src="@drawable/baseline_wheelchair_pickup_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="Botão selo bronze"  />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/imbSeloPrataFiltro"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:contentDescription="Botão selo prata"
             android:src="@drawable/baseline_wheelchair_pickup_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imbSeloOuroFiltro"
             app:layout_constraintStart_toEndOf="@+id/imbSeloBronzeFiltro"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="Botão selo prata" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/imbSeloBronzeFiltro"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="8dp"
+            android:contentDescription="Botão selo ouro"
             android:src="@drawable/baseline_wheelchair_pickup_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="Botão selo ouro" />
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -187,6 +187,15 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
