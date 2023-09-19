@@ -10,17 +10,22 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
             android:layout_width="391dp"
             android:layout_height="66dp"
-            tools:layout_editor_absoluteX="12dp"
-            tools:layout_editor_absoluteY="242dp">
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName">
 
             <TextView
                 android:id="@+id/tvProximo"
@@ -55,25 +60,33 @@
             android:id="@+id/etInserirNomeEstabelecimento"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
             android:backgroundTint="@color/azul_3"
             android:ems="10"
             android:hint="Nome"
             android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="10dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
             android:background="@color/white"
-            tools:layout_editor_absoluteX="10dp"
-            tools:layout_editor_absoluteY="0dp">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/tvInformacoesInserirFoto"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="Foto do estabelecimento."
@@ -90,6 +103,7 @@
                 android:id="@+id/imbtnInserirFoto"
                 android:layout_width="85dp"
                 android:layout_height="76dp"
+                android:layout_marginTop="16dp"
                 android:backgroundTint="#FFFFFF"
                 android:src="@drawable/baseline_photo_camera_24"
                 android:tint="@color/azul_3"
@@ -115,21 +129,43 @@
             android:id="@+id/tvInformacoesInserirTipo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
             android:text="Selecione o tipo de estabelecimento:"
             android:textColor="#000000"
             android:textSize="16sp"
-            tools:layout_editor_absoluteX="10dp"
-            tools:layout_editor_absoluteY="100dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etInserirNomeEstabelecimento" />
 
         <Spinner
             android:id="@+id/spiTiposEstabelecimento"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
             android:backgroundTint="@color/azul_3"
             android:entries="@array/tipos_estabelecimento"
             android:spinnerMode="dropdown"
-            tools:layout_editor_absoluteX="10dp"
-            tools:layout_editor_absoluteY="154dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvInformacoesInserirTipo" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/azul_3"
+            android:ems="10"
+            android:hint="@string/cadastrar_estabelecimento_hint_localização"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spiTiposEstabelecimento" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
