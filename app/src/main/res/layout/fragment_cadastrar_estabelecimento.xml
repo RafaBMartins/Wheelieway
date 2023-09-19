@@ -7,232 +7,165 @@
     android:layout_height="match_parent"
     tools:context=".CadastrarEstabelecimentoFragment">
 
-    <EditText
-        android:id="@+id/etInserirNomeEstabelecimento"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/azul_3"
-        android:ems="10"
-        android:hint="Nome"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etInserirNomeEstabelecimento">
-
-        <TextView
-            android:id="@+id/tvInformacoesInserirFoto"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Foto do estabelecimento."
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/imbtnInserirFoto"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <ImageButton
-            android:id="@+id/imbtnInserirFoto"
-            android:layout_width="85dp"
-            android:layout_height="76dp"
-            android:backgroundTint="#FFFFFF"
-            android:src="@drawable/baseline_photo_camera_24"
-            android:tint="@color/azul_3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="(preferencialmente uma da fachada)"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imbtnInserirFoto"
-            app:layout_constraintTop_toBottomOf="@+id/tvInformacoesInserirFoto"
-            app:layout_constraintVertical_bias="0.36" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/tvInformacoesInserirTipo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:text="Selecione o tipo de estabelecimento:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
-
-    <Spinner
-        android:id="@+id/spiTiposEstabelecimento"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/azul_3"
-        android:entries="@array/tipos_estabelecimento"
-        android:spinnerMode="dropdown"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvInformacoesInserirTipo" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/azul_6"
-        android:backgroundTint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spiTiposEstabelecimento">
-
-        <TextView
-            android:id="@+id/tvAvalieEstabelecimento"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="Avalie o estabelecimento:"
-            android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <RatingBar
-            android:id="@+id/rbNotaEstabelecimento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:progressBackgroundTint="#ffd700"
-            android:secondaryProgressTint="#8A8A8A"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvAvalieEstabelecimento" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <EditText
-        android:id="@+id/etComentarioEstabelecimentoCadastrar"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/azul_3"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Avaliação"
-        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etComentarioEstabelecimentoCadastrar">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="391dp"
+            android:layout_height="66dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName">
 
-        <TextView
-            android:id="@+id/tvFotoAvaliacao"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tvProximo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Próximo"
+                android:textColor="@color/azul_5"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton7"
+                app:layout_constraintHorizontal_bias="0.941"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.512" />
+
+            <ImageButton
+                android:id="@+id/imageButton7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="132dp"
+                android:backgroundTint="@color/white"
+                android:contentDescription="Botão para seguir com a avaliação"
+                android:src="@drawable/baseline_arrow_forward_24"
+                android:tint="@color/azul_3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.521" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/etInserirNomeEstabelecimento"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Adicionar fotos à avaliação."
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/azul_3"
+            android:ems="10"
+            android:hint="Nome"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imbtnAdicionarFotoAvaliacao"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.489" />
-
-        <ImageButton
-            android:id="@+id/imbtnAdicionarFotoAvaliacao"
-            android:layout_width="94dp"
-            android:layout_height="71dp"
-            android:backgroundTint="@color/white"
-            android:contentDescription="Botão para inserir foto do estabelecimento"
-            android:src="@drawable/baseline_photo_camera_24"
-            android:tint="@color/azul_3"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="391dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvInformacoesInserirFoto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Foto do estabelecimento."
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/imbtnInserirFoto"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageButton
+                android:id="@+id/imbtnInserirFoto"
+                android:layout_width="85dp"
+                android:layout_height="76dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#FFFFFF"
+                android:src="@drawable/baseline_photo_camera_24"
+                android:tint="@color/azul_3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(preferencialmente uma da fachada)"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imbtnInserirFoto"
+                app:layout_constraintTop_toBottomOf="@+id/tvInformacoesInserirFoto"
+                app:layout_constraintVertical_bias="0.36" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/tvProximo"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvInformacoesInserirTipo"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Próximo"
-            android:textColor="@color/azul_5"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton7"
-            app:layout_constraintHorizontal_bias="0.941"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text="Selecione o tipo de estabelecimento:"
+            android:textColor="#000000"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.512" />
+            app:layout_constraintTop_toBottomOf="@+id/etInserirNomeEstabelecimento" />
 
-        <ImageButton
-            android:id="@+id/imageButton7"
-            android:layout_width="wrap_content"
+        <Spinner
+            android:id="@+id/spiTiposEstabelecimento"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="132dp"
-            android:backgroundTint="@color/white"
-            android:contentDescription="Botão para seguir com a avaliação"
-            android:src="@drawable/baseline_arrow_forward_24"
-            android:tint="@color/azul_3"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/azul_3"
+            android:entries="@array/tipos_estabelecimento"
+            android:spinnerMode="dropdown"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvInformacoesInserirTipo" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/azul_3"
+            android:ems="10"
+            android:hint="@string/cadastrar_estabelecimento_hint_localização"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.521" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spiTiposEstabelecimento" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
