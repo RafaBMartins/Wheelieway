@@ -34,4 +34,8 @@
     <style name="Theme.Wheelieway.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Wheelieway.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="SpinnerTextStyle">
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>
