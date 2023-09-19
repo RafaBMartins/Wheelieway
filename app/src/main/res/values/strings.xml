@@ -1,4 +1,4 @@
-<resources>
+<string>
     <string name="app_name">Wheelieway</string>
     <string name="etNome">Nome</string>
     <string name="etEmail">E-mail</string>
@@ -13,6 +13,7 @@
     <string name="favoritos_icon_title">Favoritos</string>
     <string name="principal_icon_title">Principal</string>
     <string name="perfil_icon_title">Perfil</string>
+    <string name="cadastrar_estabelecimento_hint_localização">Coloque sua localização</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -24,6 +25,7 @@
     <string name="title_activity_main2">MainActivity2</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cadastrar_estabelecimento_hint_tipo_estabelecimento">Coloque o tipo do estabelecimento</string>
     <string-array name="tipos_estabelecimento">
         <item>Hotel</item>
         <item>Centro educativo</item>
