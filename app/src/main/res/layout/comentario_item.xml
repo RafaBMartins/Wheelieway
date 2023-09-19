@@ -5,62 +5,86 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/imvFotoPerfilComentario"
+    <com.github.siyamed.shapeimageview.CircularImageView
+        android:id="@+id/imvComentarioItem"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/circular"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvNomeUsuarioComentario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:text="Rafael"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        android:text="Rafael Barbosa Martins"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imvFotoPerfilComentario"
+        app:layout_constraintStart_toEndOf="@+id/imvComentarioItem"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvDescricaoAvaliacaoComentario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Eu gostei muito do estabelecimento, ele ebem acessivel, contem rampas boas e banheiro acessivel para cadeirantes, so o atendimento que eu acho que pode melhorar um pouco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rbComentarioItem" />
+        app:layout_constraintTop_toBottomOf="@+id/imvComentarioItemEstrela" />
 
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-        android:id="@+id/carousel"
-        android:layout_width="match_parent"
+        android:id="@+id/carouselComentarioItem"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDescricaoAvaliacaoComentario" />
 
-    <RatingBar
-        android:id="@+id/rbComentarioItem"
-        style="@style/Widget.AppCompat.RatingBar.Small"
+    <ImageView
+        android:id="@+id/imvComentarioItemEstrela"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imvComentarioItem"
+        app:srcCompat="@drawable/baseline_star_24" />
+
+    <TextView
+        android:id="@+id/tvComentarioItemNota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="5"
+        app:layout_constraintStart_toEndOf="@+id/imvComentarioItemEstrela"
+        tools:layout_editor_absoluteY="77dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/tvDescricaoAvaliacaoComentario"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+        app:srcCompat="@drawable/baseline_thumb_up_24" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/tvDescricaoAvaliacaoComentario"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imvFotoPerfilComentario" />
+        app:srcCompat="@drawable/baseline_thumb_down_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

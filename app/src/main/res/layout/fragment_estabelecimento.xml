@@ -8,7 +8,7 @@
     tools:context=".EstabelecimentoFragment">
 
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-        android:id="@+id/carousel"
+        android:id="@+id/carouselComentarioItem"
         android:layout_width="match_parent"
         android:layout_height="256dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carousel" />
+        app:layout_constraintTop_toBottomOf="@+id/carouselComentarioItem" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"
