@@ -41,7 +41,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -84,7 +84,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar2"
 
-            app:layout_constraintVertical_bias="0.027" />
+            app:layout_constraintVertical_bias="0.104" />
 
         <org.imaginativeworld.whynotimagecarousel.ImageCarousel
             android:id="@+id/carousel"
@@ -94,7 +94,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="279dp" />
+            tools:layout_editor_absoluteY="272dp" />
 
         <ImageButton
             android:id="@+id/ibSeloBronze"
@@ -105,8 +105,33 @@
             android:backgroundTint="#FFFFFF"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/baseline_photo_camera_24"
-            tools:layout_editor_absoluteY="186dp" />
+            tools:layout_editor_absoluteY="199dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/white"
+            android:text="Adicionar fotos à avaliação"
+            android:textColor="@color/azul_3"
+            app:layout_constraintBottom_toTopOf="@+id/carousel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.108"
+            app:layout_constraintStart_toEndOf="@+id/imageButton3"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine4"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="POSTAR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
