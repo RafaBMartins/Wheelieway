@@ -29,8 +29,9 @@
         android:background="@color/azul_7"
         android:entries="@array/tipos_estabelecimento"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
     <Spinner
         android:id="@+id/spCidades"
@@ -58,6 +59,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spEstabelecimentoFiltroTipo" />
 
+    <Spinner
+        android:id="@+id/spBairro"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/azul_7"
+        android:entries="@android:array/phoneTypes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spEstado" />
+
     <TextView
         android:id="@+id/tvApagarFiltros"
         android:layout_width="wrap_content"
@@ -75,12 +89,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:text="Distância"
         android:textColor="@color/azul_5"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spEstado" />
+        app:layout_constraintTop_toBottomOf="@+id/spBairro" />
 
     <SeekBar
         android:id="@+id/sbDistanciaEstabelecimentoFiltro"
@@ -102,38 +116,6 @@
         app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sbDistanciaEstabelecimentoFiltro" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/baseline_wheelchair_pickup_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/baseline_wheelchair_pickup_24"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/baseline_wheelchair_pickup_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
@@ -193,6 +175,49 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+        <ImageButton
+            android:id="@+id/ibSeloOuro"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/baseline_wheelchair_pickup_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="Selo ouro"/>
+
+        <ImageButton
+            android:id="@+id/ibSeloPrata"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/baseline_wheelchair_pickup_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ibSeloBronze"
+            app:layout_constraintStart_toEndOf="@+id/ibSeloOuro"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="Selo prata"/>
+
+        <ImageButton
+            android:id="@+id/ibSeloBronze"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/baseline_wheelchair_pickup_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="Selo bronze"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
