@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <com.github.siyamed.shapeimageview.CircularImageView
         android:id="@+id/imvComentarioItem"
@@ -21,7 +21,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="25dp"
         android:text="Rafael Barbosa Martins"
-        android:textSize="20sp"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imvComentarioItem"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,10 +33,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="Eu gostei muito do estabelecimento, ele ebem acessivel, contem rampas boas e banheiro acessivel para cadeirantes, so o atendimento que eu acho que pode melhorar um pouco"
+        android:text="Eu gostei muito do estabelecimento, ele e bem acessivel, contem rampas boas e banheiro acessivel para cadeirantes, so o atendimento que eu acho que"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imvComentarioItemEstrela" />
+        app:layout_constraintTop_toBottomOf="@+id/imvComentarioItem" />
 
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
         android:id="@+id/carouselComentarioItem"
@@ -50,41 +53,53 @@
         android:id="@+id/imvComentarioItemEstrela"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imvComentarioItem"
-        app:srcCompat="@drawable/baseline_star_24" />
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/tvNomeUsuarioComentario"
+        app:srcCompat="@drawable/baseline_star_24"
+        tools:layout_editor_absoluteY="25dp" />
 
     <TextView
         android:id="@+id/tvComentarioItemNota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginBottom="26dp"
         android:text="5"
-        app:layout_constraintStart_toEndOf="@+id/imvComentarioItemEstrela"
-        tools:layout_editor_absoluteY="77dp" />
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvDescricaoAvaliacaoComentario"
+        app:layout_constraintStart_toEndOf="@+id/imvComentarioItemEstrela" />
 
     <ImageButton
-        android:id="@+id/ibSeloOuro"
+        android:id="@+id/imageButton"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
         android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/tvDescricaoAvaliacaoComentario"
-        app:layout_constraintEnd_toStartOf="@+id/ibSeloPrata"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carouselComentarioItem"
         app:srcCompat="@drawable/baseline_thumb_up_24" />
 
     <ImageButton
-        android:id="@+id/ibSeloPrata"
+        android:id="@+id/imageButton2"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
         android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/tvDescricaoAvaliacaoComentario"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/carouselComentarioItem"
         app:srcCompat="@drawable/baseline_thumb_down_24" />
+
+    <TextView
+        android:id="@+id/tvComentarioItemData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Comentado em 04/07/2023"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carouselComentarioItem" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
