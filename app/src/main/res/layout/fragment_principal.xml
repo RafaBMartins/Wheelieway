@@ -7,7 +7,7 @@
     tools:context=".HomeFragment" >
 
     <EditText
-        android:id="@+id/etBarraPesquisaEstabelecimento"
+        android:id="@+id/etBarraPesquisaPrincipal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -17,36 +17,36 @@
         android:ems="10"
         android:hint="Pesquisar"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/imbAbrirFiltros"
+        app:layout_constraintEnd_toStartOf="@+id/imbAbrirFiltrosPrincipal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imbAbrirFiltros"
+        android:id="@+id/imbAbrirFiltrosPrincipal"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="@color/white"
         android:contentDescription="Botão para aplicar filtros à pesquisa"
-        app:layout_constraintBottom_toTopOf="@+id/rvEstabelecimentos"
+        app:layout_constraintBottom_toTopOf="@+id/rvEstabelecimentoPrincipal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/baseline_filter_list_24" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvEstabelecimentos"
+        android:id="@+id/rvEstabelecimentoPrincipal"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etBarraPesquisaEstabelecimento"
+        app:layout_constraintTop_toBottomOf="@+id/etBarraPesquisaPrincipal"
         app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAdicionarEstabelecimento"
+        android:id="@+id/fabAdicionarEstabelecimentoPrincipal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"

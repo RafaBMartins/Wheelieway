@@ -17,7 +17,7 @@
         tools:srcCompat="@drawable/logo" />
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/etEmailLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imvLogo" />
 
     <EditText
-        android:id="@+id/etSenha"
+        android:id="@+id/etSenhaLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -44,10 +44,10 @@
         android:backgroundTint="@color/azul_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmailLogin" />
 
     <Button
-        android:id="@+id/btnEntrar"
+        android:id="@+id/btnEntrarLogin"
         android:layout_width="250dp"
         android:layout_height="55dp"
         android:layout_marginTop="24dp"
@@ -55,10 +55,10 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/etSenhaLogin" />
 
     <TextView
-        android:id="@+id/tvNaoTemConta"
+        android:id="@+id/tvNaoTemContaLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -68,6 +68,6 @@
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnEntrarLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

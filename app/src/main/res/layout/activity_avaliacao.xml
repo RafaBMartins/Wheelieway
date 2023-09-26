@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.github.siyamed.shapeimageview.CircularImageView
-            android:id="@+id/circularImageView"
+            android:id="@+id/imvFotoUsuario"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvNomeAval"
+            android:id="@+id/tvNomeAvaliacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nome Usuario"
@@ -34,7 +34,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.062"
-            app:layout_constraintStart_toEndOf="@+id/circularImageView"
+            app:layout_constraintStart_toEndOf="@+id/cimvEstabelecimentoItem"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.507" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -51,7 +51,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <RatingBar
-            android:id="@+id/ratingBar2"
+            android:id="@+id/rbAvaliacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -62,7 +62,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editTextTextMultiLine4"
+            android:id="@+id/etComentarioAvaliacao"
             style="@style/editTextBorda"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -80,19 +80,19 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
 
-            app:layout_constraintTop_toBottomOf="@+id/ratingBar2" />
+            app:layout_constraintTop_toBottomOf="@+id/rbAvaliacao" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/carousel"
+            app:layout_constraintBottom_toTopOf="@+id/carouselAvaliacao"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine4">
+            app:layout_constraintTop_toBottomOf="@+id/etComentarioAvaliacao">
 
             <ImageButton
-                android:id="@+id/ibSeloBronze"
+                android:id="@+id/imbtnSeloAvaliacao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -106,7 +106,7 @@
                 app:srcCompat="@drawable/baseline_photo_camera_24" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnAdicionarFotosAvaliacao"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -119,13 +119,13 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/ibSeloBronze"
+                app:layout_constraintStart_toEndOf="@+id/imbtnSeloAvaliacao"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-            android:id="@+id/carousel"
+            android:id="@+id/carouselAvaliacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#FFFFFF"
@@ -139,7 +139,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnPostarAvaliacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

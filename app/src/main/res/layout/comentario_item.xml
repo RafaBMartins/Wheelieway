@@ -41,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imvComentarioItem" />
 
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-        android:id="@+id/carouselComentarioItem"
+        android:id="@+id/carouselComentarioItemEstabelecimento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -71,25 +71,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imbLike"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carouselComentarioItem"
+        app:layout_constraintTop_toBottomOf="@+id/carouselComentarioItemEstabelecimento"
         app:srcCompat="@drawable/baseline_thumb_up_24" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/imbDislike"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/carouselComentarioItem"
+        app:layout_constraintEnd_toStartOf="@+id/imbLike"
+        app:layout_constraintTop_toBottomOf="@+id/carouselComentarioItemEstabelecimento"
         app:srcCompat="@drawable/baseline_thumb_down_24" />
 
     <TextView
@@ -101,6 +101,6 @@
         android:text="Comentado em 04/07/2023"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carouselComentarioItem" />
+        app:layout_constraintTop_toBottomOf="@+id/carouselComentarioItemEstabelecimento" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

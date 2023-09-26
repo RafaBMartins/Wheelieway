@@ -7,7 +7,7 @@
     android:background="@color/white">
 
     <com.github.siyamed.shapeimageview.CircularImageView
-        android:id="@+id/circularImageView"
+        android:id="@+id/cimvEstabelecimentoItem"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvEstabelecimentoItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -24,7 +24,7 @@
         android:text="Ifes Serra"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/circularImageView"
+        app:layout_constraintStart_toEndOf="@+id/cimvEstabelecimentoItem"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,7 +35,7 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/tvEstabelecimentoItem"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -45,13 +45,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView5"
+            app:layout_constraintStart_toEndOf="@+id/tvNotaEstabelecimentoItem"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.444"
             app:srcCompat="@drawable/baseline_star_24" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/tvNotaEstabelecimentoItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="5,0"
@@ -63,7 +63,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvDistanciaEstabelecimentoItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -72,25 +72,25 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/circularImageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/cimvEstabelecimentoItem"
+        app:layout_constraintTop_toBottomOf="@+id/tvEstabelecimentoItem"
         app:layout_constraintVertical_bias="0.184" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imvTipoEstabelecimentoItem"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="88dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toEndOf="@+id/tvDistanciaEstabelecimentoItem"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout10"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/baseline_school_24" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imvSeloEstabelecimentoItem"
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"

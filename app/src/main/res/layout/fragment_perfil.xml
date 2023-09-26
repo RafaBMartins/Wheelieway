@@ -8,7 +8,7 @@
     tools:context=".PerfilFragment" >
 
     <ImageView
-        android:id="@+id/imvPerfilUsuario"
+        android:id="@+id/imvUsuarioPerfil"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="96dp"
@@ -19,7 +19,7 @@
         tools:src="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tvNomeUsuario"
+        android:id="@+id/tvNomeUsuarioPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -27,22 +27,22 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imvPerfilUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/imvUsuarioPerfil" />
 
     <Button
-        android:id="@+id/btnMudarSenha"
+        android:id="@+id/btnMudarSenhaPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:text="Mudar a senha"
-        app:layout_constraintBottom_toTopOf="@+id/btnSair"
+        app:layout_constraintBottom_toTopOf="@+id/btnSairPerfil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNomeUsuario"
+        app:layout_constraintTop_toBottomOf="@+id/tvNomeUsuarioPerfil"
         app:layout_constraintVertical_bias="0.864" />
 
     <Button
-        android:id="@+id/btnSair"
+        android:id="@+id/btnSairPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sair"
@@ -58,7 +58,7 @@
         android:layout_marginStart="12dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/baseline_edit_24"
-        app:layout_constraintStart_toEndOf="@+id/tvNomeUsuario"
+        app:layout_constraintStart_toEndOf="@+id/tvNomeUsuarioPerfil"
         tools:layout_editor_absoluteY="258dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -69,10 +69,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSair">
+        app:layout_constraintTop_toBottomOf="@+id/btnSairPerfil">
 
         <TextView
-            android:id="@+id/tvMinhasAvaliacoes"
+            android:id="@+id/tvMinhasAvaliacoesPerfil"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -83,7 +83,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvMinhasAvaliacoes"
+            android:id="@+id/rvMinhasAvaliacoesPerfil"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="2dp"
@@ -91,7 +91,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvMinhasAvaliacoes"
+            app:layout_constraintTop_toBottomOf="@+id/tvMinhasAvaliacoesPerfil"
             app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

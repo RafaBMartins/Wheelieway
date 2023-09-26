@@ -18,46 +18,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout2"
-            android:layout_width="391dp"
-            android:layout_height="66dp"
+        <Button
+            android:id="@+id/btnProximoCadastrarEstabelecimento"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="32dp"
+            android:text="PRÓXIMO"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName">
-
-            <TextView
-                android:id="@+id/tvProximo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Próximo"
-                android:textColor="@color/azul_5"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imSetaProx"
-                app:layout_constraintHorizontal_bias="0.941"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.512" />
-
-            <ImageButton
-                android:id="@+id/imSetaProx"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="132dp"
-                android:backgroundTint="@color/white"
-                android:contentDescription="Botão para seguir com a avaliação"
-                android:src="@drawable/baseline_arrow_forward_24"
-                android:tint="@color/azul_3"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.521" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@+id/etLocalizacaoCadastrarEstabelecimento" />
 
         <EditText
-            android:id="@+id/etInserirNomeEstabelecimento"
+            android:id="@+id/etInserirNomeCadastrarEstabelecimento"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -83,7 +57,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/tvInformacoesInserirFoto"
+                android:id="@+id/tvInformacoesInserirFotoCadastrarEstabelecimento"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -95,12 +69,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/imbtnInserirFoto"
+                app:layout_constraintStart_toEndOf="@+id/imbtnInserirFotoCadastrarEstabelecimento"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
             <ImageButton
-                android:id="@+id/imbtnInserirFoto"
+                android:id="@+id/imbtnInserirFotoCadastrarEstabelecimento"
                 android:layout_width="85dp"
                 android:layout_height="76dp"
                 android:layout_marginTop="16dp"
@@ -113,20 +87,20 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/tvComentarioFotoCadastrarEstabelecimento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="(preferencialmente uma da fachada)"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imbtnInserirFoto"
-                app:layout_constraintTop_toBottomOf="@+id/tvInformacoesInserirFoto"
+                app:layout_constraintStart_toEndOf="@+id/imbtnInserirFotoCadastrarEstabelecimento"
+                app:layout_constraintTop_toBottomOf="@+id/tvInformacoesInserirFotoCadastrarEstabelecimento"
                 app:layout_constraintVertical_bias="0.36" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/tvInformacoesInserirTipo"
+            android:id="@+id/tvInformacoesInserirTipoCadastrarEstabelecimento"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -135,10 +109,10 @@
             android:textColor="#000000"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etInserirNomeEstabelecimento" />
+            app:layout_constraintTop_toBottomOf="@+id/etInserirNomeCadastrarEstabelecimento" />
 
         <Spinner
-            android:id="@+id/spTiposEstabelecimento"
+            android:id="@+id/spTiposEstabelecimentoCadastrarEstabelecimento"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -147,10 +121,10 @@
             android:entries="@array/tipos_estabelecimento"
             android:spinnerMode="dropdown"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvInformacoesInserirTipo" />
+            app:layout_constraintTop_toBottomOf="@+id/tvInformacoesInserirTipoCadastrarEstabelecimento" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/etLocalizacaoCadastrarEstabelecimento"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -164,7 +138,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spTiposEstabelecimento" />
+            app:layout_constraintTop_toBottomOf="@+id/spTiposEstabelecimentoCadastrarEstabelecimento" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
