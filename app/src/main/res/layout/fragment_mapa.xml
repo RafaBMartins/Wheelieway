@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:backgroundTint="@color/azul_3"
         android:ems="10"
         android:hint="Pesquisar"
         android:inputType="textPersonName"
@@ -36,7 +37,8 @@
         android:layout_height="47dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:src="@android:drawable/ic_menu_search"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/baseline_search_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

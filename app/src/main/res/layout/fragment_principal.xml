@@ -13,9 +13,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/azul_3"
         android:ems="10"
+        android:hint="Pesquisar"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintEnd_toStartOf="@+id/imbAbrirFiltros"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,10 +27,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/white"
         android:contentDescription="Botão para aplicar filtros à pesquisa"
+        app:layout_constraintBottom_toTopOf="@+id/rvEstabelecimentos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_filter" />
+        tools:src="@drawable/baseline_filter_list_24" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvEstabelecimentos"
