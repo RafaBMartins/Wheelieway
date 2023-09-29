@@ -118,10 +118,54 @@
         app:layout_constraintTop_toBottomOf="@+id/sbDistanciaEstabelecimentoFiltro" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout5"
+        android:id="@+id/constraintLayout3"
         android:layout_width="0dp"
-        android:layout_height="59dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rgFiltro">
+
+        <ImageButton
+            android:id="@+id/imbtnSeloOuro"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="Selo ouro"
+            android:src="@drawable/baseline_wheelchair_pickup_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imbtnSeloPrata"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:contentDescription="Selo prata"
+            android:src="@drawable/baseline_wheelchair_pickup_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imbtnSeloAvaliacao"
+            app:layout_constraintStart_toEndOf="@+id/imbtnSeloOuro"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imbtnSeloAvaliacao"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="Selo bronze"
+            android:src="@drawable/baseline_wheelchair_pickup_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RadioGroup
+        android:id="@+id/rgFiltro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNotaEstabelecimentoFiltro">
@@ -130,94 +174,41 @@
             android:id="@+id/rb1Filtro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_weight="1"
+            android:drawableRight="@drawable/baseline_star_24"
+            android:text="1" />
 
         <RadioButton
             android:id="@+id/rb2Filtro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:text="2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/rb1Filtro"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.545" />
+            android:layout_weight="1"
+            android:drawableRight="@drawable/baseline_star_24"
+            android:text="2" />
 
         <RadioButton
             android:id="@+id/rb3Filtro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/rb4Filtro"
-            app:layout_constraintStart_toEndOf="@+id/rb2Filtro"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_weight="1"
+            android:drawableRight="@drawable/baseline_star_24"
+            android:text="3" />
 
         <RadioButton
             android:id="@+id/rb4Filtro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:text="4"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/rb5Filtro"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_weight="1"
+            android:drawableRight="@drawable/baseline_star_24"
+            android:text="4" />
 
         <RadioButton
             android:id="@+id/rb5Filtro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
-
-        <ImageButton
-            android:id="@+id/imbtnSeloOuro"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="16dp"
-            android:src="@drawable/baseline_wheelchair_pickup_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="Selo ouro"/>
-
-        <ImageButton
-            android:id="@+id/imbtnSeloPrata"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/baseline_wheelchair_pickup_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imbtnSeloAvaliacao"
-            app:layout_constraintStart_toEndOf="@+id/imbtnSeloOuro"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="Selo prata"/>
-
-        <ImageButton
-            android:id="@+id/imbtnSeloAvaliacao"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/baseline_wheelchair_pickup_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="Selo bronze"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_weight="1"
+            android:drawableRight="@drawable/baseline_star_24"
+            android:text="5" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
