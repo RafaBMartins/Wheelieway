@@ -4,8 +4,6 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 
-import rafael.gabriel.caio.matheus.wheelieway.classes.Estabelecimento;
-
 public class HomeViewModel extends ViewModel {
 
     ArrayList<Estabelecimento> estabelecimentos = new ArrayList<>();

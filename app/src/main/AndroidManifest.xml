@@ -15,7 +15,7 @@
             android:name=".activities.PerguntasActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.AvaliacaoActivity"
+            android:name=".activities.CadastrarAvaliacaoActivity"
             android:exported="false" />
         <activity
             android:name=".activities.HomeActivity"
