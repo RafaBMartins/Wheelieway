@@ -1,4 +1,4 @@
-package rafael.gabriel.caio.matheus.wheelieway;
+package rafael.gabriel.caio.matheus.wheelieway.classes;
 
 public class Estabelecimento {
     String nome;

@@ -1,8 +1,10 @@
-package rafael.gabriel.caio.matheus.wheelieway;
+package rafael.gabriel.caio.matheus.wheelieway.models;
 
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
+
+import rafael.gabriel.caio.matheus.wheelieway.classes.Estabelecimento;
 
 public class HomeViewModel extends ViewModel {
 

@@ -1,8 +1,10 @@
-package rafael.gabriel.caio.matheus.wheelieway;
+package rafael.gabriel.caio.matheus.wheelieway.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import rafael.gabriel.caio.matheus.wheelieway.R;
 
 public class HomeActivity extends AppCompatActivity {
 

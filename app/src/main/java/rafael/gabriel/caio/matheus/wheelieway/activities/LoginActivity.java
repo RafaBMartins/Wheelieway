@@ -1,10 +1,13 @@
-package rafael.gabriel.caio.matheus.wheelieway;
+package rafael.gabriel.caio.matheus.wheelieway.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class LoginActivity extends AppCompatActivity {
+import rafael.gabriel.caio.matheus.wheelieway.R;
+
+public class
+LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
