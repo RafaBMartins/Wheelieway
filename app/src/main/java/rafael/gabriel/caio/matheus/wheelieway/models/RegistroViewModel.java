@@ -6,31 +6,28 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-import org.json.JSONException;
-
-import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
  * ViewModel referente a LoginActivity
  */
-public class LoginViewModel extends AndroidViewModel {
+public class RegistroViewModel extends AndroidViewModel {
 
-    public LoginViewModel(@NonNull Application application) {
+    public RegistroViewModel(@NonNull Application application) {
         super(application);
     }
 
     /**
      * Método que cria e executa uma requisição ao servidor web para autenticar um usuário
      * na base de dados do servidor
-     * @param login login do usuário
-     * @param password senha do usuário
+     * @param newName nome do usuário
+     * @param newEmail email do usuário
+     * @param newPassword senha do usuário
      * @return um LiveData que vai conter a resposta do servidor quando esta estiver disponível
      */
-    public LiveData<Boolean> login(String login, String password) {
+    public LiveData<Boolean> register(String newName, String newEmail, String newPassword) {
 
         // Cria um container do tipo MutableLiveData (um LiveData que pode ter seu conteúdo alterado).
         MutableLiveData<Boolean> result = new MutableLiveData<>();
@@ -57,11 +54,11 @@ public class LoginViewModel extends AndroidViewModel {
                 // O método login envia os dados de autenticação ao servidor. Ele retorna
                 // um booleano indicando true caso o login tenha sido feito com sucesso e false
                 // em caso contrário
-                //boolean b = productsRepository.login(login, password);
+                boolean b = wheelieWay.register(newName, newEmail, newPassword);
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.
-                result.setValue(true);
+                result.setValue(b);
             }
         });
 
