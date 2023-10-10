@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class PerfilViewModel {
     public String id;
     public String nome;
-    ArrayList<Comentario> comentarios = new ArrayList<>();
+    ArrayList<ComentarioItem> comentarios = new ArrayList<>();
 
-    public ArrayList<Comentario> getComentarios() {
-        Comentario comentario1 = new Comentario();
+    public ArrayList<ComentarioItem> getComentarios() {
+        ComentarioItem comentario1 = new ComentarioItem();
         comentarios.add(comentario1);
         return comentarios;
     }

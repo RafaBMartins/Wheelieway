@@ -3,7 +3,7 @@ package rafael.gabriel.caio.matheus.wheelieway.models;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Comentario {
+public class ComentarioItem {
     int imgFotoUsuario;
     String nome;
     float nota;
@@ -14,7 +14,7 @@ public class Comentario {
     int dislike;
 
 
-    public Comentario(int imgFotoUsuario, String nome, float nota, String descricao, Date data, ArrayList<Integer> fotos, int like, int dislike) {
+    public ComentarioItem(int imgFotoUsuario, String nome, float nota, String descricao, Date data, ArrayList<Integer> fotos, int like, int dislike) {
         this.imgFotoUsuario = imgFotoUsuario;
         this.nome = nome;
         this.nota = nota;

@@ -1,11 +1,9 @@
 package rafael.gabriel.caio.matheus.wheelieway.models;
 
-import android.graphics.Bitmap;
-
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Avaliacao {
+public class AvaliacaoItem {
     String nome;
     float nota;
     int imgFotoUsuario;
@@ -13,7 +11,7 @@ public class Avaliacao {
     ArrayList<Integer> fotos = new ArrayList();
     Date data;
 
-    public Avaliacao(String nome, float nota, int imgFotoUsuario, String comentario, ArrayList<Integer> fotos, Date data) {
+    public AvaliacaoItem(String nome, float nota, int imgFotoUsuario, String comentario, ArrayList<Integer> fotos, Date data) {
         this.nome = nome;
         this.nota = nota;
         this.imgFotoUsuario = imgFotoUsuario;
@@ -23,7 +21,7 @@ public class Avaliacao {
     }
 
 
-    public Avaliacao(String nome, float nota, int imgFotoUsuario, String comentario, Date data) {
+    public AvaliacaoItem(String nome, float nota, int imgFotoUsuario, String comentario, Date data) {
         this.nome = nome;
         this.nota = nota;
         this.imgFotoUsuario = imgFotoUsuario;
