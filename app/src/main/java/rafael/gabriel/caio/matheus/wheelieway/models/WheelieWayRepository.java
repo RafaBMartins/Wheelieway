@@ -56,8 +56,35 @@ public class WheelieWayRepository {
     }
 
     public boolean login (String email, String senha){
-        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "login.php", "POST", "UTF-8" )
 
+        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "login.php", "POST", "UTF-8" );
+        httpRequest.setBasicAuth(email,senha);
 
+        String result = "";
+        try {
+            InputStream is = httpRequest.execute();
+
+            result = Util.inputStream2String(is, "UTF-8");
+
+            httpRequest.finish();
+
+            Log.i("HTTP LOGIN RESULT",result);
+
+            JSONObject jsonObject = new JSONObject(result);
+
+            int success = jsonObject.getInt("sucesso");
+
+            if (success == 1) {
+                return true;
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        catch(JSONException e){
+            e.printStackTrace();
+            Log.e("HTTP RESULT", result);
+        }
+        return false;
     }
 }
