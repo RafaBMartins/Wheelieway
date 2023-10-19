@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 public class Config {
 
     // endereço base do servidor web
-    public static String PRODUCTS_APP_URL = "silly.db.elephantsql.com";
+    public static String PRODUCTS_APP_URL = "http://localhost/pi2023/";
 
     /**
      * Salva o login no espaço reservado da app
