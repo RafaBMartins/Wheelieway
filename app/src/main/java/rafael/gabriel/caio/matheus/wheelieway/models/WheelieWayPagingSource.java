@@ -1,7 +1,10 @@
-package rafael.gabriel.caio.matheus.wheelieway.models;
+package rafael.gabriel.caio.matheus.wheelieway.models
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.IntRange;
+import androidx.paging.PagingSource;
+import androidx.paging.PagingState;
 
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -24,7 +27,7 @@ public class WheelieWayPagingSource {
      */
     @Nullable
     @Override
-    public Integer getRefreshKey(@NonNull PagingState<Integer, Product> pagingState) {
+    public Integer getRefreshKey(@NonNull PagingState<Integer, EstabelecimentoItem> pagingState) {
         // Try to find the page key of the closest page to anchorPosition, from
         // either the prevKey or the nextKey, but you need to handle nullability
         // here:
@@ -43,7 +46,7 @@ public class WheelieWayPagingSource {
      */
     @NonNull
     @Override
-    public ListenableFuture<LoadResult<Integer, Product>> loadFuture(@NonNull LoadParams<Integer> loadParams) {
+    public ListenableFuture<PagingSource.LoadResult<Integer, EstabelecimentoItem>> loadFuture(@NonNull PagingSource.LoadParams<Integer> loadParams) {
 
         // calcula os parâmetros de limit e offset que serão enviados ao servidor web
         Integer nextPageNumber = loadParams.getKey();
@@ -66,13 +69,13 @@ public class WheelieWayPagingSource {
         Integer finalNextPageNumber = nextPageNumber;
 
         // executa a nova linha de execução.
-        ListenableFuture<LoadResult<Integer, Product>> lf = service.submit(new Callable<LoadResult<Integer, Product>>() {
+        ListenableFuture<PagingSource.LoadResult<Integer, EstabelecimentoItem>> lf = service.submit(new Callable<LoadResult<Integer, Product>>() {
             /**
              * Tudo que estiver dentro dessa função será executado na nova linha de execução.
              */
             @Override
-            public LoadResult<Integer, Product> call() {
-                List<Product> productsList = null;
+            public PagingSource.LoadResult<Integer, EstabelecimentoItem> call() {
+                List<EstabelecimentoItem> productsList = null;
                 // envia uma requisição para o servidor web pedindo por uma nova página de dados (bloco de produtos)
                 productsList = wheeliewayRepository.loadProducts(loadParams.getLoadSize(), finalOffSet);
                 Integer nextKey = null;

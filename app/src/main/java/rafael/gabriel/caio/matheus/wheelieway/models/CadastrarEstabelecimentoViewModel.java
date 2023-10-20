@@ -14,14 +14,14 @@ public class CadastrarEstabelecimentoViewModel extends AndroidViewModel {
     public CadastrarEstabelecimentoViewModel(@NonNull Application application) {super(application);}
 
     /**
-     * Método que cria e executa uma requisição ao servidor web para autenticar um usuário
-     * na base de dados do servidor
-     * @param newName nome do usuário
-     * @param newEmail email do usuário
-     * @param newPassword senha do usuário
-     * @return um LiveData que vai conter a resposta do servidor quando esta estiver disponível
+     * Método que cria uma requisição HTTP para cadastrar um novo produto junto ao servidor web.
+     * @param nome nome do estabelecimento
+     * @param fotoEstabelecimento foto do estabelecimento
+     * @param endereco endereço do estabelecimento
+     * @param tipoEstabelecimento tipo do estabelecimento
+     * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
      */
-    public LiveData<Boolean> cadastrarEstabelecimento(String newName, String newEmail, String newPassword) {
+    public LiveData<Boolean> cadastrarEstabelecimento(Integer fotoEstabelecimento, String nome, String endereco, Integer tipoEstabelecimento) {
 
         // Cria um container do tipo MutableLiveData (um LiveData que pode ter seu conteúdo alterado).
         MutableLiveData<Boolean> result = new MutableLiveData<>();
@@ -48,7 +48,7 @@ public class CadastrarEstabelecimentoViewModel extends AndroidViewModel {
                 // O método login envia os dados de autenticação ao servidor. Ele retorna
                 // um booleano indicando true caso o login tenha sido feito com sucesso e false
                 // em caso contrário
-                boolean b = wheelieWay.register(newName, newEmail, newPassword);
+                boolean b = wheelieWay.cadastrarEstabelecimento(fotoEstabelecimento, nome, endereco, tipoEstabelecimento);
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.

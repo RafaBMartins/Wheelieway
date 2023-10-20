@@ -154,6 +154,58 @@ public class WheelieWayRepository {
             return false;
     }
 
+    /**
+     * Método que cria uma requisição HTTP para cadastrar uma nova avaliação junto ao servidor web.
+     * @param fotoUsuario foto do usuário
+     * @param nomeUsuario nome do usuário
+     * @param descricao descrição do comentário
+     * @param fotoAvaliacao foto do estabelecimento avaliado
+     * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
+     */
+    public boolean cadastrarAvaliacao (Integer fotoUsuario, String nomeUsuario, String descricao, Integer fotoAvaliacao){
+
+        String login = Config.getLogin(context);
+        String password = Config.getPassword(context);
+
+        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "cadastroestabelecimento.php", "POST", "UTF-8");
+        httpRequest.addParam("fotoUsuario", String.valueOf(fotoUsuario));
+        httpRequest.addParam("nomeUsuario", nomeUsuario);
+        httpRequest.addParam("descricao", descricao);
+        httpRequest.addParam("fotoAvaliacao",String.valueOf(fotoAvaliacao));
+
+        httpRequest.setBasicAuth(login, password);
+
+        String result = "";
+
+        try{
+
+            InputStream is = httpRequest.execute();
+
+            result = Util.inputStream2String(is, "UTF-8");
+
+            httpRequest.finish();
+
+            Log.i("HTTP ADD PRODUCT RESULT", result);
+
+            // A classe JSONObject recebe como parâmetro do construtor uma String no formato JSON e
+            // monta internamente uma estrutura de dados similar ao dicionário em python.
+            JSONObject jsonObject = new JSONObject(result);
+
+            // obtem o valor da chave sucesso para verificar se a ação ocorreu da forma esperada ou não.
+            int success = jsonObject.getInt("sucesso");
+
+            // Se sucesso igual a 1, significa que o produto foi adicionado com sucesso.
+            if(success == 1) {
+                return true;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Log.e("HTTP RESULT", result);
+        }
+        return false;
+    }
 
 }
 
