@@ -3,12 +3,15 @@ package rafael.gabriel.caio.matheus.wheelieway.models;
 import android.content.Context;
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 
 import rafael.gabriel.caio.matheus.wheelieway.util.Config;
 import rafael.gabriel.caio.matheus.wheelieway.util.HttpRequest;
@@ -205,6 +208,47 @@ public class WheelieWayRepository {
             Log.e("HTTP RESULT", result);
         }
         return false;
+    }
+
+    /**
+     * Método que cria uma requisição HTTP para obter uma página/bloco de estabelecimentos junto ao servidor web.
+     * @param limit a quantidade de estabelecimentos a serem obtidos
+     * @param offSet a posição a partir da qual a página de estabelecimentos deve começar
+     * @return lista de estabelecimentos
+     */
+
+    public List<EstabelecimentoItem> loadEstabelecimentos(Integer limit, Integer offSet) {
+
+        List<EstabelecimentoItem> estabelecimentosList = new ArrayList<>();
+
+        String login = Config.getLogin(context);
+        String password = Config.getPassword(context);
+
+        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL +"pegar_produtos.php", "GET", "UTF-8");
+        httpRequest.addParam("limit", limit.toString());
+        httpRequest.addParam("offset", offSet.toString());
+
+        httpRequest.setBasicAuth(login, password);
+
+        String result = "";
+        try{
+            InputStream is = httpRequest.execute();
+
+            result = Util.inputStream2String(is, "UTF-8");
+
+            httpRequest.finish();
+
+            Log.i("HTTP PRODUCTS RESULT", result);
+
+            JSONObject jsonObject = new JSONObject(result);
+
+            int success = jsonObject.getInt("sucesso");
+
+            if(success == 1){
+
+                JSONArray jsonArray = jsonObject.getJSONArray("estabelecimentos");
+            }
+        }
     }
 
 }

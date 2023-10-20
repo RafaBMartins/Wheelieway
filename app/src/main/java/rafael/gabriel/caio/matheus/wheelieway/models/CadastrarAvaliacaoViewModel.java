@@ -21,9 +21,9 @@ public class CadastrarAvaliacaoViewModel extends AndroidViewModel {
     /**
      * Método que cria uma requisição HTTP para cadastrar uma nova avaliação junto ao servidor web.
      *
-     * @param fotoUsuario   foto do usuário
-     * @param nomeUsuario   nome do usuário
-     * @param descricao     descrição do comentário
+     * @param fotoUsuario foto do usuário
+     * @param nomeUsuario nome do usuário
+     * @param descricao descrição do comentário
      * @param fotoAvaliacao foto do estabelecimento avaliado
      * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
      */
