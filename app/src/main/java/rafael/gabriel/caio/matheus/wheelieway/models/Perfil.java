@@ -9,7 +9,7 @@ public class Perfil {
     ArrayList<ComentarioItem> comentarios = new ArrayList<>();
 
     public ArrayList<ComentarioItem> getComentarios() {
-        ComentarioItem comentario1 = new ComentarioItem();
+        ComentarioItem comentario1 = new ComentarioItem(i);
         comentarios.add(comentario1);
         return comentarios;
     }

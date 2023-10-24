@@ -104,81 +104,6 @@ public class WheelieWayRepository {
         return false;
     }
 
-    ///////////////////////
-    Perfil loadPerfilDetail(String id) {
-
-        // Para obter a lista de produtos é preciso estar logado. Então primeiro otemos o login e senha
-        // salvos na app.
-        String login = Config.getLogin(context);
-        String password = Config.getPassword(context);
-
-        // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
-        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "pegar_detalhes_produto.php", "GET", "UTF-8");
-        httpRequest.addParam("id", id);
-
-        // Para esta ação, é preciso estar logado. Então na requisição HTTP setamos o login e senha do
-        // usuário. Ao executar a requisição, o login e senha do usuário serão enviados ao servidor web,
-        // o qual verificará se o login e senha batem com aquilo que está no BD. Somente depois dessa
-        // verificação de autenticação é que o servidor web irá realizar esta ação.
-        httpRequest.setBasicAuth(login, password);
-
-        String result = "";
-        try {
-            // Executa a requisição HTTP. É neste momento que o servidor web é contactado. Ao executar
-            // a requisição é aberto um fluxo de dados entre o servidor e a app (InputStream is).
-            InputStream is = httpRequest.execute();
-
-            // Obtém a resposta fornecida pelo servidor. O InputStream é convertido em uma String. Essa
-            // String é a resposta do servidor web em formato JSON.
-            //
-            // Em caso de sucesso, será retornada uma String JSON no formato:
-            //
-            // {"sucesso":1,"nome":"produto 1","preco":"10.00", "img":"www.imgur.com/img1.jpg", "descricao":"produto 1","criado_em":"2022-10-03 19:43:31.42905","criado_por":"daniel"}
-            //
-            // Em caso de falha, será retornada uma String JSON no formato:
-            //
-            // {"sucesso":0,"erro":"Erro ao obter detalhes do produto"}
-            result = Util.inputStream2String(is, "UTF-8");
-
-            // Fecha a conexão com o servidor web.
-            httpRequest.finish();
-
-            Log.i("HTTP DETAILS RESULT", result);
-
-            // A classe JSONObject recebe como parâmetro do construtor uma String no formato JSON e
-            // monta internamente uma estrutura de dados similar ao dicionário em python.
-            JSONObject jsonObject = new JSONObject(result);
-
-            // obtem o valor da chave sucesso para verificar se a ação ocorreu da forma esperada ou não.
-            int success = jsonObject.getInt("sucesso");
-
-            // Se sucesso igual a 1, os detalhes do produto são obtidos da String JSON e um objeto
-            // do tipo Product é criado para guardar esses dados
-            if(success == 1) {
-
-                // obtém os dados detalhados do produto. A imagem não vem junto. Ela é obtida
-                // separadamente depois, no momento em que precisa ser exibida na app. Isso permite
-                // que os dados trafeguem mais rápido.
-                String nome = jsonObject.getString("nome");
-                String img = jsonObject.getString("img");
-
-
-                // Cria um objeto Product e guarda os detalhes do produto dentro dele.
-                Perfil p = new Perfil();
-                p.nome = nome;
-                p.id = id;
-                p.img = img;
-
-                return p;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     /**
      * Método que cria uma requisição HTTP para cadastrar um novo produto junto ao servidor web.
      * @param nome nome do estabelecimento
@@ -229,6 +154,132 @@ public class WheelieWayRepository {
             e.printStackTrace();
             Log.e("HTTP RESULT", result);
         }
+            return false;
+    }
+
+    /**
+     * Método que cria uma requisição HTTP para cadastrar uma nova avaliação junto ao servidor web.
+     * @param fotoUsuario foto do usuário
+     * @param nomeUsuario nome do usuário
+     * @param descricao descrição do comentário
+     * @param fotoAvaliacao foto do estabelecimento avaliado
+     * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
+     */
+    public boolean cadastrarAvaliacao (Integer fotoUsuario, String nomeUsuario, String descricao, Integer fotoAvaliacao){
+
+        String login = Config.getLogin(context);
+        String password = Config.getPassword(context);
+
+        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "cadastroestabelecimento.php", "POST", "UTF-8");
+        httpRequest.addParam("fotoUsuario", String.valueOf(fotoUsuario));
+        httpRequest.addParam("nomeUsuario", nomeUsuario);
+        httpRequest.addParam("descricao", descricao);
+        httpRequest.addParam("fotoAvaliacao",String.valueOf(fotoAvaliacao));
+
+        httpRequest.setBasicAuth(login, password);
+
+        String result = "";
+
+        try{
+
+            InputStream is = httpRequest.execute();
+
+            result = Util.inputStream2String(is, "UTF-8");
+
+            httpRequest.finish();
+
+            Log.i("HTTP ADD PRODUCT RESULT", result);
+
+            // A classe JSONObject recebe como parâmetro do construtor uma String no formato JSON e
+            // monta internamente uma estrutura de dados similar ao dicionário em python.
+            JSONObject jsonObject = new JSONObject(result);
+
+            // obtem o valor da chave sucesso para verificar se a ação ocorreu da forma esperada ou não.
+            int success = jsonObject.getInt("sucesso");
+
+            // Se sucesso igual a 1, significa que o produto foi adicionado com sucesso.
+            if(success == 1) {
+                return true;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Log.e("HTTP RESULT", result);
+        }
         return false;
     }
+
+    /**
+     * Método que cria uma requisição HTTP para obter uma página/bloco de estabelecimentos junto ao servidor web.
+     * @param limit a quantidade de estabelecimentos a serem obtidos
+     * @param offSet a posição a partir da qual a página de estabelecimentos deve começar
+     * @return lista de estabelecimentos
+     */
+
+    public List<EstabelecimentoItem> loadEstabelecimentos(Integer limit, Integer offSet) {
+
+        List<EstabelecimentoItem> estabelecimentosList = new ArrayList<>();
+
+        String login = Config.getLogin(context);
+        String password = Config.getPassword(context);
+
+        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL +"pegar_produtos.php", "GET", "UTF-8");
+        httpRequest.addParam("limit", limit.toString());
+        httpRequest.addParam("offset", offSet.toString());
+
+        httpRequest.setBasicAuth(login, password);
+
+        String result = "";
+        try{
+            InputStream is = httpRequest.execute();
+
+            result = Util.inputStream2String(is, "UTF-8");
+
+            httpRequest.finish();
+
+            Log.i("HTTP PRODUCTS RESULT", result);
+
+            JSONObject jsonObject = new JSONObject(result);
+
+            int success = jsonObject.getInt("sucesso");
+
+            if(success == 1){
+
+                JSONArray jsonArray = jsonObject.getJSONArray("estabelecimentos");
+
+                for(int i = 0; i < jsonArray.length(); i++) {
+
+                    JSONObject jEstabelecimento = jsonArray.getJSONObject(i);
+
+                    String id = jEstabelecimento.getString("id");
+                    String nome = jEstabelecimento.getString("nome");
+                    String imgEstabelecimento = jEstabelecimento.getString("imgEstabelecimento");
+                    String distancia = jEstabelecimento.getString("distancia");
+                    String nota = jEstabelecimento.getString("nota");
+                    String selo = jEstabelecimento.getString("selo");
+                    String categoria = jEstabelecimento.getString("categoria");
+
+                    EstabelecimentoItem estabelecimento = new EstabelecimentoItem();
+                    estabelecimento.id = id;
+                    estabelecimento.nome = nome;
+                    estabelecimento.selo = selo;
+                    estabelecimento.categoria = categoria;
+                    estabelecimento.distancia = distancia;
+                    estabelecimento.imgEstabelecimento = imgEstabelecimento;
+                    estabelecimento.nota = nota;
+
+                    estabelecimentosList.add(estabelecimento);
+
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Log.e("HTTP RESULT", result);
+        }
+        return estabelecimentosList;
+    }
 }
+
