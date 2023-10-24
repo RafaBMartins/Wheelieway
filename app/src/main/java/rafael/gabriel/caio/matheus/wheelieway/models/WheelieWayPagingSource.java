@@ -1,5 +1,7 @@
 package rafael.gabriel.caio.matheus.wheelieway.models
 
+import static androidx.core.provider.RequestExecutor.submit;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.IntRange;
@@ -9,6 +11,11 @@ import androidx.paging.PagingState;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
+
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.util.concurrent.ListeningExecutorService;
+import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.util.concurrent.MoreExecutors;
+
 
 public class WheelieWayPagingSource {
 
@@ -69,7 +76,7 @@ public class WheelieWayPagingSource {
         Integer finalNextPageNumber = nextPageNumber;
 
         // executa a nova linha de execução.
-        ListenableFuture<PagingSource.LoadResult<Integer, EstabelecimentoItem>> lf = service.submit(new Callable<LoadResult<Integer, Product>>() {
+        ListenableFuture<PagingSource.LoadResult<Integer, EstabelecimentoItem>> lf = service.submit(new Callable<PagingSource.LoadResult<Integer, EstabelecimentoItem>>() {
             /**
              * Tudo que estiver dentro dessa função será executado na nova linha de execução.
              */
@@ -77,13 +84,13 @@ public class WheelieWayPagingSource {
             public PagingSource.LoadResult<Integer, EstabelecimentoItem> call() {
                 List<EstabelecimentoItem> productsList = null;
                 // envia uma requisição para o servidor web pedindo por uma nova página de dados (bloco de produtos)
-                productsList = wheeliewayRepository.loadProducts(loadParams.getLoadSize(), finalOffSet);
+                productsList = wheeliewayRepository.loadEstabelecimentos(loadParams.getLoadSize(), finalOffSet);
                 Integer nextKey = null;
-                if(productsList.size() >= loadParams.getLoadSize()) {
+                if (productsList.size() >= loadParams.getLoadSize()) {
                     nextKey = finalNextPageNumber + 1;
                 }
                 // monta uma página do padrão da biblioteca Paging 3.
-                return new LoadResult.Page<Integer, Product>(productsList,
+                return new PagingSource.LoadResult.Page<Integer, EstabelecimentoItem>(productsList,
                         null,
                         nextKey);
             }

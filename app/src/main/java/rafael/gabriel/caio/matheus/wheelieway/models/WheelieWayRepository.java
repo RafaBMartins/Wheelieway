@@ -247,9 +247,39 @@ public class WheelieWayRepository {
             if(success == 1){
 
                 JSONArray jsonArray = jsonObject.getJSONArray("estabelecimentos");
-            }
-        }
-    }
 
+                for(int i = 0; i < jsonArray.length(); i++) {
+
+                    JSONObject jEstabelecimento = jsonArray.getJSONObject(i);
+
+                    String id = jEstabelecimento.getString("id");
+                    String nome = jEstabelecimento.getString("nome");
+                    String imgEstabelecimento = jEstabelecimento.getString("imgEstabelecimento");
+                    String distancia = jEstabelecimento.getString("distancia");
+                    String nota = jEstabelecimento.getString("nota");
+                    String selo = jEstabelecimento.getString("selo");
+                    String categoria = jEstabelecimento.getString("categoria");
+
+                    EstabelecimentoItem estabelecimento = new EstabelecimentoItem();
+                    estabelecimento.id = id;
+                    estabelecimento.nome = nome;
+                    estabelecimento.selo = selo;
+                    estabelecimento.categoria = categoria;
+                    estabelecimento.distancia = distancia;
+                    estabelecimento.imgEstabelecimento = imgEstabelecimento;
+                    estabelecimento.nota = nota;
+
+                    estabelecimentosList.add(estabelecimento);
+
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Log.e("HTTP RESULT", result);
+        }
+        return estabelecimentosList;
+    }
 }
 

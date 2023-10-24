@@ -7,13 +7,12 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class PerfilViewModel extends AndroidViewModel {
+public class ViewEstabelecimentoViewModel extends AndroidViewModel {
 
-    public PerfilViewModel(@NonNull Application application) {
+    public ViewEstabelecimentoViewModel(@NonNull Application application) {
         super(application);
     }
 
@@ -49,7 +48,7 @@ public class PerfilViewModel extends AndroidViewModel {
 
                 // O método loadProductDetail obtem os dados detalhados de um produto junto ao servidor.
                 // Ele retorna um objeto do tipo Product, que contém os dados detalhados do produto.
-                Perfil p = wheeliewayRepository.loadPerfilDetail(pid);
+                Perfil p = wheeliewayRepository.loadEstabelecimentosDetail(pid);
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.
