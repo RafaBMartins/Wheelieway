@@ -4,7 +4,6 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import java.util.concurrent.ExecutorService;
@@ -19,13 +18,14 @@ public class ViewEstabelecimentoViewModel extends AndroidViewModel {
     /**
      * Método que cria e executa uma requisição ao servidor web para obter os detalhes de um produto
      * na base de dados do servidor
+     *
      * @param pid id do produto que se quer obter os detalhes
      * @return um LiveData que vai conter a resposta do servidor quando esta estiver disponível
      */
-    public LiveData<Perfil> getPerfilDetailsLD(String pid) {
+    public MutableLiveData<EstabelecimentoItem> getPerfilDetailsLD(String pid) {
 
         // Cria um container do tipo MutableLiveData (um LiveData que pode ter seu conteúdo alterado).
-        MutableLiveData<Perfil> perfilDetailLD = new MutableLiveData<>();
+        MutableLiveData<EstabelecimentoItem> estabelecimentoDetailLD = new MutableLiveData<>();
 
         // Cria uma nova linha de execução (thread). O android obriga que chamadas de rede sejam feitas
         // em uma linha de execução separada da principal.
@@ -48,14 +48,14 @@ public class ViewEstabelecimentoViewModel extends AndroidViewModel {
 
                 // O método loadProductDetail obtem os dados detalhados de um produto junto ao servidor.
                 // Ele retorna um objeto do tipo Product, que contém os dados detalhados do produto.
-                Perfil p = wheeliewayRepository.loadEstabelecimentosDetail(pid);
+                EstabelecimentoItem e = wheeliewayRepository.loadEstabelecimentosDetail(pid);
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.
-                perfilDetailLD.postValue(p);
+                estabelecimentoDetailLD.postValue(e);
             }
         });
 
-        return perfilDetailLD;
+        return estabelecimentoDetailLD;
     }
 }

@@ -10,7 +10,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 
 import rafael.gabriel.caio.matheus.wheelieway.util.Config;
@@ -280,6 +279,64 @@ public class WheelieWayRepository {
             Log.e("HTTP RESULT", result);
         }
         return estabelecimentosList;
+    }
+
+    /**
+     * Método que cria uma requisição HTTP para obter os detalhes de um estabelecimento junto ao servidor web.
+     * @param id id do estabelecimento que se deseja obter os detalhes
+     * @return objeto do tipo estabelecimentoitem contendo os detalhes do produto
+     */
+    EstabelecimentoItem loadEstabelecimentosDetail(String id){
+
+        String login = Config.getLogin(context);
+        String password = Config.getPassword(context);
+
+        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "pager_detalhes_produto.php", "GET", "UTF-8");
+        httpRequest.addParam("id", id);
+
+        httpRequest.setBasicAuth(login, password);
+
+        String result = "";
+        try{
+            InputStream is = httpRequest.execute();
+
+            result = Util.inputStream2String(is, "UTF-8");
+
+            httpRequest.finish();
+
+            Log.i("HTTP DETAILS RESULT", result);
+
+            JSONObject jsonObject = new JSONObject(result);
+
+            int success = jsonObject.getInt("sucesso");
+
+
+            if(success == 1) {
+
+                String nome = jsonObject.getString("nome");
+                String imgEstabelecimento = jsonObject.getString("imgEstabelecimento");
+                String distancia = jsonObject.getString("distancia");
+                String nota = jsonObject.getString("nota");
+                String selo = jsonObject.getString("selo");
+                String categoria = jsonObject.getString("categoria");
+
+                EstabelecimentoItem estabelecimento = new EstabelecimentoItem();
+                estabelecimento.id = id;
+                estabelecimento.nome = nome;
+                estabelecimento.selo = selo;
+                estabelecimento.categoria = categoria;
+                estabelecimento.distancia = distancia;
+                estabelecimento.imgEstabelecimento = imgEstabelecimento;
+                estabelecimento.nota = nota;
+
+                return estabelecimento;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
 

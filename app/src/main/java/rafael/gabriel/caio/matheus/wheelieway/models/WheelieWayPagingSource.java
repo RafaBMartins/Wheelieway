@@ -1,7 +1,5 @@
 package rafael.gabriel.caio.matheus.wheelieway.models
 
-import static androidx.core.provider.RequestExecutor.submit;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.IntRange;
@@ -15,7 +13,6 @@ import java.util.concurrent.Executors;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.util.concurrent.MoreExecutors;
-
 
 public class WheelieWayPagingSource {
 
