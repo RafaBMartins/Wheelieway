@@ -229,8 +229,6 @@ public class WheelieWayRepository {
             e.printStackTrace();
             Log.e("HTTP RESULT", result);
         }
-            return false;
+        return false;
     }
-
-
 }

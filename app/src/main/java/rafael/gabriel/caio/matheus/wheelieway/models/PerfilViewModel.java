@@ -23,10 +23,10 @@ public class PerfilViewModel extends AndroidViewModel {
      * @param pid id do produto que se quer obter os detalhes
      * @return um LiveData que vai conter a resposta do servidor quando esta estiver disponível
      */
-    public LiveData<Perfil> getProductDetailsLD(String pid) {
+    public LiveData<Perfil> getPerfilDetailsLD(String pid) {
 
         // Cria um container do tipo MutableLiveData (um LiveData que pode ter seu conteúdo alterado).
-        MutableLiveData<Perfil> productDetailLD = new MutableLiveData<>();
+        MutableLiveData<Perfil> perfilDetailLD = new MutableLiveData<>();
 
         // Cria uma nova linha de execução (thread). O android obriga que chamadas de rede sejam feitas
         // em uma linha de execução separada da principal.
@@ -53,10 +53,10 @@ public class PerfilViewModel extends AndroidViewModel {
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.
-                productDetailLD.postValue(p);
+                perfilDetailLD.postValue(p);
             }
         });
 
-        return productDetailLD;
+        return perfilDetailLD;
     }
 }
