@@ -31,7 +31,7 @@ public class WheelieWayRepository {
      */
     public boolean register(String newName, String newEmail, String newPassword){
 
-        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "login.php", "POST", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "phpMobile/registrar.php", "POST", "UTF-8");
         httpRequest.addParam("novo_nome", newName);
         httpRequest.addParam("novo_email", newEmail);
         httpRequest.addParam("nova_senha", newPassword);
@@ -72,7 +72,7 @@ public class WheelieWayRepository {
      */
     public boolean login (String email, String senha){
 
-        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "login.php", "POST", "UTF-8" );
+        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "phpMobile/login.php", "POST", "UTF-8" );
         httpRequest.setBasicAuth(email,senha);
 
         String result = "";
