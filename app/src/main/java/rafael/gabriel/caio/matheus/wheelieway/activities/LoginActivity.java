@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -24,11 +25,12 @@ import java.util.List;
 
 import rafael.gabriel.caio.matheus.wheelieway.R;
 import rafael.gabriel.caio.matheus.wheelieway.models.LoginViewModel;
+import rafael.gabriel.caio.matheus.wheelieway.util.Config;
 
 public class
 LoginActivity extends AppCompatActivity {
 
-    static int RESULT_REQUEST_PERMISSION = 2;
+    static int RESULT_REQUEST_PERMISSION = 3;
     LoginViewModel loginViewModel;
 
     @Override
@@ -44,6 +46,7 @@ LoginActivity extends AppCompatActivity {
         List<String> permissions = new ArrayList<>();
         permissions.add(Manifest.permission.CAMERA);
         permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+        permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
 
         checkForPermissions(permissions);
 
@@ -52,16 +55,16 @@ LoginActivity extends AppCompatActivity {
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 
         // Quando o usuário clicar no botão de login
-        Button btnLogin = findViewById(R.id.btnLogin);
+        Button btnLogin = findViewById(R.id.btnEntrarLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 // Primeiro obtemos os dados de login e senha digitados pelo usuário
-                EditText etLogin = findViewById(R.id.etLogin);
+                EditText etLogin = findViewById(R.id.etEmailLogin);
                 final String login = etLogin.getText().toString();
 
-                EditText etPassword = findViewById(R.id.etPassword);
+                EditText etPassword = findViewById(R.id.etSenhaLogin);
                 final String password = etPassword.getText().toString();
 
                 // O ViewModel possui o método login, que envia as informações para o servidor web.
@@ -113,11 +116,11 @@ LoginActivity extends AppCompatActivity {
 
         // Se o usuário ainda não tem login, então ele pode ir para a tela de cadastro e criar um
         // novo usuário
-        Button btnRegisterNewUser = findViewById(R.id.btnRegisterNewUser);
-        btnRegisterNewUser.setOnClickListener(new View.OnClickListener() {
+        TextView tvNaoTemContaLogin = findViewById(R.id.tvNaoTemContaLogin);
+        tvNaoTemContaLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
+                Intent i = new Intent(LoginActivity.this, RegistroActivity.class);
                 startActivity(i);
             }
         });

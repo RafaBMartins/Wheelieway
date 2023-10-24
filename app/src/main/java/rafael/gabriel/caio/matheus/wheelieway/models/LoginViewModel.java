@@ -20,7 +20,7 @@ public class LoginViewModel extends AndroidViewModel{
      * @param senha a senha do novo usuário
      * @return true se o usuário foi autenticado e false caso contrário
      */
-    public LiveData<Boolean> Login(String email, String senha) {
+    public LiveData<Boolean> login(String email, String senha) {
 
         // Cria um container do tipo MutableLiveData (um LiveData que pode ter seu conteúdo alterado).
         MutableLiveData<Boolean> result = new MutableLiveData<>();
@@ -51,7 +51,7 @@ public class LoginViewModel extends AndroidViewModel{
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.
-                result.setValue(b);
+                result.postValue(b);
             }
         });
 
