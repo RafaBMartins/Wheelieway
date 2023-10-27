@@ -10,4 +10,8 @@
     <color name="cinza">#808080</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="roxo1">#7D00FA</color>
+    <color name="roxo2">#5A01FF</color>
+    <color name="teal1">#00FF91</color>
+    <color name="teal2">#02FF39</color>
 </resources>

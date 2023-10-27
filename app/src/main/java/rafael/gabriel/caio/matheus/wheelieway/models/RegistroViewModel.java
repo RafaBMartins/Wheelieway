@@ -58,7 +58,7 @@ public class RegistroViewModel extends AndroidViewModel {
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.
-                result.setValue(b);
+                result.postValue(b);
             }
         });
 

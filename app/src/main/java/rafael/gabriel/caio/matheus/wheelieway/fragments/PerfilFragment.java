@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import rafael.gabriel.caio.matheus.wheelieway.R;
 import rafael.gabriel.caio.matheus.wheelieway.models.Perfil;
-import rafael.gabriel.caio.matheus.wheelieway.models.PerfilViewModel;
 import rafael.gabriel.caio.matheus.wheelieway.util.Config;
 import rafael.gabriel.caio.matheus.wheelieway.util.ImageCache;
 
@@ -58,7 +57,7 @@ public class PerfilFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
+/*
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,5 +101,5 @@ public class PerfilFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_perfil, container, false);
-    }
+    }*/
 }

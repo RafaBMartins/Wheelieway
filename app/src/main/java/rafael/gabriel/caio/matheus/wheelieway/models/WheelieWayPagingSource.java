@@ -1,4 +1,4 @@
-package rafael.gabriel.caio.matheus.wheelieway.models
+package rafael.gabriel.caio.matheus.wheelieway.models;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,6 +29,8 @@ public class WheelieWayPagingSource {
      * qual ponto a lista será exibida. Retornar null siginifica que a lista sempre será recarregada
      * do início.
      */
+
+    /*
     @Nullable
     @Override
     public Integer getRefreshKey(@NonNull PagingState<Integer, EstabelecimentoItem> pagingState) {
@@ -41,13 +43,15 @@ public class WheelieWayPagingSource {
         //    just return null.
 
         return null;
-    }
+    }*/
 
     /**
      * Método que carrega uma página junto ao servidor web
-     * @param loadParams
+     * @param
      * @return
      */
+
+    /*
     @NonNull
     @Override
     public ListenableFuture<PagingSource.LoadResult<Integer, EstabelecimentoItem>> loadFuture(@NonNull PagingSource.LoadParams<Integer> loadParams) {
@@ -77,6 +81,8 @@ public class WheelieWayPagingSource {
             /**
              * Tudo que estiver dentro dessa função será executado na nova linha de execução.
              */
+
+    /*
             @Override
             public PagingSource.LoadResult<Integer, EstabelecimentoItem> call() {
                 List<EstabelecimentoItem> productsList = null;
@@ -94,7 +100,6 @@ public class WheelieWayPagingSource {
         });
 
         return lf;
-    }
+    }*/
 }
 
-}
