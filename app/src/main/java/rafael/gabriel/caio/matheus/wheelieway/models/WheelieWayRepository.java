@@ -31,7 +31,7 @@ public class WheelieWayRepository {
      */
     public boolean register(String newName, String newEmail, String newPassword){
 
-        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "registrar.php", "POST", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "registrar.php", "POST", "UTF-8");
         httpRequest.addParam("userName", newName);
         httpRequest.addParam("email", newEmail);
         httpRequest.addParam("password", newPassword);
@@ -72,7 +72,7 @@ public class WheelieWayRepository {
      */
     public boolean login (String email, String senha){
 
-        HttpRequest httpRequest = new HttpRequest("login.php", "POST", "UTF-8" );
+        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "login.php", "POST", "UTF-8" );
         httpRequest.setBasicAuth(email,senha);
 
         String result = "";
@@ -116,7 +116,7 @@ public class WheelieWayRepository {
         String login = Config.getLogin(context);
         String password = Config.getPassword(context);
 
-        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "cadastroestabelecimento.php", "POST", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "cadastroestabelecimento.php", "POST", "UTF-8");
         httpRequest.addParam("fotoEstabelecimento", String.valueOf(fotoEstabelecimento));
         httpRequest.addParam("nome", nome);
         httpRequest.addParam("endereco", endereco);
@@ -169,7 +169,7 @@ public class WheelieWayRepository {
         String login = Config.getLogin(context);
         String password = Config.getPassword(context);
 
-        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "cadastroestabelecimento.php", "POST", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "cadastroestabelecimento.php", "POST", "UTF-8");
         httpRequest.addParam("fotoUsuario", String.valueOf(fotoUsuario));
         httpRequest.addParam("nomeUsuario", nomeUsuario);
         httpRequest.addParam("descricao", descricao);
@@ -223,7 +223,7 @@ public class WheelieWayRepository {
         String login = Config.getLogin(context);
         String password = Config.getPassword(context);
 
-        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL +"pegar_produtos.php", "GET", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL +"pegar_produtos.php", "GET", "UTF-8");
         httpRequest.addParam("limit", limit.toString());
         httpRequest.addParam("offset", offSet.toString());
 
@@ -291,7 +291,7 @@ public class WheelieWayRepository {
         String login = Config.getLogin(context);
         String password = Config.getPassword(context);
 
-        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "pager_detalhes_produto.php", "GET", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "pager_detalhes_produto.php", "GET", "UTF-8");
         httpRequest.addParam("id", id);
 
         httpRequest.setBasicAuth(login, password);

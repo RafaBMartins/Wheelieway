@@ -1,6 +1,5 @@
 package rafael.gabriel.caio.matheus.wheelieway.util;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.graphics.Bitmap;
@@ -11,16 +10,10 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
-import rafael.gabriel.caio.matheus.wheelieway.util.Config;
-import rafael.gabriel.caio.matheus.wheelieway.util.HttpRequest;
-import rafael.gabriel.caio.matheus.wheelieway.util.Util;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -116,7 +109,7 @@ public class ImageCache {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "pegar_imagem_produto.php", "GET", "UTF-8");
+                    HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "pegar_imagem_produto.php", "GET", "UTF-8");
                     httpRequest.addParam("id", id);
 
                     try {

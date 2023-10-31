@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 public class Config {
 
     // endereço base do servidor web
-    public static String PRODUCTS_APP_URL = "pi2023-u7xly6uh.b4a.run/phpMobile/";
+    public static String SERVER_URL = "https://pi2023-u7xly6uh.b4a.run/php/phpMobile/";
 
     /**
      * Salva o login no espaço reservado da app
