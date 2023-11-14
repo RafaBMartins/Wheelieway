@@ -1,12 +1,11 @@
 package rafael.gabriel.caio.matheus.wheelieway.fragments;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import rafael.gabriel.caio.matheus.wheelieway.R;
 
@@ -39,12 +38,9 @@ public class FavoritosFragment extends Fragment {
      * @return A new instance of fragment FavoritosFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FavoritosFragment newInstance(String param1, String param2) {
+    public static FavoritosFragment newInstance() {
         FavoritosFragment fragment = new FavoritosFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+
         return fragment;
     }
 

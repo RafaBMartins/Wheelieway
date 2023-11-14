@@ -1,24 +1,6 @@
 package rafael.gabriel.caio.matheus.wheelieway.fragments;
 
-import android.content.Intent;
-import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import rafael.gabriel.caio.matheus.wheelieway.R;
-import rafael.gabriel.caio.matheus.wheelieway.models.Perfil;
-import rafael.gabriel.caio.matheus.wheelieway.util.Config;
-import rafael.gabriel.caio.matheus.wheelieway.util.ImageCache;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -49,12 +31,9 @@ public class PerfilFragment extends Fragment {
      * @return A new instance of fragment PerfilFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PerfilFragment newInstance(String param1, String param2) {
+    public static PerfilFragment newInstance() {
         PerfilFragment fragment = new PerfilFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+
         return fragment;
     }
 /*
