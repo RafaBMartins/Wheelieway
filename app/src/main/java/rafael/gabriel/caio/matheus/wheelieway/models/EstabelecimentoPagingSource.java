@@ -14,13 +14,13 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 
-public class WheelieWayPagingSource extends ListenableFuturePagingSource<Integer, EstabelecimentoItem> {
+public class EstabelecimentoPagingSource extends ListenableFuturePagingSource<Integer, EstabelecimentoItem> {
 
     WheelieWayRepository wheeliewayRepository;
 
     Integer initialLoadSize = 0;
 
-    public WheelieWayPagingSource(WheelieWayRepository wheelieWayRepository) {
+    public EstabelecimentoPagingSource(WheelieWayRepository wheelieWayRepository) {
         this.wheeliewayRepository = wheelieWayRepository;
     }
 

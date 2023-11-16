@@ -1,5 +1,6 @@
 package rafael.gabriel.caio.matheus.wheelieway.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -18,10 +19,13 @@ import rafael.gabriel.caio.matheus.wheelieway.fragments.HomeFragment;
 import rafael.gabriel.caio.matheus.wheelieway.fragments.MapaFragment;
 import rafael.gabriel.caio.matheus.wheelieway.fragments.PerfilFragment;
 import rafael.gabriel.caio.matheus.wheelieway.models.HomeViewModel;
+import rafael.gabriel.caio.matheus.wheelieway.util.Config;
+import rafael.gabriel.caio.matheus.wheelieway.util.HttpRequest;
 
 public class HomeActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
+    HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "login.php", "POST", "UTF-8" );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +50,26 @@ public class HomeActivity extends AppCompatActivity {
                         setFragment(mapaFragment);
                         break;
                     case R.id.optFav:
-                        FavoritosFragment favoritosFragment = FavoritosFragment.newInstance();
-                        setFragment(favoritosFragment);
+                        if(Config.getLogin(HomeActivity.this).isEmpty()) {
+                            Intent i = new Intent(HomeActivity.this, LoginActivity.class);
+                            startActivity(i);
+                            finish();
+                        }
+                        else {
+                            FavoritosFragment favoritosFragment = FavoritosFragment.newInstance();
+                            setFragment(favoritosFragment);
+                        }
                         break;
                     case R.id.optPerfil:
-                        PerfilFragment perfilFragment = PerfilFragment.newInstance();
-                        setFragment(perfilFragment);
+                        if(Config.getLogin(HomeActivity.this).isEmpty()) {
+                            Intent i = new Intent(HomeActivity.this, LoginActivity.class);
+                            startActivity(i);
+                            finish();
+                        }
+                        else {
+                            PerfilFragment perfilFragment = PerfilFragment.newInstance();
+                            setFragment(perfilFragment);
+                        }
                         break;
                 }
                 return true;

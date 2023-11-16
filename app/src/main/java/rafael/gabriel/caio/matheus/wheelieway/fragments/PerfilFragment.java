@@ -1,6 +1,19 @@
 package rafael.gabriel.caio.matheus.wheelieway.fragments;
 
+import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
+import rafael.gabriel.caio.matheus.wheelieway.R;
+import rafael.gabriel.caio.matheus.wheelieway.models.Perfil;
+import rafael.gabriel.caio.matheus.wheelieway.util.Config;
+import rafael.gabriel.caio.matheus.wheelieway.util.ImageCache;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -11,25 +24,13 @@ public class PerfilFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public PerfilFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PerfilFragment.
-     */
     // TODO: Rename and change types and number of parameters
     public static PerfilFragment newInstance() {
         PerfilFragment fragment = new PerfilFragment();
@@ -64,7 +65,7 @@ public class PerfilFragment extends Fragment {
                     ImageCache.loadImageUrlToImageView(PerfilFragment.this, perfil.img, imvProductPhoto, -1, imgHeight);
 
                     // Abaixo nós obtemos os dados do produto e setamos na interfa de usuário
-                    TextView tvName = findViewById(R.id.tvName);
+                    TextView tvName = findViewById(R.id.tvNomeUsuarioPerfil);
                     tvName.setText(perfil.nome);
 
                 }

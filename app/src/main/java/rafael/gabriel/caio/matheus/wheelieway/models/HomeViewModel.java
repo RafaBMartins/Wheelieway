@@ -33,7 +33,7 @@ public class HomeViewModel extends AndroidViewModel {
 
       WheelieWayRepository wheelieWayRepository = new WheelieWayRepository(getApplication());
       CoroutineScope viewModelScope = ViewModelKt.getViewModelScope(this);
-      Pager<Integer, EstabelecimentoItem> pager = new Pager(new PagingConfig(10), () -> new WheelieWayPagingSource(wheelieWayRepository));
+      Pager<Integer, EstabelecimentoItem> pager = new Pager(new PagingConfig(10), () -> new EstabelecimentoPagingSource(wheelieWayRepository));
       estabelecimentosLd = PagingLiveData.cachedIn(PagingLiveData.getLiveData(pager), viewModelScope);
   }
 
