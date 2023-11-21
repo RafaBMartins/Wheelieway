@@ -216,18 +216,14 @@ public class WheelieWayRepository {
      * @return lista de estabelecimentos
      */
 
-    public List<EstabelecimentoItem> loadEstabelecimentos(Integer limit, Integer offSet) {
+    public List<EstabelecimentoItem> loadEstabelecimentos(Integer limit, Integer offSet, Double lat, Double lon) {
 
         List<EstabelecimentoItem> estabelecimentosList = new ArrayList<>();
-
-        String login = Config.getLogin(context);
-        String password = Config.getPassword(context);
 
         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL +"pegar_produtos.php", "GET", "UTF-8");
         httpRequest.addParam("limit", limit.toString());
         httpRequest.addParam("offset", offSet.toString());
 
-        httpRequest.setBasicAuth(login, password);
 
         String result = "";
         try{

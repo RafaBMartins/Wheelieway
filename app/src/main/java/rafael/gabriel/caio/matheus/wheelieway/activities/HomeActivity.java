@@ -32,6 +32,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
+
         final HomeViewModel vm = new ViewModelProvider(this).get(HomeViewModel.class);
 
         bottomNavigationView = findViewById(R.id.bnvHome);
