@@ -1,6 +1,5 @@
 package rafael.gabriel.caio.matheus.wheelieway.adapter;
 
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +11,13 @@ import androidx.paging.PagingDataAdapter;
 import androidx.recyclerview.widget.DiffUtil;
 
 import rafael.gabriel.caio.matheus.wheelieway.R;
+import rafael.gabriel.caio.matheus.wheelieway.activities.HomeActivity;
 import rafael.gabriel.caio.matheus.wheelieway.models.EstabelecimentoItem;
+import rafael.gabriel.caio.matheus.wheelieway.util.ImageCache;
 
 public class ListAdapter extends PagingDataAdapter<EstabelecimentoItem, rafael.gabriel.caio.matheus.wheelieway.adapter.MyViewHolder> {
 
+    HomeActivity homeActivity;
     public ListAdapter(@NonNull DiffUtil.ItemCallback<EstabelecimentoItem> diffCallback) {
         super(diffCallback);
     }
@@ -34,24 +36,17 @@ public class ListAdapter extends PagingDataAdapter<EstabelecimentoItem, rafael.g
         EstabelecimentoItem estabelecimentoItem = getItem(position);
 
         TextView tvNome = holder.itemView.findViewById(R.id.tvEstabelecimentoItem);
-        tvNome.setText(estabelecimentoItem.fileName);
+        tvNome.setText(estabelecimentoItem.nome);
 
         TextView tvDistancia = holder.itemView.findViewById(R.id.tvDistanciaEstabelecimentoItem);
-        tvDistancia.setText(estabelecimentoItem.fileName);
+        tvDistancia.setText(estabelecimentoItem.distancia);
 
-        Bitmap thumb1 = estabelecimentoItem.thumb;
-        ImageView estabelecimentoImageView = holder.itemView.findViewById(R.id.imvEstabelecimentoItem);
-        estabelecimentoImageView.setImageBitmap(thumb1);
-
-        Bitmap thumb2 = estabelecimentoItem.thumb;
-        ImageView tipoEstabelecimentoImageView = holder.itemView.findViewById(R.id.imvTipoEstabelecimentoItem);
-        tipoEstabelecimentoImageView.setImageBitmap(thumb2);
-
-        Bitmap thumb3 = estabelecimentoItem.thumb;
-        ImageView seloEstabelecimentoImageView = holder.itemView.findViewById(R.id.imvSeloEstabelecimentoItem);
-        seloEstabelecimentoImageView.setImageBitmap(thumb3);
+        int w = (int) homeActivity.getResources().getDimension(R.dimen.thumb_width);
+        int h = (int) homeActivity.getResources().getDimension(R.dimen.thumb_height);;
+        ImageView imgEstabelecimento = holder.itemView.findViewById(R.id.imvEstabelecimentoItem);
+        ImageCache.loadImageUrlToImageView(homeActivity, estabelecimentoItem.imgEstabelecimento, imgEstabelecimento, w, h);
 
         TextView tvNota = holder.itemView.findViewById(R.id.tvNotaEstabelecimentoItem);
-        tvNota.setText(estabelecimentoItem.fileName);
+        tvNota.setText(estabelecimentoItem.nota);
     }
 }

@@ -111,16 +111,18 @@ public class WheelieWayRepository {
      * @param tipoEstabelecimento tipo do estabelecimento
      * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
      */
-    public boolean cadastrarEstabelecimento (Integer fotoEstabelecimento, String nome, String endereco, Integer tipoEstabelecimento){
+    public boolean cadastrarEstabelecimento (String fotoEstabelecimento, String nome, String distancia, String nota, Integer tipoEstabelecimento, Integer selo){
 
         String login = Config.getLogin(context);
         String password = Config.getPassword(context);
 
         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "cadastroestabelecimento.php", "POST", "UTF-8");
-        httpRequest.addParam("fotoEstabelecimento", String.valueOf(fotoEstabelecimento));
+        httpRequest.addParam("fotoEstabelecimento", fotoEstabelecimento);
         httpRequest.addParam("nome", nome);
-        httpRequest.addParam("endereco", endereco);
+        httpRequest.addParam("distancia", distancia);
+        httpRequest.addParam("nota", nota);
         httpRequest.addParam("tipoEstabelecimento",String.valueOf(tipoEstabelecimento));
+        httpRequest.addParam("selo", String.valueOf(selo));
 
         httpRequest.setBasicAuth(login, password);
 
