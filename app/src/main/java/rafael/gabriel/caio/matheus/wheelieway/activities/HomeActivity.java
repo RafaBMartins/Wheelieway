@@ -15,7 +15,7 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import rafael.gabriel.caio.matheus.wheelieway.R;
 import rafael.gabriel.caio.matheus.wheelieway.fragments.FavoritosFragment;
-import rafael.gabriel.caio.matheus.wheelieway.fragments.HomeFragment;
+import rafael.gabriel.caio.matheus.wheelieway.fragments.PrincipalFragment;
 import rafael.gabriel.caio.matheus.wheelieway.fragments.MapaFragment;
 import rafael.gabriel.caio.matheus.wheelieway.fragments.PerfilFragment;
 import rafael.gabriel.caio.matheus.wheelieway.models.HomeViewModel;
@@ -44,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
                 vm.setNavigationOpSelected(item.getItemId());
                 switch (item.getItemId()){
                     case R.id.optHome:
-                        HomeFragment homeFragment = HomeFragment.newInstance();
+                        PrincipalFragment homeFragment = PrincipalFragment.newInstance();
                         setFragment(homeFragment);
                         break;
                     case R.id.optMap:

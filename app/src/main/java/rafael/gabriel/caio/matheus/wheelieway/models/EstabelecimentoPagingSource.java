@@ -18,6 +18,10 @@ public class EstabelecimentoPagingSource extends ListenableFuturePagingSource<In
 
     WheelieWayRepository wheeliewayRepository;
 
+    Double lat = 0.0;
+
+    Double lon = 0.0;
+
     Integer initialLoadSize = 0;
 
     public EstabelecimentoPagingSource(WheelieWayRepository wheelieWayRepository) {
@@ -85,7 +89,7 @@ public class EstabelecimentoPagingSource extends ListenableFuturePagingSource<In
             public PagingSource.LoadResult<Integer, EstabelecimentoItem> call() {
                 List<EstabelecimentoItem> estabelecimentoItemsList = null;
                 // envia uma requisição para o servidor web pedindo por uma nova página de dados (bloco de produtos)
-                estabelecimentoItemsList = wheeliewayRepository.loadEstabelecimentos(loadParams.getLoadSize(), finalOffSet);
+                estabelecimentoItemsList = wheeliewayRepository.loadEstabelecimentos(loadParams.getLoadSize(), finalOffSet, lat, lon);
                 Integer nextKey = null;
                 if (estabelecimentoItemsList.size() >= loadParams.getLoadSize()) {
                     nextKey = finalNextPageNumber + 1;

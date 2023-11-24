@@ -15,10 +15,10 @@ import rafael.gabriel.caio.matheus.wheelieway.activities.HomeActivity;
 import rafael.gabriel.caio.matheus.wheelieway.models.EstabelecimentoItem;
 import rafael.gabriel.caio.matheus.wheelieway.util.ImageCache;
 
-public class ListAdapter extends PagingDataAdapter<EstabelecimentoItem, rafael.gabriel.caio.matheus.wheelieway.adapter.MyViewHolder> {
+public class EstabelecimentoListAdapter extends PagingDataAdapter<EstabelecimentoItem, rafael.gabriel.caio.matheus.wheelieway.adapter.MyViewHolder> {
 
     HomeActivity homeActivity;
-    public ListAdapter(HomeActivity homeActivity, @NonNull DiffUtil.ItemCallback<EstabelecimentoItem> diffCallback) {
+    public EstabelecimentoListAdapter(@NonNull DiffUtil.ItemCallback<EstabelecimentoItem> diffCallback) {
         super(diffCallback);
         this.homeActivity = homeActivity;
     }

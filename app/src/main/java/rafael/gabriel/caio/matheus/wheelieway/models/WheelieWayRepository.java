@@ -250,37 +250,21 @@ public class WheelieWayRepository {
 
                     JSONObject jEstabelecimento = jsonArray.getJSONObject(i);
 
-                    String numero = jEstabelecimento.getString("numero");
                     String nome = jEstabelecimento.getString("nome");
                     String imgEstabelecimento = jEstabelecimento.getString("imgEstabelecimento");
                     String distancia = jEstabelecimento.getString("distancia");
                     String nota = jEstabelecimento.getString("nota");
                     String selo = jEstabelecimento.getString("selo");
                     String tipoEstabelecimento = jEstabelecimento.getString("tipoEstabelecimento");
-                    String tipoLogradouro = jEstabelecimento.getString("logradouroSelect");
-                    String logradouro = jEstabelecimento.getString("logradouroWrite");
-                    String estado = jEstabelecimento.getString("estado");
-                    String cidade = jEstabelecimento.getString("cidade");
-                    String bairro = jEstabelecimento.getString("bairro");
-                    String latitude = jEstabelecimento.getString("latitude");
-                    String longitude = jEstabelecimento.getString("longitude");
 
 
                     EstabelecimentoItem estabelecimento = new EstabelecimentoItem();
-                    estabelecimento.numero = numero;
                     estabelecimento.nome = nome;
                     estabelecimento.selo = selo;
                     estabelecimento.tipoEstabelecimento = tipoEstabelecimento;
                     estabelecimento.distancia = distancia;
                     estabelecimento.imgEstabelecimento = imgEstabelecimento;
                     estabelecimento.nota = nota;
-                    estabelecimento.tipologradouro = tipoLogradouro;
-                    estabelecimento.logradouro = logradouro;
-                    estabelecimento.estado = estado;
-                    estabelecimento.cidade = cidade;
-                    estabelecimento.bairro = bairro;
-                    estabelecimento.latitude = latitude;
-                    estabelecimento.longitude = longitude;
 
                     estabelecimentosList.add(estabelecimento);
 
@@ -327,21 +311,36 @@ public class WheelieWayRepository {
 
             if(success == 1) {
 
-                String id = jsonObject.getString("id");
+                String numero = jsonObject.getString("numero");
                 String nome = jsonObject.getString("nome");
                 String imgEstabelecimento = jsonObject.getString("imgEstabelecimento");
                 String distancia = jsonObject.getString("distancia");
                 String nota = jsonObject.getString("nota");
                 String selo = jsonObject.getString("selo");
                 String tipoEstabelecimento = jsonObject.getString("categoria");
+                String tipoLogradouro = jsonObject.getString("logradouroSelect");
+                String logradouro = jsonObject.getString("logradouroWrite");
+                String estado = jsonObject.getString("estado");
+                String cidade = jsonObject.getString("cidade");
+                String bairro = jsonObject.getString("bairro");
+                String latitude = jsonObject.getString("latitude");
+                String longitude = jsonObject.getString("longitude");
 
                 EstabelecimentoItem estabelecimento = new EstabelecimentoItem();
+                estabelecimento.numero = numero;
                 estabelecimento.nome = nome;
                 estabelecimento.selo = selo;
                 estabelecimento.tipoEstabelecimento = tipoEstabelecimento;
                 estabelecimento.distancia = distancia;
                 estabelecimento.imgEstabelecimento = imgEstabelecimento;
                 estabelecimento.nota = nota;
+                estabelecimento.tipologradouro = tipoLogradouro;
+                estabelecimento.logradouro = logradouro;
+                estabelecimento.estado = estado;
+                estabelecimento.cidade = cidade;
+                estabelecimento.bairro = bairro;
+                estabelecimento.latitude = latitude;
+                estabelecimento.longitude = longitude;
 
                 return estabelecimento;
             }
