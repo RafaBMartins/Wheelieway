@@ -20,14 +20,13 @@ public class WheelieWayRepository {
 
     Context context;
 
-    public boolean cadastrarEstabelecimento (String id, String fotoEstabelecimento, String nome, String distancia, String nota, String tipoEstabelecimento, String selo, String estado, String cidade, String bairro, String tipoLogradouro, String logradouro, String numero, String latitude, String longitude){
+    public boolean cadastrarEstabelecimento (String fotoEstabelecimento, String nome, String distancia, String nota, String tipoEstabelecimento, String selo, String estado, String cidade, String bairro, String tipoLogradouro, String logradouro, String numero, String latitude, String longitude){
 
         String login = Config.getLogin(context);
         String password = Config.getPassword(context);
 
         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "cadastroestabelecimento.php", "POST", "UTF-8");
         httpRequest.addParam("fotoEstabelecimento", fotoEstabelecimento);
-        httpRequest.addParam("id", id);
         httpRequest.addParam("nome", nome);
         httpRequest.addParam("distancia", distancia);
         httpRequest.addParam("nota", nota);
@@ -251,7 +250,6 @@ public class WheelieWayRepository {
 
                     JSONObject jEstabelecimento = jsonArray.getJSONObject(i);
 
-                    String id = jEstabelecimento.getString("id");
                     String numero = jEstabelecimento.getString("numero");
                     String nome = jEstabelecimento.getString("nome");
                     String imgEstabelecimento = jEstabelecimento.getString("imgEstabelecimento");
@@ -269,7 +267,6 @@ public class WheelieWayRepository {
 
 
                     EstabelecimentoItem estabelecimento = new EstabelecimentoItem();
-                    estabelecimento.id = id;
                     estabelecimento.numero = numero;
                     estabelecimento.nome = nome;
                     estabelecimento.selo = selo;
@@ -339,7 +336,6 @@ public class WheelieWayRepository {
                 String tipoEstabelecimento = jsonObject.getString("categoria");
 
                 EstabelecimentoItem estabelecimento = new EstabelecimentoItem();
-                estabelecimento.id = id;
                 estabelecimento.nome = nome;
                 estabelecimento.selo = selo;
                 estabelecimento.tipoEstabelecimento = tipoEstabelecimento;

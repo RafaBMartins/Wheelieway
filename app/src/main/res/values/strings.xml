@@ -27,6 +27,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cadastrar_estabelecimento_hint_tipo_estabelecimento">Coloque o tipo do estabelecimento</string>
     <string-array name="tipos_estabelecimento">
+        <item>Tipo de Estabelecimento</item>
         <item>Hotel</item>
         <item>Centro educativo</item>
         <item>Saúde</item>

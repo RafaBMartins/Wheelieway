@@ -24,22 +24,23 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:backgroundTint="@color/azul_3"
             android:entries="@array/tipos_estabelecimento"
             android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvInformacoesInserirTipoCadastrarEstabelecimento" />
+            app:layout_constraintTop_toBottomOf="@+id/etInserirNomeCadastrarEstabelecimento" />
 
         <Button
             android:id="@+id/btnProximoCadastrarEstabelecimento"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            android:text="PRÓXIMO"
+            android:text="CADASTRAR"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etNumeroCadastrarEstabelecimento" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/etInserirNomeCadastrarEstabelecimento"
@@ -107,18 +108,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/tvInformacoesInserirTipoCadastrarEstabelecimento"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
-            android:text="Selecione o tipo de estabelecimento:"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etInserirNomeCadastrarEstabelecimento" />
-
-        <TextView
             android:id="@+id/tvEnderecoCadastrarAvaliacao"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -130,65 +119,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spTiposEstabelecimentoCadastrarEstabelecimento" />
 
-        <TextView
-            android:id="@+id/tvEstadoCadastrarAvaliacao"
-            android:layout_width="wrap_content"
+        <Spinner
+            android:id="@+id/spTipoLogradouroCadastrarEstabelecimento"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Estado:"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvEnderecoCadastrarAvaliacao" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/spLogradouroCadastrarEsatabelecimento"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/tvCidadeCadastrarEstabelecimento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Cidade:"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/spEstadosCadastrarAvaliacao"
-            app:layout_constraintTop_toBottomOf="@+id/tvEnderecoCadastrarAvaliacao" />
-
-        <Spinner
-            android:id="@+id/spEstadosCadastrarAvaliacao"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="@color/azul_3"
-            android:entries="@array/estados"
-            android:spinnerMode="dropdown"
-            app:layout_constraintStart_toEndOf="@+id/tvEstadoCadastrarAvaliacao"
-            app:layout_constraintTop_toBottomOf="@+id/tvEnderecoCadastrarAvaliacao" />
-
-        <Spinner
-            android:id="@+id/spLogradouroEstabelecimentoItem"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="@color/azul_3"
-            android:entries="@array/estados"
-            android:spinnerMode="dropdown"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etBairroCadastrarEstabelecimento" />
-
-        <Spinner
-            android:id="@+id/spCidadesCadastrarEstabelecimento"
+        <EditText
+            android:id="@+id/spLogradouroCadastrarEsatabelecimento"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:backgroundTint="@color/azul_3"
-            android:entries="@array/estados"
-            android:spinnerMode="dropdown"
-            app:layout_constraintStart_toEndOf="@+id/tvCidadeCadastrarEstabelecimento"
+            android:ems="10"
+            android:hint="Logradouro"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/spTipoLogradouroCadastrarEstabelecimento"
             app:layout_constraintTop_toBottomOf="@+id/tvEnderecoCadastrarAvaliacao" />
+
+        <EditText
+            android:id="@+id/etNumeroCadastrarEstabelecimento"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/azul_3"
+            android:ems="10"
+            android:hint="Número"
+            android:inputType="text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spLogradouroCadastrarEsatabelecimento" />
 
         <EditText
             android:id="@+id/etBairroCadastrarEstabelecimento"
@@ -197,40 +162,36 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/azul_3"
             android:ems="10"
+            android:hint="Bairro"
             android:inputType="text"
-            android:text="Bairro"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvEstadoCadastrarAvaliacao" />
+            app:layout_constraintStart_toEndOf="@+id/etNumeroCadastrarEstabelecimento"
+            app:layout_constraintTop_toBottomOf="@+id/spLogradouroCadastrarEsatabelecimento" />
 
         <EditText
-            android:id="@+id/etLogradouroCadastrarEstabelecimento"
+            android:id="@+id/etCidadeCadastrarEstabelecimento"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/azul_3"
             android:ems="10"
+            android:hint="Cidade"
             android:inputType="text"
-            android:text="Logradouro"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/spLogradouroEstabelecimentoItem"
-            app:layout_constraintTop_toBottomOf="@+id/etBairroCadastrarEstabelecimento" />
-
-        <EditText
-            android:id="@+id/etNumeroCadastrarEstabelecimento"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Número"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/spEstadoCadastarEstabelecimento"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spLogradouroEstabelecimentoItem" />
+            app:layout_constraintTop_toBottomOf="@+id/etNumeroCadastrarEstabelecimento" />
+
+        <Spinner
+            android:id="@+id/spEstadoCadastarEstabelecimento"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/etCidadeCadastrarEstabelecimento"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

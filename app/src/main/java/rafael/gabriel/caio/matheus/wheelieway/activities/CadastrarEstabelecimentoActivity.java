@@ -90,7 +90,6 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                     return;
                 }
 
-                String id = "";
 
                 String distancia = "";
 
@@ -145,7 +144,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                 //
                 // O método de addProduct retorna um LiveData, que na prática é um container que avisa
                 // quando o resultado do servidor chegou.
-                LiveData<Boolean> resultLD = cadastrarEstabelecimentoViewModel.cadastrarEstabelecimento(id, currentPhotoPath, nome, distancia, nota, tipoEstabelecimento, selo, estado, cidade, bairro, tipoLogradouro, logradouro, numero, latitude, longitude);
+                LiveData<Boolean> resultLD = cadastrarEstabelecimentoViewModel.cadastrarEstabelecimento(currentPhotoPath, nome, distancia, nota, tipoEstabelecimento, selo, estado, cidade, bairro, tipoLogradouro, logradouro, numero, latitude, longitude);
 
                 // Aqui nós observamos o LiveData. Quando o servidor responder, o resultado indicando
                 // se o cadastro do produto deu certo ou não será guardado dentro do LiveData. Neste momento o
