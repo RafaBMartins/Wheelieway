@@ -1,7 +1,6 @@
 package rafael.gabriel.caio.matheus.wheelieway.activities;
 
 import static android.app.Activity.RESULT_OK;
-import static androidx.appcompat.graphics.drawable.DrawableContainerCompat.Api21Impl.getResources;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -34,7 +33,6 @@ import rafael.gabriel.caio.matheus.wheelieway.util.Util;
 
 public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
     static int RESULT_TAKE_PICTURE = 1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,17 +46,17 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
         // essa foto no ImageView.
         String currentPhotoPath = cadastrarEstabelecimentoViewModel.getCurrentPhotoPath();
         if(!currentPhotoPath.isEmpty()) {
-            ImageView imvEstabelecimentoItem = findViewById(R.id.imvEstabelecimentoItem);
+            ImageView imvEstabelecimentoCadastrarAvaliacao = findViewById(R.id.imvEstabelecimentoCadastrarEstabelecimento);
             // aqui carregamos a foto que está guardada dentro do arquivo currentPhotoPath dentro
             // de um objeto do tipo Bitmap. A imagem é carregada e sofre uma escala pra ficar
             // exatamente do tamanho do ImageView
-            Bitmap bitmap = Util.getBitmap(currentPhotoPath, imvEstabelecimentoItem.getWidth(), imvEstabelecimentoItem.getHeight());
-            imvEstabelecimentoItem.setImageBitmap(bitmap);
+            Bitmap bitmap = Util.getBitmap(currentPhotoPath, imvEstabelecimentoCadastrarAvaliacao.getWidth(), imvEstabelecimentoCadastrarAvaliacao.getHeight());
+            imvEstabelecimentoCadastrarAvaliacao.setImageBitmap(bitmap);
         }
 
         // Quando o usuário clicar no botão adicionar...
-        Button btnAddProduct = findViewById(R.id.btnAddProduct);
-        btnAddProduct.setOnClickListener(new View.OnClickListener() {
+        Button btnProximoCadastrarEstabelecimento = findViewById(R.id.btnProximoCadastrarEstabelecimento);
+        btnProximoCadastrarEstabelecimento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -70,33 +68,49 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                 // Abaixo, verificamos se o usuário preencheu todos os campos necessários. Caso não
                 // exibimos uma mensagem toast para o usuário indicando qual campo ele precisa
                 // preencher, habilitamos novamente o botão de adicionar e retornamos.
-                EditText etName = findViewById(R.id.etName);
-                String name = etName.getText().toString();
-                if(name.isEmpty()) {
-                    Toast.makeText(AddProductActivity.this, "O campo Nome do Produto não foi preenchido", Toast.LENGTH_LONG).show();
+                EditText etInserirNomeCadastrarEstabelecimento = findViewById(R.id.etInserirNomeCadastrarEstabelecimento);
+                String nome = etInserirNomeCadastrarEstabelecimento.getText().toString();
+                if(nome.isEmpty()) {
+                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O campo Nome do Produto não foi preenchido", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
                     return;
                 }
 
-                EditText etPrice = findViewById(R.id.etPrice);
-                String price = etPrice.getText().toString();
-                if(price.isEmpty()) {
-                    Toast.makeText(AddProductActivity.this, "O campo Preço do Produto não foi preenchido", Toast.LENGTH_LONG).show();
+                EditText etBairroCadastrarEstabelecimento = findViewById(R.id.etBairroCadastrarEstabelecimento);
+                String bairro = etBairroCadastrarEstabelecimento.getText().toString();
+                if(bairro.isEmpty()) {
+                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O campo Preço do Produto não foi preenchido", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
                     return;
                 }
 
-                EditText etDescription = findViewById(R.id.etDescription);
-                String description = etDescription.getText().toString();
-                if(description.isEmpty()) {
-                    Toast.makeText(AddProductActivity.this, "O campo Descrição do Produto não foi preenchido", Toast.LENGTH_LONG).show();
+                EditText etNumeroCadastrarEstabelecimento = findViewById(R.id.etNumeroCadastrarEstabelecimento);
+                String numero = etNumeroCadastrarEstabelecimento.getText().toString();
+                if(numero.isEmpty()) {
+                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O campo Descrição do Produto não foi preenchido", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
                     return;
                 }
 
-                String currentPhotoPath = addProductViewModel.getCurrentPhotoPath();
+                String distancia = "";
+
+                String nota = "";
+
+                String selo = "";
+
+                String tipoEstabelecimento = "";
+
+                String estado = "";
+
+                String cidade = "";
+
+                String logradouroSelect = "";
+
+                String logradouroWrite = "";
+
+                String currentPhotoPath = cadastrarEstabelecimentoViewModel.getCurrentPhotoPath();
                 if(currentPhotoPath.isEmpty()) {
-                    Toast.makeText(AddProductActivity.this, "O campo Foto do Produto não foi preenchido", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O campo Foto do Produto não foi preenchido", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
                     return;
                 }
@@ -127,12 +141,12 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                 //
                 // O método de addProduct retorna um LiveData, que na prática é um container que avisa
                 // quando o resultado do servidor chegou.
-                LiveData<Boolean> resultLD = addProductViewModel.addProduct(name, price, description, currentPhotoPath);
+                LiveData<Boolean> resultLD = cadastrarEstabelecimentoViewModel.cadastrarEstabelecimento(currentPhotoPath, nome, distancia, nota, tipoEstabelecimento, selo, estado, cidade, bairro, logradouroSelect, logradouroWrite, numero);
 
                 // Aqui nós observamos o LiveData. Quando o servidor responder, o resultado indicando
                 // se o cadastro do produto deu certo ou não será guardado dentro do LiveData. Neste momento o
                 // LiveData avisa que o resultado chegou chamando o método onChanged abaixo.
-                resultLD.observe(AddProductActivity.this, new Observer<Boolean>() {
+                resultLD.observe(CadastrarEstabelecimentoActivity.this, new Observer<Boolean>() {
                     @Override
                     public void onChanged(Boolean aBoolean) {
                         // aBoolean contém o resultado do cadastro do produto. Se aBoolean for true, significa
@@ -141,7 +155,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                         // finalizamos a Activity, voltamos para a tela home, que mostra a lista de
                         // produtos.
                         if(aBoolean == true) {
-                            Toast.makeText(AddProductActivity.this, "Produto adicionado com sucesso", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CadastrarEstabelecimentoActivity.this, "Estabelecimento adicionado com sucesso", Toast.LENGTH_LONG).show();
                             // indica que a Activity terminou com resultado positivo e a finaliza
                             setResult(RESULT_OK);
                             finish();
@@ -152,7 +166,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                             // Reabilitamos também o botão de adicionar, para permitir que o usuário
                             // tente realizar uma nova adição de produto.
                             v.setEnabled(true);
-                            Toast.makeText(AddProductActivity.this, "Ocorreu um erro ao adicionar o produto", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CadastrarEstabelecimentoActivity.this, "Ocorreu um erro ao adicionar o estabelecimento", Toast.LENGTH_LONG).show();
 
                         }
                     }
@@ -163,8 +177,8 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
         // Quando o usuário clica no ImageView que mostra a imagem do produto a ser cadastrado,
         // nós exibimos um menu que permite que ele escolha uma imagem tanto via câmera ou via
         // galeria.
-        ImageView imvPhoto = findViewById(R.id.imvPhoto);
-        imvPhoto.setOnClickListener(new View.OnClickListener() {
+        ImageView imvEstabelecimentoCadastrarEstabelecimento = findViewById(R.id.imvEstabelecimentoCadastrarEstabelecimento);
+        imvEstabelecimentoCadastrarEstabelecimento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dispatchGalleryOrCameraIntent();
@@ -183,7 +197,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
         try {
             f = createImageFile();
         } catch (IOException e) {
-            Toast.makeText(AddProductActivity.this, "Não foi possível criar o arquivo", Toast.LENGTH_LONG).show();
+            Toast.makeText(CadastrarEstabelecimentoActivity.this, "Não foi possível criar o arquivo", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -191,12 +205,12 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
         if(f != null) {
 
             // setamos o endereço do arquivo criado dentro do ViewModel
-            AddProductViewModel addProductViewModel = new ViewModelProvider(this).get(AddProductViewModel.class);
+            CadastrarEstabelecimentoViewModel addProductViewModel = new ViewModelProvider(this).get(CadastrarEstabelecimentoViewModel.class);
             addProductViewModel.setCurrentPhotoPath(f.getAbsolutePath());
 
             // Criamos e configuramos o INTENT que dispara a câmera
             Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            Uri fUri = FileProvider.getUriForFile(AddProductActivity.this, "com.example.produtos.fileprovider", f);
+            Uri fUri = FileProvider.getUriForFile(CadastrarEstabelecimentoActivity.this, "com.example.produtos.fileprovider", f);
             cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, fUri);
 
             // Criamos e configuramos o INTENT que dispara a escolha de imagem via galeria
@@ -210,7 +224,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
             startActivityForResult(chooserIntent, RESULT_TAKE_PICTURE);
         }
         else {
-            Toast.makeText(AddProductActivity.this, "Não foi possível criar o arquivo", Toast.LENGTH_LONG).show();
+            Toast.makeText(CadastrarEstabelecimentoActivity.this, "Não foi possível criar o arquivo", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -241,12 +255,12 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
         if(requestCode == RESULT_TAKE_PICTURE) {
 
             // Pegamos o endereço do arquivo vazio que foi criado para guardar a foto escolhida
-            AddProductViewModel addProductViewModel = new ViewModelProvider(this).get(AddProductViewModel.class);
+            CadastrarEstabelecimentoViewModel addProductViewModel = new ViewModelProvider(this).get(CadastrarEstabelecimentoViewModel.class);
             String currentPhotoPath = addProductViewModel.getCurrentPhotoPath();
 
             // Se a foto foi efetivamente escolhida pelo usuário...
             if(resultCode == RESULT_OK) {
-                ImageView imvPhoto = findViewById(R.id.imvPhoto);
+                ImageView imvEstabelecimentoCadastrarEstabelecimento = findViewById(R.id.imvEstabelecimentoCadastrarEstabelecimento);
 
                 // se o usuário escolheu a câmera, então quando esse método é chamado, a foto tirada
                 // já está salva dentro do arquivo currentPhotoPath. Entretanto, se o usuário
@@ -265,8 +279,8 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                 }
 
                 // Carregamos a foto salva em currentPhotoPath com a escala correta e setamos no ImageView
-                Bitmap bitmap = Util.getBitmap(currentPhotoPath, imvPhoto.getWidth(), imvPhoto.getHeight());
-                imvPhoto.setImageBitmap(bitmap);
+                Bitmap bitmap = Util.getBitmap(currentPhotoPath, imvEstabelecimentoCadastrarEstabelecimento.getWidth(), imvEstabelecimentoCadastrarEstabelecimento.getHeight());
+                imvEstabelecimentoCadastrarEstabelecimento.setImageBitmap(bitmap);
             }
             else {
                 // Se a imagem não foi escolhida, deletamos o arquivo que foi criado para guardá-la

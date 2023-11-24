@@ -39,7 +39,7 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etNumero" />
+            app:layout_constraintTop_toBottomOf="@+id/etNumeroCadastrarEstabelecimento" />
 
         <EditText
             android:id="@+id/etInserirNomeCadastrarEstabelecimento"
@@ -71,7 +71,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="Foto do estabelecimento."
@@ -88,6 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:text="(preferencialmente uma da fachada)"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +100,6 @@
                 android:id="@+id/imvEstabelecimentoCadastrarEstabelecimento"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -176,7 +176,7 @@
             android:entries="@array/estados"
             android:spinnerMode="dropdown"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etBairro" />
+            app:layout_constraintTop_toBottomOf="@+id/etBairroCadastrarEstabelecimento" />
 
         <Spinner
             android:id="@+id/spCidadesCadastrarEstabelecimento"
@@ -191,7 +191,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvEnderecoCadastrarAvaliacao" />
 
         <EditText
-            android:id="@+id/etBairro"
+            android:id="@+id/etBairroCadastrarEstabelecimento"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -205,7 +205,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvEstadoCadastrarAvaliacao" />
 
         <EditText
-            android:id="@+id/etLogradouro"
+            android:id="@+id/etLogradouroCadastrarEstabelecimento"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -216,10 +216,10 @@
             android:text="Logradouro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/spLogradouroEstabelecimentoItem"
-            app:layout_constraintTop_toBottomOf="@+id/etBairro" />
+            app:layout_constraintTop_toBottomOf="@+id/etBairroCadastrarEstabelecimento" />
 
         <EditText
-            android:id="@+id/etNumero"
+            android:id="@+id/etNumeroCadastrarEstabelecimento"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

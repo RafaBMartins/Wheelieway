@@ -20,6 +20,59 @@ public class WheelieWayRepository {
 
     Context context;
 
+    public boolean cadastrarEstabelecimento (String fotoEstabelecimento, String nome, String distancia, String nota, String tipoEstabelecimento, String selo, String estado, String cidade, String bairro, String logradouroSelect, String logradouroWrite, String numero){
+
+        String login = Config.getLogin(context);
+        String password = Config.getPassword(context);
+
+        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "cadastroestabelecimento.php", "POST", "UTF-8");
+        httpRequest.addParam("fotoEstabelecimento", fotoEstabelecimento);
+        httpRequest.addParam("nome", nome);
+        httpRequest.addParam("distancia", distancia);
+        httpRequest.addParam("nota", nota);
+        httpRequest.addParam("tipoEstabelecimento", tipoEstabelecimento);
+        httpRequest.addParam("selo", selo);
+        httpRequest.addParam("estado", estado);
+        httpRequest.addParam("cidade", cidade);
+        httpRequest.addParam("bairro", bairro);
+        httpRequest.addParam("logradouroSelect", logradouroSelect);
+        httpRequest.addParam("logradouroWrite", logradouroWrite);
+        httpRequest.addParam("numero", numero);
+
+        httpRequest.setBasicAuth(login, password);
+
+        String result = "";
+
+        try{
+
+            InputStream is = httpRequest.execute();
+
+            result = Util.inputStream2String(is, "UTF-8");
+
+            httpRequest.finish();
+
+            Log.i("HTTP ADD PRODUCT RESULT", result);
+
+            // A classe JSONObject recebe como parâmetro do construtor uma String no formato JSON e
+            // monta internamente uma estrutura de dados similar ao dicionário em python.
+            JSONObject jsonObject = new JSONObject(result);
+
+            // obtem o valor da chave sucesso para verificar se a ação ocorreu da forma esperada ou não.
+            int success = jsonObject.getInt("sucesso");
+
+            // Se sucesso igual a 1, significa que o produto foi adicionado com sucesso.
+            if(success == 1) {
+                return true;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Log.e("HTTP RESULT", result);
+        }
+        return false;
+    }
+
     public WheelieWayRepository(Context context) {this.context = context; }
 
     /**
@@ -101,61 +154,6 @@ public class WheelieWayRepository {
             Log.e("HTTP RESULT", result);
         }
         return false;
-    }
-
-    /**
-     * Método que cria uma requisição HTTP para cadastrar um novo produto junto ao servidor web.
-     * @param nome nome do estabelecimento
-     * @param fotoEstabelecimento foto do estabelecimento
-     * @param endereco endereço do estabelecimento
-     * @param tipoEstabelecimento tipo do estabelecimento
-     * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
-     */
-    public boolean cadastrarEstabelecimento (String fotoEstabelecimento, String nome, String distancia, String nota, Integer tipoEstabelecimento, Integer selo){
-
-        String login = Config.getLogin(context);
-        String password = Config.getPassword(context);
-
-        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "cadastroestabelecimento.php", "POST", "UTF-8");
-        httpRequest.addParam("fotoEstabelecimento", fotoEstabelecimento);
-        httpRequest.addParam("nome", nome);
-        httpRequest.addParam("distancia", distancia);
-        httpRequest.addParam("nota", nota);
-        httpRequest.addParam("tipoEstabelecimento",String.valueOf(tipoEstabelecimento));
-        httpRequest.addParam("selo", String.valueOf(selo));
-
-        httpRequest.setBasicAuth(login, password);
-
-        String result = "";
-
-        try{
-
-            InputStream is = httpRequest.execute();
-
-            result = Util.inputStream2String(is, "UTF-8");
-
-            httpRequest.finish();
-
-            Log.i("HTTP ADD PRODUCT RESULT", result);
-
-            // A classe JSONObject recebe como parâmetro do construtor uma String no formato JSON e
-            // monta internamente uma estrutura de dados similar ao dicionário em python.
-            JSONObject jsonObject = new JSONObject(result);
-
-            // obtem o valor da chave sucesso para verificar se a ação ocorreu da forma esperada ou não.
-            int success = jsonObject.getInt("sucesso");
-
-            // Se sucesso igual a 1, significa que o produto foi adicionado com sucesso.
-            if(success == 1) {
-                return true;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Log.e("HTTP RESULT", result);
-        }
-            return false;
     }
 
     /**
@@ -249,22 +247,32 @@ public class WheelieWayRepository {
 
                     JSONObject jEstabelecimento = jsonArray.getJSONObject(i);
 
-                    String id = jEstabelecimento.getString("id");
+                    String numero = jEstabelecimento.getString("numero");
                     String nome = jEstabelecimento.getString("nome");
                     String imgEstabelecimento = jEstabelecimento.getString("imgEstabelecimento");
                     String distancia = jEstabelecimento.getString("distancia");
                     String nota = jEstabelecimento.getString("nota");
                     String selo = jEstabelecimento.getString("selo");
-                    String categoria = jEstabelecimento.getString("categoria");
+                    String tipoEstabelecimento = jEstabelecimento.getString("tipoEstabelecimento");
+                    String logradouroSelect = jEstabelecimento.getString("logradouroSelect");
+                    String logradouroWrite = jEstabelecimento.getString("logradouroWrite");
+                    String estado = jEstabelecimento.getString("estado");
+                    String cidade = jEstabelecimento.getString("cidade");
+                    String bairro = jEstabelecimento.getString("bairro");
 
                     EstabelecimentoItem estabelecimento = new EstabelecimentoItem();
-                    estabelecimento.id = id;
+                    estabelecimento.numero = numero;
                     estabelecimento.nome = nome;
                     estabelecimento.selo = selo;
-                    estabelecimento.categoria = categoria;
+                    estabelecimento.tipoEstabelecimento = tipoEstabelecimento;
                     estabelecimento.distancia = distancia;
                     estabelecimento.imgEstabelecimento = imgEstabelecimento;
                     estabelecimento.nota = nota;
+                    estabelecimento.logradouroSelect = logradouroSelect;
+                    estabelecimento.logradouroWrite = logradouroWrite;
+                    estabelecimento.estado = estado;
+                    estabelecimento.cidade = cidade;
+                    estabelecimento.bairro = bairro;
 
                     estabelecimentosList.add(estabelecimento);
 
@@ -316,13 +324,12 @@ public class WheelieWayRepository {
                 String distancia = jsonObject.getString("distancia");
                 String nota = jsonObject.getString("nota");
                 String selo = jsonObject.getString("selo");
-                String categoria = jsonObject.getString("categoria");
+                String tipoEstabelecimento = jsonObject.getString("categoria");
 
                 EstabelecimentoItem estabelecimento = new EstabelecimentoItem();
-                estabelecimento.id = id;
                 estabelecimento.nome = nome;
                 estabelecimento.selo = selo;
-                estabelecimento.categoria = categoria;
+                estabelecimento.tipoEstabelecimento = tipoEstabelecimento;
                 estabelecimento.distancia = distancia;
                 estabelecimento.imgEstabelecimento = imgEstabelecimento;
                 estabelecimento.nota = nota;

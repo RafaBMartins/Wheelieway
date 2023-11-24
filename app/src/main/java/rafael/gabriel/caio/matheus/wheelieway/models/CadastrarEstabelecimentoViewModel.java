@@ -31,7 +31,7 @@ public class CadastrarEstabelecimentoViewModel extends AndroidViewModel {
      * @param tipoEstabelecimento tipo do estabelecimento
      * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
      */
-    public LiveData<Boolean> cadastrarEstabelecimento(String fotoEstabelecimento, String nome, String distancia, String nota, Integer tipoEstabelecimento, Integer selo) {
+    public LiveData<Boolean> cadastrarEstabelecimento(String fotoEstabelecimento, String nome, String distancia, String nota, String tipoEstabelecimento, String selo, String estado, String cidade, String bairro, String logradouroSelect, String logradouroWrite, String numero) {
 
         // Cria um container do tipo MutableLiveData (um LiveData que pode ter seu conteúdo alterado).
         MutableLiveData<Boolean> result = new MutableLiveData<>();
@@ -58,7 +58,7 @@ public class CadastrarEstabelecimentoViewModel extends AndroidViewModel {
                 // O método login envia os dados de autenticação ao servidor. Ele retorna
                 // um booleano indicando true caso o login tenha sido feito com sucesso e false
                 // em caso contrário
-                boolean b = wheelieWay.cadastrarEstabelecimento(fotoEstabelecimento, nome, distancia, nota, tipoEstabelecimento, selo);
+                boolean b = wheelieWay.cadastrarEstabelecimento(fotoEstabelecimento, nome, distancia, nota, tipoEstabelecimento, selo, estado, cidade, bairro, logradouroSelect, logradouroWrite, numero);
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.

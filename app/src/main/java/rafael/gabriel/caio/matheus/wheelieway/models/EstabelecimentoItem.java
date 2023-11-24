@@ -14,4 +14,15 @@ public class EstabelecimentoItem {
 
     public String imgEstabelecimento;
 
+    public String estado;
+
+    public String cidade;
+
+    public String bairro;
+
+    public String logradouroSelect;
+
+    public String logradouroWrite;
+
+    public String numero;
 }
