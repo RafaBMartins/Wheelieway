@@ -2,6 +2,8 @@ package rafael.gabriel.caio.matheus.wheelieway.models;
 
 public class EstabelecimentoItem {
 
+    public String id;
+
     public String nome;
 
     public String nota;
@@ -20,9 +22,13 @@ public class EstabelecimentoItem {
 
     public String bairro;
 
-    public String logradouroSelect;
+    public String tipologradouro;
 
-    public String logradouroWrite;
+    public String logradouro;
 
     public String numero;
+
+    public String latitude;
+
+    public String longitude;
 }

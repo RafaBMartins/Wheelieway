@@ -18,8 +18,9 @@ import rafael.gabriel.caio.matheus.wheelieway.util.ImageCache;
 public class ListAdapter extends PagingDataAdapter<EstabelecimentoItem, rafael.gabriel.caio.matheus.wheelieway.adapter.MyViewHolder> {
 
     HomeActivity homeActivity;
-    public ListAdapter(@NonNull DiffUtil.ItemCallback<EstabelecimentoItem> diffCallback) {
+    public ListAdapter(HomeActivity homeActivity, @NonNull DiffUtil.ItemCallback<EstabelecimentoItem> diffCallback) {
         super(diffCallback);
+        this.homeActivity = homeActivity;
     }
 
     @NonNull

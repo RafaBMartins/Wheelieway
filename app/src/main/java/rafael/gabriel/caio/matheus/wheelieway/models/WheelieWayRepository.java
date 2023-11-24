@@ -20,13 +20,14 @@ public class WheelieWayRepository {
 
     Context context;
 
-    public boolean cadastrarEstabelecimento (String fotoEstabelecimento, String nome, String distancia, String nota, String tipoEstabelecimento, String selo, String estado, String cidade, String bairro, String logradouroSelect, String logradouroWrite, String numero){
+    public boolean cadastrarEstabelecimento (String id, String fotoEstabelecimento, String nome, String distancia, String nota, String tipoEstabelecimento, String selo, String estado, String cidade, String bairro, String tipoLogradouro, String logradouro, String numero, String latitude, String longitude){
 
         String login = Config.getLogin(context);
         String password = Config.getPassword(context);
 
         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "cadastroestabelecimento.php", "POST", "UTF-8");
         httpRequest.addParam("fotoEstabelecimento", fotoEstabelecimento);
+        httpRequest.addParam("id", id);
         httpRequest.addParam("nome", nome);
         httpRequest.addParam("distancia", distancia);
         httpRequest.addParam("nota", nota);
@@ -35,9 +36,12 @@ public class WheelieWayRepository {
         httpRequest.addParam("estado", estado);
         httpRequest.addParam("cidade", cidade);
         httpRequest.addParam("bairro", bairro);
-        httpRequest.addParam("logradouroSelect", logradouroSelect);
-        httpRequest.addParam("logradouroWrite", logradouroWrite);
+        httpRequest.addParam("tipoLogradouro", tipoLogradouro);
+        httpRequest.addParam("logradouro", logradouro);
         httpRequest.addParam("numero", numero);
+        httpRequest.addParam("latitude", latitude);
+        httpRequest.addParam("longitude", longitude);
+
 
         httpRequest.setBasicAuth(login, password);
 
@@ -247,6 +251,7 @@ public class WheelieWayRepository {
 
                     JSONObject jEstabelecimento = jsonArray.getJSONObject(i);
 
+                    String id = jEstabelecimento.getString("id");
                     String numero = jEstabelecimento.getString("numero");
                     String nome = jEstabelecimento.getString("nome");
                     String imgEstabelecimento = jEstabelecimento.getString("imgEstabelecimento");
@@ -254,13 +259,17 @@ public class WheelieWayRepository {
                     String nota = jEstabelecimento.getString("nota");
                     String selo = jEstabelecimento.getString("selo");
                     String tipoEstabelecimento = jEstabelecimento.getString("tipoEstabelecimento");
-                    String logradouroSelect = jEstabelecimento.getString("logradouroSelect");
-                    String logradouroWrite = jEstabelecimento.getString("logradouroWrite");
+                    String tipoLogradouro = jEstabelecimento.getString("logradouroSelect");
+                    String logradouro = jEstabelecimento.getString("logradouroWrite");
                     String estado = jEstabelecimento.getString("estado");
                     String cidade = jEstabelecimento.getString("cidade");
                     String bairro = jEstabelecimento.getString("bairro");
+                    String latitude = jEstabelecimento.getString("latitude");
+                    String longitude = jEstabelecimento.getString("longitude");
+
 
                     EstabelecimentoItem estabelecimento = new EstabelecimentoItem();
+                    estabelecimento.id = id;
                     estabelecimento.numero = numero;
                     estabelecimento.nome = nome;
                     estabelecimento.selo = selo;
@@ -268,11 +277,13 @@ public class WheelieWayRepository {
                     estabelecimento.distancia = distancia;
                     estabelecimento.imgEstabelecimento = imgEstabelecimento;
                     estabelecimento.nota = nota;
-                    estabelecimento.logradouroSelect = logradouroSelect;
-                    estabelecimento.logradouroWrite = logradouroWrite;
+                    estabelecimento.tipologradouro = tipoLogradouro;
+                    estabelecimento.logradouro = logradouro;
                     estabelecimento.estado = estado;
                     estabelecimento.cidade = cidade;
                     estabelecimento.bairro = bairro;
+                    estabelecimento.latitude = latitude;
+                    estabelecimento.longitude = longitude;
 
                     estabelecimentosList.add(estabelecimento);
 
@@ -289,16 +300,16 @@ public class WheelieWayRepository {
 
     /**
      * Método que cria uma requisição HTTP para obter os detalhes de um estabelecimento junto ao servidor web.
-     * @param id id do estabelecimento que se deseja obter os detalhes
+     *  id do estabelecimento que se deseja obter os detalhes
      * @return objeto do tipo estabelecimentoitem contendo os detalhes do produto
      */
-    EstabelecimentoItem loadEstabelecimentosDetail(String id){
+    EstabelecimentoItem loadEstabelecimentosDetail(String id1){
 
         String login = Config.getLogin(context);
         String password = Config.getPassword(context);
 
         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "pager_detalhes_produto.php", "GET", "UTF-8");
-        httpRequest.addParam("id", id);
+        httpRequest.addParam("id", id1);
 
         httpRequest.setBasicAuth(login, password);
 
@@ -319,6 +330,7 @@ public class WheelieWayRepository {
 
             if(success == 1) {
 
+                String id = jsonObject.getString("id");
                 String nome = jsonObject.getString("nome");
                 String imgEstabelecimento = jsonObject.getString("imgEstabelecimento");
                 String distancia = jsonObject.getString("distancia");
@@ -327,6 +339,7 @@ public class WheelieWayRepository {
                 String tipoEstabelecimento = jsonObject.getString("categoria");
 
                 EstabelecimentoItem estabelecimento = new EstabelecimentoItem();
+                estabelecimento.id = id;
                 estabelecimento.nome = nome;
                 estabelecimento.selo = selo;
                 estabelecimento.tipoEstabelecimento = tipoEstabelecimento;

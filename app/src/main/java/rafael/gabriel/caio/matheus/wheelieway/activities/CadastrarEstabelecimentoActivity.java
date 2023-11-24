@@ -1,7 +1,5 @@
 package rafael.gabriel.caio.matheus.wheelieway.activities;
 
-import static android.app.Activity.RESULT_OK;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -92,6 +90,8 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                     return;
                 }
 
+                String id = "";
+
                 String distancia = "";
 
                 String nota = "";
@@ -104,9 +104,13 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
 
                 String cidade = "";
 
-                String logradouroSelect = "";
+                String tipoLogradouro = "";
 
-                String logradouroWrite = "";
+                String logradouro = "";
+
+                String latitude = "";
+
+                String longitude = "";
 
                 String currentPhotoPath = cadastrarEstabelecimentoViewModel.getCurrentPhotoPath();
                 if(currentPhotoPath.isEmpty()) {
@@ -141,7 +145,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                 //
                 // O método de addProduct retorna um LiveData, que na prática é um container que avisa
                 // quando o resultado do servidor chegou.
-                LiveData<Boolean> resultLD = cadastrarEstabelecimentoViewModel.cadastrarEstabelecimento(currentPhotoPath, nome, distancia, nota, tipoEstabelecimento, selo, estado, cidade, bairro, logradouroSelect, logradouroWrite, numero);
+                LiveData<Boolean> resultLD = cadastrarEstabelecimentoViewModel.cadastrarEstabelecimento(id, currentPhotoPath, nome, distancia, nota, tipoEstabelecimento, selo, estado, cidade, bairro, tipoLogradouro, logradouro, numero, latitude, longitude);
 
                 // Aqui nós observamos o LiveData. Quando o servidor responder, o resultado indicando
                 // se o cadastro do produto deu certo ou não será guardado dentro do LiveData. Neste momento o
