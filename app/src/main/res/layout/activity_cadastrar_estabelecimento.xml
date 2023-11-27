@@ -69,7 +69,7 @@
 
             <TextView
                 android:id="@+id/tvInformacoesInserirFotoCadastrarEstabelecimento"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
@@ -80,31 +80,32 @@
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imvEstabelecimentoCadastrarEstabelecimento"
+                app:layout_constraintStart_toEndOf="@+id/imvCadastrarEstabelecimento"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/tvComentarioFotoCadastrarEstabelecimento"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="(preferencialmente uma da fachada)"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imvEstabelecimentoCadastrarEstabelecimento"
+                app:layout_constraintStart_toEndOf="@+id/imvCadastrarEstabelecimento"
                 app:layout_constraintTop_toBottomOf="@+id/tvInformacoesInserirFotoCadastrarEstabelecimento"
                 app:layout_constraintVertical_bias="0.36" />
 
             <ImageView
-                android:id="@+id/imvEstabelecimentoCadastrarEstabelecimento"
+                android:id="@+id/imvCadastrarEstabelecimento"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:src="@drawable/baseline_photo_camera_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@tools:sample/avatars" />
+                app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
@@ -124,6 +125,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:entries="@array/Tipo_Logradouro"
             app:layout_constraintBaseline_toBaselineOf="@+id/spLogradouroCadastrarEsatabelecimento"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -190,6 +192,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
+            android:entries="@array/estados"
             app:layout_constraintBaseline_toBaselineOf="@+id/etCidadeCadastrarEstabelecimento"
             app:layout_constraintEnd_toEndOf="parent" />
 

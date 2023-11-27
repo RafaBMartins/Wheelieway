@@ -44,7 +44,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
         // essa foto no ImageView.
         String currentPhotoPath = cadastrarEstabelecimentoViewModel.getCurrentPhotoPath();
         if(!currentPhotoPath.isEmpty()) {
-            ImageView imvEstabelecimentoCadastrarAvaliacao = findViewById(R.id.imvEstabelecimentoCadastrarEstabelecimento);
+            ImageView imvEstabelecimentoCadastrarAvaliacao = findViewById(R.id.imvCadastrarEstabelecimento);
             // aqui carregamos a foto que está guardada dentro do arquivo currentPhotoPath dentro
             // de um objeto do tipo Bitmap. A imagem é carregada e sofre uma escala pra ficar
             // exatamente do tamanho do ImageView
@@ -69,7 +69,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                 EditText etInserirNomeCadastrarEstabelecimento = findViewById(R.id.etInserirNomeCadastrarEstabelecimento);
                 String nome = etInserirNomeCadastrarEstabelecimento.getText().toString();
                 if(nome.isEmpty()) {
-                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O campo Nome do Produto não foi preenchido", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O nome do estabelecimento não foi preenchido", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
                     return;
                 }
@@ -77,7 +77,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                 EditText etBairroCadastrarEstabelecimento = findViewById(R.id.etBairroCadastrarEstabelecimento);
                 String bairro = etBairroCadastrarEstabelecimento.getText().toString();
                 if(bairro.isEmpty()) {
-                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O campo Preço do Produto não foi preenchido", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O bairro do estabelecimento não foi preenchido", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
                     return;
                 }
@@ -85,7 +85,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                 EditText etNumeroCadastrarEstabelecimento = findViewById(R.id.etNumeroCadastrarEstabelecimento);
                 String numero = etNumeroCadastrarEstabelecimento.getText().toString();
                 if(numero.isEmpty()) {
-                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O campo Descrição do Produto não foi preenchido", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O campo número do estabelecimento não foi preenchido", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
                     return;
                 }
@@ -113,7 +113,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
 
                 String currentPhotoPath = cadastrarEstabelecimentoViewModel.getCurrentPhotoPath();
                 if(currentPhotoPath.isEmpty()) {
-                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O campo Foto do Produto não foi preenchido", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "A foto do estabelecimento não foi preenchida", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
                     return;
                 }
@@ -180,7 +180,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
         // Quando o usuário clica no ImageView que mostra a imagem do produto a ser cadastrado,
         // nós exibimos um menu que permite que ele escolha uma imagem tanto via câmera ou via
         // galeria.
-        ImageView imvEstabelecimentoCadastrarEstabelecimento = findViewById(R.id.imvEstabelecimentoCadastrarEstabelecimento);
+        ImageView imvEstabelecimentoCadastrarEstabelecimento = findViewById(R.id.imvCadastrarEstabelecimento);
         imvEstabelecimentoCadastrarEstabelecimento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -263,7 +263,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
 
             // Se a foto foi efetivamente escolhida pelo usuário...
             if(resultCode == RESULT_OK) {
-                ImageView imvEstabelecimentoCadastrarEstabelecimento = findViewById(R.id.imvEstabelecimentoCadastrarEstabelecimento);
+                ImageView imvEstabelecimentoCadastrarEstabelecimento = findViewById(R.id.imvCadastrarEstabelecimento);
 
                 // se o usuário escolheu a câmera, então quando esse método é chamado, a foto tirada
                 // já está salva dentro do arquivo currentPhotoPath. Entretanto, se o usuário

@@ -20,6 +20,8 @@ public class WheelieWayRepository {
 
     Context context;
 
+    public WheelieWayRepository(Context context) {this.context = context;}
+
     public boolean cadastrarEstabelecimento (String fotoEstabelecimento, String nome, String distancia, String nota, String tipoEstabelecimento, String selo, String estado, String cidade, String bairro, String tipoLogradouro, String logradouro, String numero, String latitude, String longitude){
 
         String login = Config.getLogin(context);
@@ -75,8 +77,6 @@ public class WheelieWayRepository {
         }
         return false;
     }
-
-    public WheelieWayRepository(Context context) {this.context = context; }
 
     /**
      * Método que cria uma requisição HTTP para registrar um novo usuário junto ao servidor web.

@@ -1,5 +1,6 @@
 package rafael.gabriel.caio.matheus.wheelieway.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,13 +13,14 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.paging.PagingData;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import rafael.gabriel.caio.matheus.wheelieway.R;
-import rafael.gabriel.caio.matheus.wheelieway.activities.HomeActivity;
+import rafael.gabriel.caio.matheus.wheelieway.activities.CadastrarEstabelecimentoActivity;
 import rafael.gabriel.caio.matheus.wheelieway.adapter.EstabelecimentoComparator;
 import rafael.gabriel.caio.matheus.wheelieway.adapter.EstabelecimentoListAdapter;
 import rafael.gabriel.caio.matheus.wheelieway.models.EstabelecimentoItem;
@@ -70,5 +72,14 @@ public class PrincipalFragment extends Fragment {
         RecyclerView rvGallery = (RecyclerView) view.findViewById(R.id.rvEstabelecimentoPrincipal);
         rvGallery.setAdapter(listAdapter);
         rvGallery.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        FloatingActionButton fab = view.findViewById(R.id.fabAdicionarEstabelecimentoPrincipal);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), CadastrarEstabelecimentoActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }

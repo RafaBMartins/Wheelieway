@@ -25,6 +25,9 @@
         android:theme="@style/Theme.Wheelieway"
         tools:targetApi="31">
         <activity
+            android:name=".activities.CadastrarEstabelecimentoActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.PerguntasActivity"
             android:exported="false" />
         <activity

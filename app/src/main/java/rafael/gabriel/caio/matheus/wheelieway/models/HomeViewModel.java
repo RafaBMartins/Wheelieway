@@ -16,8 +16,6 @@ import rafael.gabriel.caio.matheus.wheelieway.R;
 
 public class HomeViewModel extends AndroidViewModel {
 
-    LiveData<PagingData<EstabelecimentoItem>> pageEi;
-
     public int getNavigationOpSelected() {
         return navigationOpSelected;
     }
@@ -42,7 +40,7 @@ public class HomeViewModel extends AndroidViewModel {
     public LiveData<PagingData<EstabelecimentoItem>> getEstabelecimentosLd() {return estabelecimentosLd;}
 
     public LiveData<PagingData<EstabelecimentoItem>> getPageEi(){
-        return pageEi;
+        return estabelecimentosLd;
     }
 }
 
