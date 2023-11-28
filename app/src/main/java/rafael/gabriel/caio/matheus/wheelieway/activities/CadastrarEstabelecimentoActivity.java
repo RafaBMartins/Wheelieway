@@ -213,7 +213,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
 
             // Criamos e configuramos o INTENT que dispara a câmera
             Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            Uri fUri = FileProvider.getUriForFile(CadastrarEstabelecimentoActivity.this, "com.example.produtos.fileprovider", f);
+            Uri fUri = FileProvider.getUriForFile(CadastrarEstabelecimentoActivity.this, "rafael.gabriel.caio.matheus.wheelieway.fileprovider", f);
             cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, fUri);
 
             // Criamos e configuramos o INTENT que dispara a escolha de imagem via galeria

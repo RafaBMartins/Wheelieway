@@ -10,21 +10,22 @@ import androidx.lifecycle.MutableLiveData;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class CadastrarAvaliacaoViewModel extends AndroidViewModel {
-    public CadastrarAvaliacaoViewModel(@NonNull Application application) {
+public class CadastrarComentarioViewModel extends AndroidViewModel {
+
+    String currentPhotoPath = "";
+
+    public CadastrarComentarioViewModel(@NonNull Application application) {
         super(application);
     }
 
-    /**
-     * Método que cria uma requisição HTTP para cadastrar uma nova avaliação junto ao servidor web.
-     *
-     * @param fotoUsuario foto do usuário
-     * @param nomeUsuario nome do usuário
-     * @param descricao descrição do comentário
-     * @param fotoAvaliacao foto do estabelecimento avaliado
-     * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
-     */
-    public LiveData<Boolean> cadastrarAvaliacao(Integer fotoUsuario, String nomeUsuario, String descricao, Integer fotoAvaliacao) {
+    public String getCurrentPhotoPath() {
+        return currentPhotoPath;
+    }
+
+    public void setCurrentPhotoPath(String currentPhotoPath) {
+        this.currentPhotoPath = currentPhotoPath;
+    }
+    public LiveData<Boolean> cadastrarComentario(String fotoUsuario, String nomeUsuario, String descricao, String fotoAvaliacao, String nota) {
 
         // Cria um container do tipo MutableLiveData (um LiveData que pode ter seu conteúdo alterado).
         MutableLiveData<Boolean> result = new MutableLiveData<>();
@@ -51,14 +52,13 @@ public class CadastrarAvaliacaoViewModel extends AndroidViewModel {
                 // O método login envia os dados d e autenticação ao servidor. Ele retorna
                 // um booleano indicando true caso o login tenha sido feito com sucesso e false
                 // em caso contrário
-                boolean b = wheelieWay.cadastrarComentario(fotoUsuario, nomeUsuario, descricao, fotoAvaliacao);
+                boolean b = wheelieWay.cadastrarComentario(fotoUsuario, nomeUsuario, descricao, fotoAvaliacao, nota);
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.
-                result.setValue(b);
+                result.postValue(b);
             }
         });
-
         return result;
     }
 }

@@ -65,7 +65,6 @@ public class CadastrarEstabelecimentoViewModel extends AndroidViewModel {
                 result.setValue(b);
             }
         });
-
         return result;
     }
 

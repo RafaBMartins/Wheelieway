@@ -3,11 +3,11 @@ package rafael.gabriel.caio.matheus.wheelieway.models;
 import android.content.Context;
 import android.util.Log;
 
-import org.checkerframework.checker.units.qual.C;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -28,17 +28,14 @@ public class WheelieWayRepository {
         String login = Config.getLogin(context);
         String password = Config.getPassword(context);
 
-        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "cadastroestabelecimento.php", "POST", "UTF-8");
-        httpRequest.addParam("fotoEstabelecimento", fotoEstabelecimento);
-        httpRequest.addParam("nome", nome);
-        httpRequest.addParam("distancia", distancia);
-        httpRequest.addParam("nota", nota);
-        httpRequest.addParam("tipoEstabelecimento", tipoEstabelecimento);
-        httpRequest.addParam("selo", selo);
+        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "insertEstabelecimento.php", "POST", "UTF-8");
+        httpRequest.addFile("img_perfil", new File(fotoEstabelecimento));
+        httpRequest.addParam("nome_estabelecimento", nome);
+        httpRequest.addParam("tipo_estab", tipoEstabelecimento);
         httpRequest.addParam("estado", estado);
         httpRequest.addParam("cidade", cidade);
         httpRequest.addParam("bairro", bairro);
-        httpRequest.addParam("tipoLogradouro", tipoLogradouro);
+        httpRequest.addParam("tipo_logradouro", tipoLogradouro);
         httpRequest.addParam("logradouro", logradouro);
         httpRequest.addParam("numero", numero);
         httpRequest.addParam("latitude", latitude);
@@ -168,16 +165,17 @@ public class WheelieWayRepository {
      * @param fotoAvaliacao foto do estabelecimento avaliado
      * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
      */
-    public boolean cadastrarComentario (Integer fotoUsuario, String nomeUsuario, String descricao, Integer fotoAvaliacao){
+    public boolean cadastrarComentario (String fotoUsuario, String nomeUsuario, String descricao, String fotoAvaliacao, String nota){
 
         String login = Config.getLogin(context);
         String password = Config.getPassword(context);
 
         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "cadastroestabelecimento.php", "POST", "UTF-8");
-        httpRequest.addParam("fotoUsuario", String.valueOf(fotoUsuario));
+        httpRequest.addParam("fotoUsuario", fotoUsuario);
         httpRequest.addParam("nomeUsuario", nomeUsuario);
         httpRequest.addParam("descricao", descricao);
-        httpRequest.addParam("fotoAvaliacao",String.valueOf(fotoAvaliacao));
+        httpRequest.addParam("fotoAvaliacao", fotoAvaliacao);
+        httpRequest.addParam("nota", nota);
 
         httpRequest.setBasicAuth(login, password);
 

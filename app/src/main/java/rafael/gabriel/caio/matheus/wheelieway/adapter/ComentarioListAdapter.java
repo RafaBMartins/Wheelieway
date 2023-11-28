@@ -12,13 +12,15 @@ import androidx.paging.PagingDataAdapter;
 import androidx.recyclerview.widget.DiffUtil;
 
 import rafael.gabriel.caio.matheus.wheelieway.R;
+import rafael.gabriel.caio.matheus.wheelieway.activities.HomeActivity;
 import rafael.gabriel.caio.matheus.wheelieway.models.ComentarioItem;
-import rafael.gabriel.caio.matheus.wheelieway.models.EstabelecimentoItem;
 import rafael.gabriel.caio.matheus.wheelieway.util.ImageCache;
 
 public class ComentarioListAdapter extends PagingDataAdapter<ComentarioItem, rafael.gabriel.caio.matheus.wheelieway.adapter.MyViewHolder> {
 
     Fragment estabelecimentoFragment;
+
+    HomeActivity homeActivity;
 
     public ComentarioListAdapter(Fragment estabelecimentoFragment, @NonNull DiffUtil.ItemCallback<ComentarioItem> diffCallback) {
         super(diffCallback);
@@ -35,22 +37,24 @@ public class ComentarioListAdapter extends PagingDataAdapter<ComentarioItem, raf
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-/*
+
         ComentarioItem comentarioItem = getItem(position);
 
-        TextView tvNome = holder.itemView.findViewById(R.id.);
-        tvNome.setText(estabelecimentoItem.nome);
+        TextView tvNome = holder.itemView.findViewById(R.id.tvNomeUsuarioComentarioItem);
+        tvNome.setText(comentarioItem.nome);
 
-        TextView tvDistancia = holder.itemView.findViewById(R.id.tvDistanciaEstabelecimentoItem);
-        tvDistancia.setText(estabelecimentoItem.distancia);
+        TextView tvDescricao = holder.itemView.findViewById(R.id.tvDescricaoAvaliacaoComentarioItem);
+        tvDescricao.setText(comentarioItem.descricao);
 
-        int w = (int) homeActivity.getResources().getDimension(R.dimen.thumb_width);
-        int h = (int) homeActivity.getResources().getDimension(R.dimen.thumb_height);;
+        TextView tvData = holder.itemView.findViewById(R.id.tvComentarioItemData);
+        tvData.setText(comentarioItem.data);
+
+        int w = (int) estabelecimentoFragment.getResources().getDimension(R.dimen.thumb_width);
+        int h = (int) estabelecimentoFragment.getResources().getDimension(R.dimen.thumb_height);;
         ImageView imgComentario = holder.itemView.findViewById(R.id.imvComentarioItem);
-        ImageCache.loadImageUrlToImageView(homeActivity, comentarioItem.imgEstabelecimento, imgEstabelecimento, w, h);
+        ImageCache.loadImageUrlToImageView(homeActivity, comentarioItem.imgFotoUsuario, imgComentario, w, h);
 
-        TextView tvNota = holder.itemView.findViewById(R.id.tvNotaEstabelecimentoItem);
+        TextView tvNota = holder.itemView.findViewById(R.id.tvComentarioItemNota);
         tvNota.setText(comentarioItem.nota);
-    }*/
     }
 }
