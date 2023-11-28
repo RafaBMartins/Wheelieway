@@ -1,16 +1,18 @@
 package rafael.gabriel.caio.matheus.wheelieway.models;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 public class ComentarioItem {
-    int imgFotoUsuario;
+    String imgFotoUsuario;
     String nome;
-    float nota;
+    String nota;
     String descricao;
-    Date data;
-    ArrayList<Integer> fotos = new ArrayList();
-    int like;
-    int dislike;
+    String data;
+    JSONArray fotos = new JSONArray();
+    String like;
+    String dislike;
 
 }

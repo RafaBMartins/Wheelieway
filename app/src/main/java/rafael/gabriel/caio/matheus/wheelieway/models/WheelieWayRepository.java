@@ -3,6 +3,7 @@ package rafael.gabriel.caio.matheus.wheelieway.models;
 import android.content.Context;
 import android.util.Log;
 
+import org.checkerframework.checker.units.qual.C;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -167,7 +168,7 @@ public class WheelieWayRepository {
      * @param fotoAvaliacao foto do estabelecimento avaliado
      * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
      */
-    public boolean cadastrarAvaliacao (Integer fotoUsuario, String nomeUsuario, String descricao, Integer fotoAvaliacao){
+    public boolean cadastrarComentario (Integer fotoUsuario, String nomeUsuario, String descricao, Integer fotoAvaliacao){
 
         String login = Config.getLogin(context);
         String password = Config.getPassword(context);
@@ -219,11 +220,11 @@ public class WheelieWayRepository {
      * @return lista de estabelecimentos
      */
 
-    public List<EstabelecimentoItem> loadEstabelecimentos(Integer limit, Integer offSet, Double lat, Double lon) {
+    public List<EstabelecimentoItem> loadEstabelecimentos (Integer limit, Integer offSet, Double lat, Double lon) {
 
         List<EstabelecimentoItem> estabelecimentosList = new ArrayList<>();
 
-        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL +"pegar_produtos.php", "GET", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL +"insertEstabelecimento.php", "GET", "UTF-8");
         httpRequest.addParam("limit", limit.toString());
         httpRequest.addParam("offset", offSet.toString());
 
@@ -277,6 +278,71 @@ public class WheelieWayRepository {
             Log.e("HTTP RESULT", result);
         }
         return estabelecimentosList;
+    }
+
+    public List<ComentarioItem> loadComentarios (Integer limit, Integer offSet) {
+
+        List<ComentarioItem> comentariosList = new ArrayList<>();
+
+        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL +"registrar.php", "GET", "UTF-8");
+        httpRequest.addParam("limit", limit.toString());
+        httpRequest.addParam("offset", offSet.toString());
+
+
+        String result = "";
+        try{
+            InputStream is = httpRequest.execute();
+
+            result = Util.inputStream2String(is, "UTF-8");
+
+            httpRequest.finish();
+
+            Log.i("HTTP PRODUCTS RESULT", result);
+
+            JSONObject jsonObject = new JSONObject(result);
+
+            int success = jsonObject.getInt("sucesso");
+
+            if(success == 1){
+
+                JSONArray jsonArray = jsonObject.getJSONArray("estabelecimentos");
+
+                for(int i = 0; i < jsonArray.length(); i++) {
+
+                    JSONObject jComentario = jsonArray.getJSONObject(i);
+
+                    String nome = jComentario.getString("nome");
+                    String descricao = jComentario.getString("descricao");
+                    String data = jComentario.getString("data");
+                    String nota = jComentario.getString("nota");
+                    String like = jComentario.getString("like");
+                    String dislike = jComentario.getString("dislike");
+                    String imgFotoUsuario = jComentario.getString("imgFotoUsuario");
+                    /**Perguntar pro Daniel como que se faz o get de uma ArrayList*/
+                    JSONArray fotos = jComentario.getJSONArray("fotos");
+
+
+                    ComentarioItem comentario = new ComentarioItem();
+                    comentario.nome = nome;
+                    comentario.descricao = descricao;
+                    comentario.data = data;
+                    comentario.like = like;
+                    comentario.dislike = dislike;
+                    comentario.nota = nota;
+                    comentario.imgFotoUsuario = imgFotoUsuario;
+                    comentario.fotos = fotos;
+
+                    comentariosList.add(comentario);
+
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Log.e("HTTP RESULT", result);
+        }
+        return comentariosList;
     }
 
     /**
@@ -343,6 +409,62 @@ public class WheelieWayRepository {
                 estabelecimento.longitude = longitude;
 
                 return estabelecimento;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    ComentarioItem loadComentariosDetail(String id){
+
+        String login = Config.getLogin(context);
+        String password = Config.getPassword(context);
+
+        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "pager_detalhes_produto.php", "GET", "UTF-8");
+        httpRequest.addParam("id", id);
+
+        httpRequest.setBasicAuth(login, password);
+
+        String result = "";
+        try{
+            InputStream is = httpRequest.execute();
+
+            result = Util.inputStream2String(is, "UTF-8");
+
+            httpRequest.finish();
+
+            Log.i("HTTP DETAILS RESULT", result);
+
+            JSONObject jsonObject = new JSONObject(result);
+
+            int success = jsonObject.getInt("sucesso");
+
+
+            if(success == 1) {
+
+                String nome = jsonObject.getString("nome");
+                String imgFotoUsuario = jsonObject.getString("imgFotoUsuario");
+                String descricao = jsonObject.getString("descricao");
+                String nota = jsonObject.getString("nota");
+                String like = jsonObject.getString("like");
+                String dislike = jsonObject.getString("dislike");
+                String data = jsonObject.getString("data");
+                JSONArray fotos = jsonObject.getJSONArray("fotos");
+
+                ComentarioItem comentario = new ComentarioItem();
+                comentario.nome = nome;
+                comentario.descricao = descricao;
+                comentario.data = data;
+                comentario.like = like;
+                comentario.dislike = dislike;
+                comentario.nota = nota;
+                comentario.imgFotoUsuario = imgFotoUsuario;
+                comentario.fotos = fotos;
+
+                return comentario;
             }
         } catch (IOException e) {
             e.printStackTrace();

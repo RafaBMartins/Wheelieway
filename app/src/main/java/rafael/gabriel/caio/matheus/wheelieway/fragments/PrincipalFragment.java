@@ -21,6 +21,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 
 import rafael.gabriel.caio.matheus.wheelieway.R;
 import rafael.gabriel.caio.matheus.wheelieway.activities.CadastrarEstabelecimentoActivity;
+import rafael.gabriel.caio.matheus.wheelieway.activities.HomeActivity;
 import rafael.gabriel.caio.matheus.wheelieway.adapter.EstabelecimentoComparator;
 import rafael.gabriel.caio.matheus.wheelieway.adapter.EstabelecimentoListAdapter;
 import rafael.gabriel.caio.matheus.wheelieway.models.EstabelecimentoItem;
@@ -32,6 +33,8 @@ import rafael.gabriel.caio.matheus.wheelieway.models.HomeViewModel;
  * create an instance of this fragment.
  */
 public class PrincipalFragment extends Fragment {
+
+    HomeActivity homeActivity;
 
     private HomeViewModel homeViewModel;
 
@@ -60,7 +63,7 @@ public class PrincipalFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
         homeViewModel = new ViewModelProvider(getActivity()).get(HomeViewModel.class);
-        EstabelecimentoListAdapter listAdapter = new EstabelecimentoListAdapter(new EstabelecimentoComparator());
+        EstabelecimentoListAdapter listAdapter = new EstabelecimentoListAdapter(homeActivity, new EstabelecimentoComparator());
         LiveData<PagingData<EstabelecimentoItem>> liveData = homeViewModel.getPageEi();
         liveData.observe(getViewLifecycleOwner(), new Observer<PagingData<EstabelecimentoItem>>() {
             @Override

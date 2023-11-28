@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvNomeUsuarioComentario"
+        android:id="@+id/tvNomeUsuarioComentarioItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvDescricaoAvaliacaoComentario"
+        android:id="@+id/tvDescricaoAvaliacaoComentarioItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -68,7 +68,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imvComentarioItem"
-        app:layout_constraintTop_toBottomOf="@+id/tvNomeUsuarioComentario" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNomeUsuarioComentarioItem" />
 
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
         android:id="@+id/carouselComentarioItemEstabelecimento"
@@ -77,10 +77,10 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescricaoAvaliacaoComentario" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDescricaoAvaliacaoComentarioItem" />
 
     <ImageButton
-        android:id="@+id/imbLike"
+        android:id="@+id/imbLikeComentarioItem"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
@@ -91,13 +91,13 @@
         app:srcCompat="@drawable/baseline_thumb_up_24" />
 
     <ImageButton
-        android:id="@+id/imbDislike"
+        android:id="@+id/imbDislikeComentarioItem"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/imbLike"
+        app:layout_constraintEnd_toStartOf="@+id/imbLikeComentarioItem"
         app:layout_constraintTop_toBottomOf="@+id/carouselComentarioItemEstabelecimento"
         app:srcCompat="@drawable/baseline_thumb_down_24" />
 
