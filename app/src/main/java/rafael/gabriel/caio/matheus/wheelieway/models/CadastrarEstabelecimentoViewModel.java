@@ -30,7 +30,7 @@ public class CadastrarEstabelecimentoViewModel extends AndroidViewModel {
      * @param tipoEstabelecimento tipo do estabelecimento
      * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
      */
-    public LiveData<Boolean> cadastrarEstabelecimento(String fotoEstabelecimento, String nome, String tipoEstabelecimento, String selo, String estado, String cidade, String bairro, String tipoLogradouro, String logradouro, String numero, String latitude, String longitude) {
+    public LiveData<Boolean> cadastrarEstabelecimento(String fotoEstabelecimento, String nome, String tipoEstabelecimento, String estado, String cidade, String bairro, String tipoLogradouro, String logradouro, String numero, String latitude, String longitude) {
 
         // Cria um container do tipo MutableLiveData (um LiveData que pode ter seu conteúdo alterado).
         MutableLiveData<Boolean> result = new MutableLiveData<>();

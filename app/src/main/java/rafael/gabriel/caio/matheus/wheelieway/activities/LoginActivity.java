@@ -1,12 +1,5 @@
 package rafael.gabriel.caio.matheus.wheelieway.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -19,6 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +47,7 @@ LoginActivity extends AppCompatActivity {
         permissions.add(Manifest.permission.CAMERA);
         permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
 
         checkForPermissions(permissions);
 

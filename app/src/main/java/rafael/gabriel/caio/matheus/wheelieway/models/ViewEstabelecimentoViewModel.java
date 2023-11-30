@@ -4,6 +4,7 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import java.util.concurrent.ExecutorService;
@@ -18,11 +19,10 @@ public class ViewEstabelecimentoViewModel extends AndroidViewModel {
     /**
      * Método que cria e executa uma requisição ao servidor web para obter os detalhes de um produto
      * na base de dados do servidor
-     *
      * @param pid id do produto que se quer obter os detalhes
      * @return um LiveData que vai conter a resposta do servidor quando esta estiver disponível
      */
-    public MutableLiveData<EstabelecimentoItem> getPerfilDetailsLD(String pid) {
+    public LiveData<EstabelecimentoItem> getEstabelecimentoDetailsLD(String pid) {
 
         // Cria um container do tipo MutableLiveData (um LiveData que pode ter seu conteúdo alterado).
         MutableLiveData<EstabelecimentoItem> estabelecimentoDetailLD = new MutableLiveData<>();
@@ -44,11 +44,11 @@ public class ViewEstabelecimentoViewModel extends AndroidViewModel {
 
                 // Criamos uma instância de ProductsRepository. É dentro dessa classe que estão os
                 // métodos que se comunicam com o servidor web.
-                WheelieWayRepository wheeliewayRepository = new WheelieWayRepository(getApplication());
+                WheelieWayRepository wheelieWayRepository = new WheelieWayRepository(getApplication());
 
                 // O método loadProductDetail obtem os dados detalhados de um produto junto ao servidor.
                 // Ele retorna um objeto do tipo Product, que contém os dados detalhados do produto.
-                EstabelecimentoItem e = wheeliewayRepository.loadEstabelecimentosDetail(pid);
+                EstabelecimentoItem e = wheelieWayRepository.loadEstabelecimentosDetail(pid);
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.

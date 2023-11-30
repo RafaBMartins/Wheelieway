@@ -1,7 +1,10 @@
 package rafael.gabriel.caio.matheus.wheelieway.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.location.Address;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -10,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -19,11 +23,14 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import rafael.gabriel.caio.matheus.wheelieway.R;
 import rafael.gabriel.caio.matheus.wheelieway.models.CadastrarEstabelecimentoViewModel;
@@ -90,26 +97,47 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                     return;
                 }
 
+                EditText etLogradouroCadastrarEstabelecimento = findViewById(R.id.etLogradouroCadastrarEsatabelecimento);
+                String logradouro = etLogradouroCadastrarEstabelecimento.getText().toString();
+                if(numero.isEmpty()) {
+                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O campo número do estabelecimento não foi preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
+                    return;
+                }
 
-                String distancia = "";
+                EditText etCidadeCadastrarEstabelecimento = findViewById(R.id.etCidadeCadastrarEstabelecimento);
+                String cidade = etCidadeCadastrarEstabelecimento.getText().toString();
+                if(cidade.isEmpty()) {
+                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O campo de cidade não foi preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
+                    return;
+                }
 
-                String nota = "";
+                Spinner spTiposEstabelecimentoCadastrarEstabelecimento = findViewById(R.id.spTiposEstabelecimentoCadastrarEstabelecimento);
+                String tipoEstabelecimento = spTiposEstabelecimentoCadastrarEstabelecimento.getSelectedItem().toString();
+                if(tipoEstabelecimento.isEmpty()) {
+                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O campo de tipo do estabelecimento não foi preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
+                    return;
+                }
 
-                String selo = "";
+                Spinner spEstadosCadastrarEstabelecimento = findViewById(R.id.spEstadoCadastarEstabelecimento);
+                String estado = spEstadosCadastrarEstabelecimento.getSelectedItem().toString();
+                if(estado.isEmpty()) {
+                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O campo de estado não foi preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
+                    return;
+                }
 
-                String tipoEstabelecimento = "";
+                Spinner spTipoLogradouroCadastrarEstabelecimento = findViewById(R.id.spTipoLogradouroCadastrarEstabelecimento);
+                String tipoLogradouro = spTipoLogradouroCadastrarEstabelecimento.getSelectedItem().toString();
+                if(tipoLogradouro.isEmpty()) {
+                    Toast.makeText(CadastrarEstabelecimentoActivity.this, "O campo de tipo de logradouro não foi preenchido", Toast.LENGTH_LONG).show();
+                    v.setEnabled(true);
+                    return;
+                }
 
-                String estado = "";
-
-                String cidade = "";
-
-                String tipoLogradouro = "";
-
-                String logradouro = "";
-
-                String latitude = "";
-
-                String longitude = "";
+                String endereco = tipoLogradouro + " " + logradouro + ", " + numero + ", " + bairro + ", " + cidade + ", " + estado;
 
                 String currentPhotoPath = cadastrarEstabelecimentoViewModel.getCurrentPhotoPath();
                 if(currentPhotoPath.isEmpty()) {
@@ -137,6 +165,8 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                     return;
                 }
 
+                LatLng latLng = getLocationFromAddress(CadastrarEstabelecimentoActivity.this, endereco);
+
                 // O ViewModel possui o método addProduct, que envia os dados do novo produto para o
                 // servidor web.O servidor web recebe esses dados e cadastra um novo produto. Se o
                 // produto foi cadastrado com sucesso, a app recebe o valor true. Se não o servidor
@@ -144,7 +174,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                 //
                 // O método de addProduct retorna um LiveData, que na prática é um container que avisa
                 // quando o resultado do servidor chegou.
-                LiveData<Boolean> resultLD = cadastrarEstabelecimentoViewModel.cadastrarEstabelecimento(currentPhotoPath, nome, tipoEstabelecimento, selo, estado, cidade, bairro, tipoLogradouro, logradouro, numero, latitude, longitude);
+                LiveData<Boolean> resultLD = cadastrarEstabelecimentoViewModel.cadastrarEstabelecimento(currentPhotoPath, nome, tipoEstabelecimento, estado, cidade, bairro, tipoLogradouro, logradouro, numero, String.valueOf(latLng.latitude), String.valueOf(latLng.longitude));
 
                 // Aqui nós observamos o LiveData. Quando o servidor responder, o resultado indicando
                 // se o cadastro do produto deu certo ou não será guardado dentro do LiveData. Neste momento o
@@ -292,5 +322,29 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                 addProductViewModel.setCurrentPhotoPath("");
             }
         }
+    }
+
+    public LatLng getLocationFromAddress(Context context, String strAddress) {
+
+        Geocoder coder = new Geocoder(context);
+        List<Address> address;
+        LatLng p1 = null;
+
+        try {
+            // May throw an IOException
+            address = coder.getFromLocationName(strAddress, 5);
+            if (address == null) {
+                return null;
+            }
+
+            Address location = address.get(0);
+            p1 = new LatLng(location.getLatitude(), location.getLongitude() );
+
+        } catch (IOException ex) {
+
+            ex.printStackTrace();
+        }
+
+        return p1;
     }
 }

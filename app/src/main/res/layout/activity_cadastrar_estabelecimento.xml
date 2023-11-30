@@ -126,11 +126,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:entries="@array/Tipo_Logradouro"
-            app:layout_constraintBaseline_toBaselineOf="@+id/spLogradouroCadastrarEsatabelecimento"
+            app:layout_constraintBaseline_toBaselineOf="@+id/etLogradouroCadastrarEsatabelecimento"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/spLogradouroCadastrarEsatabelecimento"
+            android:id="@+id/etLogradouroCadastrarEsatabelecimento"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -155,7 +155,7 @@
             android:hint="Número"
             android:inputType="text"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spLogradouroCadastrarEsatabelecimento" />
+            app:layout_constraintTop_toBottomOf="@+id/etLogradouroCadastrarEsatabelecimento" />
 
         <EditText
             android:id="@+id/etBairroCadastrarEstabelecimento"
@@ -170,7 +170,7 @@
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/etNumeroCadastrarEstabelecimento"
-            app:layout_constraintTop_toBottomOf="@+id/spLogradouroCadastrarEsatabelecimento" />
+            app:layout_constraintTop_toBottomOf="@+id/etLogradouroCadastrarEsatabelecimento" />
 
         <EditText
             android:id="@+id/etCidadeCadastrarEstabelecimento"
