@@ -14,11 +14,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.FileProvider;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
@@ -50,22 +52,25 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
         // obtenção do ViewModel
         CadastrarComentarioViewModel cadastrarComentarioViewModel  = new ViewModelProvider(this).get(CadastrarComentarioViewModel.class);
 
+
         // O ViewModel guarda o local da última foto escolhida pelo usuário.
         // Aqui, verificamos se já existe uma foto selecionada pelo usuário. Se sim, nós setamos
         // essa foto no ImageView.
-        String currentPhotoPath = cadastrarComentarioViewModel.getCurrentPhotoPath();
-        if(!currentPhotoPath.isEmpty()) {
-            ImageView imbtnSeloAvaliacao = findViewById(R.id.imbtnSeloAvaliacao);
+        List<String> fotoPaths = cadastrarComentarioViewModel.getFotoPaths();
+        if(!fotoPaths.isEmpty()) {
+            ConstraintLayout clAdicionarFotos = findViewById(R.id.clAdicionarFotos);
             // aqui carregamos a foto que está guardada dentro do arquivo currentPhotoPath dentro
             // de um objeto do tipo Bitmap. A imagem é carregada e sofre uma escala pra ficar
             // exatamente do tamanho do ImageView
-            Bitmap bitmap = Util.getBitmap(currentPhotoPath, imbtnSeloAvaliacao.getWidth(), imbtnSeloAvaliacao.getHeight());
-            imbtnSeloAvaliacao.setImageBitmap(bitmap);
+            for(int i = 0; i < fotoPaths.size(); i++){
+                Bitmap bitmap = Util.getBitmap(fotoPaths.get(i), fotoPaths.get(i).getWidth(), fotoPaths.get(i).getHeight());
+                clAdicionarFotos.set(bitmap);
+            }
         }
 
         // Quando o usuário clicar no botão adicionar...
-        Button btnAdicionarFotosAvaliacao = findViewById(R.id.btnAdicionarFotosAvaliacao);
-        btnAdicionarFotosAvaliacao.setOnClickListener(new View.OnClickListener() {
+        Button btnPostarAvaliacao = findViewById(R.id.btnPostarAvaliacao);
+        btnPostarAvaliacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -78,74 +83,24 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                 // exibimos uma mensagem toast para o usuário indicando qual campo ele precisa
                 // preencher, habilitamos novamente o botão de adicionar e retornamos.
                 EditText etComentarioAvaliacao = findViewById(R.id.etComentarioAvaliacao);
-                String nome = etComentarioAvaliacao.getText().toString();
-                if(nome.isEmpty()) {
-                    Toast.makeText(CadastrarComentarioActivity.this, "O nome do estabelecimento não foi preenchido", Toast.LENGTH_LONG).show();
+                String descricao = etComentarioAvaliacao.getText().toString();
+                if(descricao.isEmpty()) {
+                    Toast.makeText(CadastrarComentarioActivity.this, "A descriçao do comentário não foi preenchida", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
                     return;
                 }
 
-                EditText etBairroCadastrarEstabelecimento = findViewById(R.id.etBairroCadastrarEstabelecimento);
-                String bairro = etBairroCadastrarEstabelecimento.getText().toString();
-                if(bairro.isEmpty()) {
-                    Toast.makeText(CadastrarComentarioActivity.this, "O bairro do estabelecimento não foi preenchido", Toast.LENGTH_LONG).show();
+                RatingBar rbAvaliacao = findViewById(R.id.rbAvaliacao);
+                String nota = rbAvaliacao.getRating().toString();
+                if(nota.isEmpty()) {
+                    Toast.makeText(CadastrarComentarioActivity.this, "A nota do comentário não foi preenchida", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
                     return;
                 }
 
-                EditText etNumeroCadastrarEstabelecimento = findViewById(R.id.etNumeroCadastrarEstabelecimento);
-                String numero = etNumeroCadastrarEstabelecimento.getText().toString();
-                if(numero.isEmpty()) {
-                    Toast.makeText(CadastrarComentarioActivity.this, "O campo número do estabelecimento não foi preenchido", Toast.LENGTH_LONG).show();
-                    v.setEnabled(true);
-                    return;
-                }
-
-                EditText etLogradouroCadastrarEstabelecimento = findViewById(R.id.etLogradouroCadastrarEsatabelecimento);
-                String logradouro = etLogradouroCadastrarEstabelecimento.getText().toString();
-                if(numero.isEmpty()) {
-                    Toast.makeText(CadastrarComentarioActivity.this, "O campo número do estabelecimento não foi preenchido", Toast.LENGTH_LONG).show();
-                    v.setEnabled(true);
-                    return;
-                }
-
-                EditText etCidadeCadastrarEstabelecimento = findViewById(R.id.etCidadeCadastrarEstabelecimento);
-                String cidade = etCidadeCadastrarEstabelecimento.getText().toString();
-                if(cidade.isEmpty()) {
-                    Toast.makeText(CadastrarComentarioActivity.this, "O campo de cidade não foi preenchido", Toast.LENGTH_LONG).show();
-                    v.setEnabled(true);
-                    return;
-                }
-
-                Spinner spTiposEstabelecimentoCadastrarEstabelecimento = findViewById(R.id.spTiposEstabelecimentoCadastrarEstabelecimento);
-                String tipoEstabelecimento = spTiposEstabelecimentoCadastrarEstabelecimento.getSelectedItem().toString();
-                if(tipoEstabelecimento.isEmpty()) {
-                    Toast.makeText(CadastrarComentarioActivity.this, "O campo de tipo do estabelecimento não foi preenchido", Toast.LENGTH_LONG).show();
-                    v.setEnabled(true);
-                    return;
-                }
-
-                Spinner spEstadosCadastrarEstabelecimento = findViewById(R.id.spEstadoCadastarEstabelecimento);
-                String estado = spEstadosCadastrarEstabelecimento.getSelectedItem().toString();
-                if(estado.isEmpty()) {
-                    Toast.makeText(CadastrarComentarioActivity.this, "O campo de estado não foi preenchido", Toast.LENGTH_LONG).show();
-                    v.setEnabled(true);
-                    return;
-                }
-
-                Spinner spTipoLogradouroCadastrarEstabelecimento = findViewById(R.id.spTipoLogradouroCadastrarEstabelecimento);
-                String tipoLogradouro = spTipoLogradouroCadastrarEstabelecimento.getSelectedItem().toString();
-                if(tipoLogradouro.isEmpty()) {
-                    Toast.makeText(CadastrarComentarioActivity.this, "O campo de tipo de logradouro não foi preenchido", Toast.LENGTH_LONG).show();
-                    v.setEnabled(true);
-                    return;
-                }
-
-                String endereco = tipoLogradouro + " " + logradouro + ", " + numero + ", " + bairro + ", " + cidade + ", " + estado;
-
-                String currentPhotoPath = cadastrarComentarioViewModel.getCurrentPhotoPath();
-                if(currentPhotoPath.isEmpty()) {
-                    Toast.makeText(CadastrarComentarioActivity.this, "A foto do estabelecimento não foi preenchida", Toast.LENGTH_LONG).show();
+                List<String> fotoPaths = cadastrarComentarioViewModel.getFotoPaths();
+                if(fotoPaths.isEmpty()) {
+                    Toast.makeText(CadastrarComentarioActivity.this, "A foto do comentário não foi preenchida", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
                     return;
                 }
@@ -169,8 +124,6 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                     return;
                 }
 
-                LatLng latLng = getLocationFromAddress(CadastrarComentarioActivity.this, endereco);
-
                 // O ViewModel possui o método addProduct, que envia os dados do novo produto para o
                 // servidor web.O servidor web recebe esses dados e cadastra um novo produto. Se o
                 // produto foi cadastrado com sucesso, a app recebe o valor true. Se não o servidor
@@ -178,7 +131,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                 //
                 // O método de addProduct retorna um LiveData, que na prática é um container que avisa
                 // quando o resultado do servidor chegou.
-                LiveData<Boolean> resultLD = cadastrarComentarioViewModel.cadastrarEstabelecimento(currentPhotoPath, nome, tipoEstabelecimento, estado, cidade, bairro, tipoLogradouro, logradouro, numero, String.valueOf(latLng.latitude), String.valueOf(latLng.longitude));
+                LiveData<Boolean> resultLD = cadastrarComentarioViewModel.cadastrarComentario( descricao, List<String> fotoPaths);
 
                 // Aqui nós observamos o LiveData. Quando o servidor responder, o resultado indicando
                 // se o cadastro do produto deu certo ou não será guardado dentro do LiveData. Neste momento o
@@ -192,7 +145,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                         // finalizamos a Activity, voltamos para a tela home, que mostra a lista de
                         // produtos.
                         if(aBoolean == true) {
-                            Toast.makeText(CadastrarComentarioActivity.this, "Estabelecimento adicionado com sucesso", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CadastrarComentarioActivity.this, "Comentário adicionado com sucesso", Toast.LENGTH_LONG).show();
                             // indica que a Activity terminou com resultado positivo e a finaliza
                             setResult(RESULT_OK);
                             finish();
@@ -203,7 +156,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                             // Reabilitamos também o botão de adicionar, para permitir que o usuário
                             // tente realizar uma nova adição de produto.
                             v.setEnabled(true);
-                            Toast.makeText(CadastrarComentarioActivity.this, "Ocorreu um erro ao adicionar o estabelecimento", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CadastrarComentarioActivity.this, "Ocorreu um erro ao adicionar o comentário", Toast.LENGTH_LONG).show();
 
                         }
                     }
@@ -214,8 +167,8 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
         // Quando o usuário clica no ImageView que mostra a imagem do produto a ser cadastrado,
         // nós exibimos um menu que permite que ele escolha uma imagem tanto via câmera ou via
         // galeria.
-        ImageView imvEstabelecimentoCadastrarEstabelecimento = findViewById(R.id.imvCadastrarEstabelecimento);
-        imvEstabelecimentoCadastrarEstabelecimento.setOnClickListener(new View.OnClickListener() {
+        ConstraintLayout clAdicionarFotos = findViewById(R.id.clAdicionarFotos);
+        clAdicionarFotos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dispatchGalleryOrCameraIntent();
@@ -242,8 +195,8 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
         if(f != null) {
 
             // setamos o endereço do arquivo criado dentro do ViewModel
-            CadastrarEstabelecimentoViewModel addProductViewModel = new ViewModelProvider(this).get(CadastrarEstabelecimentoViewModel.class);
-            addProductViewModel.setCurrentPhotoPath(f.getAbsolutePath());
+            CadastrarComentarioViewModel cadastrarComentarioViewModel  = new ViewModelProvider(this).get(CadastrarEstabelecimentoViewModel.class);
+            cadastrarComentarioViewModel.setCurrentPhotoPath(f.getAbsolutePath());
 
             // Criamos e configuramos o INTENT que dispara a câmera
             Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -292,12 +245,12 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
         if(requestCode == RESULT_TAKE_PICTURE) {
 
             // Pegamos o endereço do arquivo vazio que foi criado para guardar a foto escolhida
-            CadastrarEstabelecimentoViewModel addProductViewModel = new ViewModelProvider(this).get(CadastrarEstabelecimentoViewModel.class);
-            String currentPhotoPath = addProductViewModel.getCurrentPhotoPath();
+            CadastrarComentarioViewModel cadastrarComentarioViewModel = new ViewModelProvider(this).get(CadastrarEstabelecimentoViewModel.class);
+            String currentPhotoPath = CadastrarComentarioViewModel.getCurrentPhotoPath();
 
             // Se a foto foi efetivamente escolhida pelo usuário...
             if(resultCode == RESULT_OK) {
-                ImageView imvEstabelecimentoCadastrarEstabelecimento = findViewById(R.id.imvCadastrarEstabelecimento);
+                ImageView imbtnSeloAvaliacao = findViewById(R.id.imbtnSeloAvaliacao);
 
                 // se o usuário escolheu a câmera, então quando esse método é chamado, a foto tirada
                 // já está salva dentro do arquivo currentPhotoPath. Entretanto, se o usuário
@@ -316,8 +269,8 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                 }
 
                 // Carregamos a foto salva em currentPhotoPath com a escala correta e setamos no ImageView
-                Bitmap bitmap = Util.getBitmap(currentPhotoPath, imvEstabelecimentoCadastrarEstabelecimento.getWidth(), imvEstabelecimentoCadastrarEstabelecimento.getHeight());
-                imvEstabelecimentoCadastrarEstabelecimento.setImageBitmap(bitmap);
+                Bitmap bitmap = Util.getBitmap(currentPhotoPath, imbtnSeloAvaliacao.getWidth(), imbtnSeloAvaliacao.getHeight());
+                imbtnSeloAvaliacao.setImageBitmap(bitmap);
             }
             else {
                 // Se a imagem não foi escolhida, deletamos o arquivo que foi criado para guardá-la
@@ -326,29 +279,5 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                 addProductViewModel.setCurrentPhotoPath("");
             }
         }
-    }
-
-    public LatLng getLocationFromAddress(Context context, String strAddress) {
-
-        Geocoder coder = new Geocoder(context);
-        List<Address> address;
-        LatLng p1 = null;
-
-        try {
-            // May throw an IOException
-            address = coder.getFromLocationName(strAddress, 5);
-            if (address == null) {
-                return null;
-            }
-
-            Address location = address.get(0);
-            p1 = new LatLng(location.getLatitude(), location.getLongitude() );
-
-        } catch (IOException ex) {
-
-            ex.printStackTrace();
-        }
-
-        return p1;
     }
 }

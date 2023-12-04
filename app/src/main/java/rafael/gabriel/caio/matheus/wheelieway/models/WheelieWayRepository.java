@@ -165,17 +165,18 @@ public class WheelieWayRepository {
      * @param fotoAvaliacao foto do estabelecimento avaliado
      * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
      */
-    public boolean cadastrarComentario (String fotoUsuario, String nomeUsuario, String descricao, String fotoAvaliacao, String nota){
+    public boolean cadastrarComentario (String descricao, List<String> fotoPaths, String nota){
 
         String login = Config.getLogin(context);
         String password = Config.getPassword(context);
 
-        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "cadastroestabelecimento.php", "POST", "UTF-8");
-        httpRequest.addParam("fotoUsuario", fotoUsuario);
-        httpRequest.addParam("nomeUsuario", nomeUsuario);
+        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL + "cadastrocometario.php", "POST", "UTF-8");
+        httpRequest.addParam("email", login);
         httpRequest.addParam("descricao", descricao);
-        httpRequest.addParam("fotoAvaliacao", fotoAvaliacao);
         httpRequest.addParam("nota", nota);
+        for(int i = 0; i < fotoPaths.size(); i++) {
+            httpRequest.addFile("img" + String.valueOf(i), new File(fotoPaths.get(i)));
+        }
 
         httpRequest.setBasicAuth(login, password);
 

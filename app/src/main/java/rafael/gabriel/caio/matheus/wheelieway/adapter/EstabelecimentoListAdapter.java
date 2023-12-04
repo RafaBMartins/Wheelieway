@@ -50,11 +50,11 @@ public class EstabelecimentoListAdapter extends PagingDataAdapter<Estabeleciment
         TextView tvNota = holder.itemView.findViewById(R.id.tvNotaEstabelecimentoItem);
         tvNota.setText(estabelecimentoItem.nota);
 
-       /* holder.itemView.setOnClickListener(new View.OnClickListener(){
+       holder.itemView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                homeActivity.startView
+                homeActivity.startViewEstabelecimentoActivity(estabelecimentoItem.id);
             }
-        });*/
+        });
     }
 }

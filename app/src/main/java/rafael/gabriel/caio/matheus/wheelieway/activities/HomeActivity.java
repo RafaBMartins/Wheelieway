@@ -85,4 +85,16 @@ public class HomeActivity extends AppCompatActivity {
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
+    public void startViewEstabelecimentoActivity(String pid) {
+        Intent i = new Intent(this, ViewEstabelecimentoActivity.class);
+        i.putExtra("pid", pid);
+        startActivity(i);
+    }
+
+    public void startViewComentarioActivity(String pid) {
+        Intent i = new Intent(this, ViewComentarioActivity.class);
+        i.putExtra("pid", pid);
+        startActivity(i);
+    }
 }

@@ -7,25 +7,24 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class CadastrarComentarioViewModel extends AndroidViewModel {
 
-    String currentPhotoPath = "";
+    List<String> fotoPaths = new ArrayList<>();
 
     public CadastrarComentarioViewModel(@NonNull Application application) {
         super(application);
     }
 
-    public String getCurrentPhotoPath() {
-        return currentPhotoPath;
+    public List<String> getFotoPaths() {
+        return fotoPaths;
     }
 
-    public void setCurrentPhotoPath(String currentPhotoPath) {
-        this.currentPhotoPath = currentPhotoPath;
-    }
-    public LiveData<Boolean> cadastrarComentario(String fotoUsuario, String nomeUsuario, String descricao, String fotoAvaliacao, String nota) {
+
+    public LiveData<Boolean> cadastrarComentario(String fotoUsuario, String nomeUsuario, String descricao, List<String> fotoPaths, String nota) {
 
         // Cria um container do tipo MutableLiveData (um LiveData que pode ter seu conteúdo alterado).
         MutableLiveData<Boolean> result = new MutableLiveData<>();
@@ -52,7 +51,7 @@ public class CadastrarComentarioViewModel extends AndroidViewModel {
                 // O método login envia os dados d e autenticação ao servidor. Ele retorna
                 // um booleano indicando true caso o login tenha sido feito com sucesso e false
                 // em caso contrário
-                boolean b = wheelieWay.cadastrarComentario(fotoUsuario, nomeUsuario, descricao, fotoAvaliacao, nota);
+                boolean b = wheelieWay.cadastrarComentario(fotoUsuario, nomeUsuario, descricao, fotoPaths, nota);
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.

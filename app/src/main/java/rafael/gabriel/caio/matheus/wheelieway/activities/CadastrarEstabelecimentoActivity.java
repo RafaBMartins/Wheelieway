@@ -238,8 +238,8 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
         if(f != null) {
 
             // setamos o endereço do arquivo criado dentro do ViewModel
-            CadastrarEstabelecimentoViewModel addProductViewModel = new ViewModelProvider(this).get(CadastrarEstabelecimentoViewModel.class);
-            addProductViewModel.setCurrentPhotoPath(f.getAbsolutePath());
+            CadastrarEstabelecimentoViewModel cadastrarEstabelecimentoViewModel = new ViewModelProvider(this).get(CadastrarEstabelecimentoViewModel.class);
+            cadastrarEstabelecimentoViewModel.setCurrentPhotoPath(f.getAbsolutePath());
 
             // Criamos e configuramos o INTENT que dispara a câmera
             Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

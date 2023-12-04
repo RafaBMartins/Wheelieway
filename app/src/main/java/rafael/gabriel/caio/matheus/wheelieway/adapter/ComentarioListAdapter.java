@@ -56,5 +56,12 @@ public class ComentarioListAdapter extends PagingDataAdapter<ComentarioItem, raf
 
         TextView tvNota = holder.itemView.findViewById(R.id.tvComentarioItemNota);
         tvNota.setText(comentarioItem.nota);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                homeActivity.startViewComentarioActivity(comentarioItem.id);
+            }
+        });
     }
 }
