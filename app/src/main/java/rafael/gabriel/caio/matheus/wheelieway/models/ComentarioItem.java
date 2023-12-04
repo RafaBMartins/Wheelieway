@@ -6,6 +6,7 @@ public class ComentarioItem {
     public String imgFotoUsuario;
 
     public String nome;
+
     public String nota;
     public String descricao;
     public String data;

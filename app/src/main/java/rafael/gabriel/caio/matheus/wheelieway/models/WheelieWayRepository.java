@@ -218,7 +218,7 @@ public class WheelieWayRepository {
      * @return lista de estabelecimentos
      */
 
-    public List<EstabelecimentoItem> loadEstabelecimentos (Integer limit, Integer offSet, Double lat, Double lon) {
+    public List<EstabelecimentoItem> loadEstabelecimentos (Integer limit, Integer offSet) {
 
         List<EstabelecimentoItem> estabelecimentosList = new ArrayList<>();
 
@@ -303,7 +303,7 @@ public class WheelieWayRepository {
 
             if(success == 1){
 
-                JSONArray jsonArray = jsonObject.getJSONArray("estabelecimentos");
+                JSONArray jsonArray = jsonObject.getJSONArray("comentarios");
 
                 for(int i = 0; i < jsonArray.length(); i++) {
 

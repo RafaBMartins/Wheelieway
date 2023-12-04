@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.github.siyamed.shapeimageview.CircularImageView
-            android:id="@+id/imvFotoUsuario"
+            android:id="@+id/imvFotoUsuarioCadastrarComentario"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -33,7 +33,7 @@
             android:text="Nome Usuario"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imvFotoUsuario"
+            app:layout_constraintStart_toEndOf="@+id/imvFotoUsuarioCadastrarComentario"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
