@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -51,7 +52,7 @@ public class CadastrarComentarioViewModel extends AndroidViewModel {
                 // O método login envia os dados d e autenticação ao servidor. Ele retorna
                 // um booleano indicando true caso o login tenha sido feito com sucesso e false
                 // em caso contrário
-                boolean b = wheelieWay.cadastrarComentario(fotoUsuario, nomeUsuario, descricao, fotoPaths, nota);
+                boolean b = wheelieWay.cadastrarComentario(fotoUsuario, fotoPaths, nota);
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.

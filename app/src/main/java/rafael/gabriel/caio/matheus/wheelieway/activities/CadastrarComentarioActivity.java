@@ -41,7 +41,7 @@ import rafael.gabriel.caio.matheus.wheelieway.models.CadastrarEstabelecimentoVie
 import rafael.gabriel.caio.matheus.wheelieway.util.Util;
 
 public class CadastrarComentarioActivity extends AppCompatActivity {
-
+/*
     static int RESULT_TAKE_PICTURE = 1;
 
     @Override
@@ -180,6 +180,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
      * Esse método exibe um pequeno menu de opções que permite que o usuário escolha de onde virá
      * a imagem do produto: câmera ou galeria.
      */
+    /*
     private void dispatchGalleryOrCameraIntent() {
 
         // Primeiro, criamos o arquivo que irá guardar a imagem.
@@ -195,7 +196,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
         if(f != null) {
 
             // setamos o endereço do arquivo criado dentro do ViewModel
-            CadastrarComentarioViewModel cadastrarComentarioViewModel  = new ViewModelProvider(this).get(CadastrarEstabelecimentoViewModel.class);
+            CadastrarComentarioViewModel cadastrarComentarioViewModel  = new ViewModelProvider(this).get(CadastrarComentarioViewModel.class);
             cadastrarComentarioViewModel.setCurrentPhotoPath(f.getAbsolutePath());
 
             // Criamos e configuramos o INTENT que dispara a câmera
@@ -219,7 +220,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
         }
 
 
-    }
+    }*/
 
     /**
      * Método que cria um arquivo vazio, onde será guardada a imagem escolhida. O arquivo é
@@ -227,6 +228,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
      * data e hora do momento da criação do arquivo. Isso garante que sempre que esse método for
      * chamado, não haverá risco de sobrescrever o arquivo anterior.
      */
+    /*
     private File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp;
@@ -238,7 +240,8 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
     /**
      * Esse método é chamado depois que o usuário escolhe a foto
      */
-    @Override
+    /*
+   @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -279,5 +282,5 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                 addProductViewModel.setCurrentPhotoPath("");
             }
         }
-    }
+    }*/
 }

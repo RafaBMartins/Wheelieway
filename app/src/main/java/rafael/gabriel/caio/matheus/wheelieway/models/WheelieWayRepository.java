@@ -215,7 +215,7 @@ public class WheelieWayRepository {
 
         List<EstabelecimentoItem> estabelecimentosList = new ArrayList<>();
 
-        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL +"selectEstabelecimento.php", "GET", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL +"phpMobile/carregaEstabelecimentos.php", "GET", "UTF-8");
         httpRequest.addParam("limit", limit.toString());
         httpRequest.addParam("offset", offSet.toString());
 
@@ -242,21 +242,29 @@ public class WheelieWayRepository {
 
                     JSONObject jEstabelecimento = jsonArray.getJSONObject(i);
 
+                    String id = jEstabelecimento.getString("id");
                     String nome = jEstabelecimento.getString("nome");
-                    String imgEstabelecimento = jEstabelecimento.getString("imgEstabelecimento");
+                    String nota_media = jEstabelecimento.getString("nota_media");
+                    String uri_image = jEstabelecimento.getString("uri_image");
                     String distancia = jEstabelecimento.getString("distancia");
-                    String nota = jEstabelecimento.getString("nota");
                     String selo = jEstabelecimento.getString("selo");
                     String tipoEstabelecimento = jEstabelecimento.getString("tipoEstabelecimento");
+                    String cidade = jEstabelecimento.getString("cidade");
+                    String logradouro = jEstabelecimento.getString("logradouro");
+                    String tipo_logradouro = jEstabelecimento.getString("tipo_logradouro");
 
 
                     EstabelecimentoItem estabelecimento = new EstabelecimentoItem();
+                    estabelecimento.id = id;
                     estabelecimento.nome = nome;
                     estabelecimento.selo = selo;
                     estabelecimento.tipoEstabelecimento = tipoEstabelecimento;
                     estabelecimento.distancia = distancia;
-                    estabelecimento.imgEstabelecimento = imgEstabelecimento;
-                    estabelecimento.nota = nota;
+                    estabelecimento.imgEstabelecimento = uri_image;
+                    estabelecimento.nota = nota_media;
+                    estabelecimento.cidade = cidade;
+                    estabelecimento.logradouro = logradouro;
+                    estabelecimento.tipologradouro = tipo_logradouro;
 
                     estabelecimentosList.add(estabelecimento);
 

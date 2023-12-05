@@ -3,6 +3,8 @@ package rafael.gabriel.caio.matheus.wheelieway.models;
 import org.json.JSONArray;
 
 public class ComentarioItem {
+    public String id;
+
     public String imgFotoUsuario;
 
     public String nome;
