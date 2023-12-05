@@ -91,7 +91,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                 }
 
                 RatingBar rbAvaliacao = findViewById(R.id.rbAvaliacao);
-                String nota = rbAvaliacao.getRating().toString();
+                String nota = String.valueOf(rbAvaliacao.getRating());
                 if(nota.isEmpty()) {
                     Toast.makeText(CadastrarComentarioActivity.this, "A nota do comentário não foi preenchida", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
@@ -118,7 +118,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                 // um tamanho proporcional ao tamamnho original.
                 try {
                     int h = (int) getResources().getDimension(R.dimen.img_height);
-                    Util.scaleImage(currentPhotoPath, -1, 2*h);
+                    Util.scaleImage(fotoPaths.get(i), -1, 2*h);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                     return;

@@ -157,14 +157,6 @@ public class WheelieWayRepository {
         return false;
     }
 
-    /**
-     * Método que cria uma requisição HTTP para cadastrar uma nova avaliação junto ao servidor web.
-     * @param fotoUsuario foto do usuário
-     * @param nomeUsuario nome do usuário
-     * @param descricao descrição do comentário
-     * @param fotoAvaliacao foto do estabelecimento avaliado
-     * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
-     */
     public boolean cadastrarComentario (String descricao, List<String> fotoPaths, String nota){
 
         String login = Config.getLogin(context);
@@ -223,7 +215,7 @@ public class WheelieWayRepository {
 
         List<EstabelecimentoItem> estabelecimentosList = new ArrayList<>();
 
-        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL +"insertEstabelecimento.php", "GET", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL +"selectEstabelecimento.php", "GET", "UTF-8");
         httpRequest.addParam("limit", limit.toString());
         httpRequest.addParam("offset", offSet.toString());
 
