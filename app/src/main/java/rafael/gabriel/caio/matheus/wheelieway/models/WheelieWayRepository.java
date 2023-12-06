@@ -1,6 +1,8 @@
 package rafael.gabriel.caio.matheus.wheelieway.models;
 
 import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -215,9 +217,47 @@ public class WheelieWayRepository {
 
         List<EstabelecimentoItem> estabelecimentosList = new ArrayList<>();
 
+        Location. gps_loc;
+        Location network_loc;
+        Location final_loc;
+        double longitude;
+        double latitude;
+
+        LocationManager locationManager = (LocationManager) this.context.getSystemService(Context.LOCATION_SERVICE);
+
+        try {
+
+            gps_loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            network_loc = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+
+            if (gps_loc != null) {
+                final_loc = gps_loc;
+                latitude = final_loc.getLatitude();
+                longitude = final_loc.getLongitude();
+            }
+            else if (network_loc != null) {
+                final_loc = network_loc;
+                latitude = final_loc.getLatitude();
+                longitude = final_loc.getLongitude();
+            }
+            else {
+                latitude = 0.0;
+                longitude = 0.0;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return estabelecimentosList;
+        }
+
+
+
         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL +"phpMobile/carregaEstabelecimentos.php", "GET", "UTF-8");
         httpRequest.addParam("limit", limit.toString());
         httpRequest.addParam("offset", offSet.toString());
+        httpRequest.addParam("latitude", String.valueOf(latitude));
+        httpRequest.addParam("longitude", String.valueOf(longitude));
+
 
 
         String result = "";
@@ -243,12 +283,11 @@ public class WheelieWayRepository {
                     JSONObject jEstabelecimento = jsonArray.getJSONObject(i);
 
                     String id = jEstabelecimento.getString("id");
-                    String nome = jEstabelecimento.getString("nome");
+                    String nome = jEstabelecimento.getString("nome_estabelecimento");
                     String nota_media = jEstabelecimento.getString("nota_media");
-                    String uri_image = jEstabelecimento.getString("uri_image");
+                    String uri_image = jEstabelecimento.getString("foto_estabelecimento");
                     String distancia = jEstabelecimento.getString("distancia");
-                    String selo = jEstabelecimento.getString("selo");
-                    String tipoEstabelecimento = jEstabelecimento.getString("tipoEstabelecimento");
+                    String tipoEstabelecimento = jEstabelecimento.getString("tipo_estabelecimento");
                     String cidade = jEstabelecimento.getString("cidade");
                     String logradouro = jEstabelecimento.getString("logradouro");
                     String tipo_logradouro = jEstabelecimento.getString("tipo_logradouro");
@@ -257,7 +296,6 @@ public class WheelieWayRepository {
                     EstabelecimentoItem estabelecimento = new EstabelecimentoItem();
                     estabelecimento.id = id;
                     estabelecimento.nome = nome;
-                    estabelecimento.selo = selo;
                     estabelecimento.tipoEstabelecimento = tipoEstabelecimento;
                     estabelecimento.distancia = distancia;
                     estabelecimento.imgEstabelecimento = uri_image;

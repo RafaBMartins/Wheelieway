@@ -115,7 +115,7 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                 }
 
                 Spinner spTiposEstabelecimentoCadastrarEstabelecimento = findViewById(R.id.spTiposEstabelecimentoCadastrarEstabelecimento);
-                String tipoEstabelecimento = spTiposEstabelecimentoCadastrarEstabelecimento.getSelectedItem().toString();
+                String tipoEstabelecimento = String.valueOf(spTiposEstabelecimentoCadastrarEstabelecimento.getSelectedItemPosition());
                 if(tipoEstabelecimento.isEmpty()) {
                     Toast.makeText(CadastrarEstabelecimentoActivity.this, "O campo de tipo do estabelecimento não foi preenchido", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);

@@ -43,7 +43,7 @@ public class EstabelecimentoListAdapter extends PagingDataAdapter<Estabeleciment
         tvDistancia.setText(estabelecimentoItem.distancia);
 
         int w = (int) homeActivity.getResources().getDimension(R.dimen.thumb_width);
-        int h = (int) homeActivity.getResources().getDimension(R.dimen.thumb_height);;
+        int h = (int) homeActivity.getResources().getDimension(R.dimen.thumb_height);
         ImageView imgEstabelecimento = holder.itemView.findViewById(R.id.imvEstabelecimentoItem);
         ImageCache.loadImageUrlToImageView(homeActivity, estabelecimentoItem.imgEstabelecimento, imgEstabelecimento, w, h);
 

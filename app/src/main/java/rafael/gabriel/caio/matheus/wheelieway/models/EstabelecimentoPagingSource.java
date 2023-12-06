@@ -96,7 +96,6 @@ public class EstabelecimentoPagingSource extends ListenableFuturePagingSource<In
                         nextKey);
             }
         });
-
         return lf;
     }
 }

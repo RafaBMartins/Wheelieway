@@ -7,7 +7,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
 
     static int RESULT_TAKE_PICTURE = 1;
 
-    @Override
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_comentario);
@@ -16,8 +16,9 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
         CadastrarComentarioViewModel cadastrarComentarioViewModel  = new ViewModelProvider(this).get(CadastrarComentarioViewModel.class);
 
         // O ViewModel guarda o local da última foto escolhida pelo usuário.
-        // Aqui, verificamos se já existe uma foto selecionada pelo usuário. Se sim, nós setamos
-        /*// essa foto no ImageView.
+        // Aqui, verificamos se já existe uma foto selecionada pelo usuário. Se sim, nós setamos essa foto no ImageView.
+
+
         List<String> fotoPaths = cadastrarComentarioViewModel.getFotoPaths();
         if(!fotoPaths.isEmpty()) {
             ConstraintLayout clAdicionarFotos = findViewById(R.id.clAdicionarFotos);
@@ -31,7 +32,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
         }*/
 
         // Quando o usuário clicar no botão adicionar...
-        Button btnPostarAvaliacao = findViewById(R.id.btnPostarAvaliacao);
+        /*Button btnPostarAvaliacao = findViewById(R.id.btnPostarAvaliacao);
         btnPostarAvaliacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -246,4 +247,4 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
             }
         }
     }*/
-}}
+}
