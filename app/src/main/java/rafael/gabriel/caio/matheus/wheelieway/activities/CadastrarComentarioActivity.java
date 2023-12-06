@@ -1,7 +1,25 @@
 
 package rafael.gabriel.caio.matheus.wheelieway.activities;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RatingBar;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
+import java.io.FileNotFoundException;
+import java.util.List;
+
+import rafael.gabriel.caio.matheus.wheelieway.R;
+import rafael.gabriel.caio.matheus.wheelieway.models.CadastrarComentarioViewModel;
+import rafael.gabriel.caio.matheus.wheelieway.util.Util;
 
 public class CadastrarComentarioActivity extends AppCompatActivity {
 
@@ -62,11 +80,6 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                 }
 
                 List<String> fotoPaths = cadastrarComentarioViewModel.getFotoPaths();
-                if(fotoPaths.isEmpty()) {
-                    Toast.makeText(CadastrarComentarioActivity.this, "A foto do comentário não foi preenchida", Toast.LENGTH_LONG).show();
-                    v.setEnabled(true);
-                    return;
-                }
 
                 // Neste ponto, já verificamos que todos os campos foram preenchidos corretamente.
                 // Antes enviar esses dados ao servidor, nós fazemos uma escala na imagem escolhida
@@ -79,13 +92,14 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                 // A imagem é escalada de forma que sua altura fique em 300dp (tamanho do ImageView
                 // que exibe os detalhes de um produto. A largura vai possuir
                 // um tamanho proporcional ao tamamnho original.
-                try {
+2
+                /*try {
                     int h = (int) getResources().getDimension(R.dimen.img_height);
                     Util.scaleImage(fotoPaths.get(i), -1, 2*h);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                     return;
-                }
+                }*/
 
                 // O ViewModel possui o método addProduct, que envia os dados do novo produto para o
                 // servidor web.O servidor web recebe esses dados e cadastra um novo produto. Se o
@@ -94,7 +108,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                 //
                 // O método de addProduct retorna um LiveData, que na prática é um container que avisa
                 // quando o resultado do servidor chegou.
-                LiveData<Boolean> resultLD = cadastrarComentarioViewModel.cadastrarComentario(descricao, List<String> fotoPaths);
+                LiveData<Boolean> resultLD = cadastrarComentarioViewModel.cadastrarComentario("https://s3.wasabisys.com/instax/74/instax/2023/03/foto-de-por-do-sol-1678156462-2048x1365.jpeg", "Zeca", descricao, fotoPaths, String.valueOf(rbAvaliacao));
 
                 // Aqui nós observamos o LiveData. Quando o servidor responder, o resultado indicando
                 // se o cadastro do produto deu certo ou não será guardado dentro do LiveData. Neste momento o

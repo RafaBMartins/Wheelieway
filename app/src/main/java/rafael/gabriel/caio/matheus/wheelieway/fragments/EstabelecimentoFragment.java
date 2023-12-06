@@ -1,14 +1,32 @@
 package rafael.gabriel.caio.matheus.wheelieway.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.paging.PagingData;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
+
 import rafael.gabriel.caio.matheus.wheelieway.R;
+import rafael.gabriel.caio.matheus.wheelieway.activities.CadastrarComentarioActivity;
+import rafael.gabriel.caio.matheus.wheelieway.activities.CadastrarEstabelecimentoActivity;
+import rafael.gabriel.caio.matheus.wheelieway.adapter.EstabelecimentoComparator;
+import rafael.gabriel.caio.matheus.wheelieway.adapter.EstabelecimentoListAdapter;
+import rafael.gabriel.caio.matheus.wheelieway.models.EstabelecimentoItem;
+import rafael.gabriel.caio.matheus.wheelieway.models.HomeViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +43,7 @@ public class EstabelecimentoFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private View view;
 
     public EstabelecimentoFragment() {
         // Required empty public constructor
@@ -62,5 +81,19 @@ public class EstabelecimentoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_estabelecimento, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+
+        FloatingActionButton fab = view.findViewById(R.id.fabAdicionarComentarioEstabelecimento);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), CadastrarComentarioActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }

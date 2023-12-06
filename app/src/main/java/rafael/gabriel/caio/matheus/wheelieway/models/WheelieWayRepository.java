@@ -217,7 +217,7 @@ public class WheelieWayRepository {
 
         List<EstabelecimentoItem> estabelecimentosList = new ArrayList<>();
 
-        Location. gps_loc;
+        Location gps_loc;
         Location network_loc;
         Location final_loc;
         double longitude;
