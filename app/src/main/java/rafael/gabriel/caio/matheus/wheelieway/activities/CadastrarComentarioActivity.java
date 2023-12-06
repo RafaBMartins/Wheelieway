@@ -1,47 +1,10 @@
 
 package rafael.gabriel.caio.matheus.wheelieway.activities;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.location.Address;
-import android.location.Geocoder;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RatingBar;
-import android.widget.Spinner;
-import android.widget.Toast;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.FileProvider;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
-import com.google.android.gms.maps.model.LatLng;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
-import rafael.gabriel.caio.matheus.wheelieway.R;
-import rafael.gabriel.caio.matheus.wheelieway.models.CadastrarComentarioViewModel;
-import rafael.gabriel.caio.matheus.wheelieway.models.CadastrarEstabelecimentoViewModel;
-import rafael.gabriel.caio.matheus.wheelieway.util.Util;
 
 public class CadastrarComentarioActivity extends AppCompatActivity {
-/*
+
     static int RESULT_TAKE_PICTURE = 1;
 
     @Override
@@ -52,10 +15,9 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
         // obtenção do ViewModel
         CadastrarComentarioViewModel cadastrarComentarioViewModel  = new ViewModelProvider(this).get(CadastrarComentarioViewModel.class);
 
-
         // O ViewModel guarda o local da última foto escolhida pelo usuário.
         // Aqui, verificamos se já existe uma foto selecionada pelo usuário. Se sim, nós setamos
-        // essa foto no ImageView.
+        /*// essa foto no ImageView.
         List<String> fotoPaths = cadastrarComentarioViewModel.getFotoPaths();
         if(!fotoPaths.isEmpty()) {
             ConstraintLayout clAdicionarFotos = findViewById(R.id.clAdicionarFotos);
@@ -63,10 +25,10 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
             // de um objeto do tipo Bitmap. A imagem é carregada e sofre uma escala pra ficar
             // exatamente do tamanho do ImageView
             for(int i = 0; i < fotoPaths.size(); i++){
-                Bitmap bitmap = Util.getBitmap(fotoPaths.get(i), fotoPaths.get(i).getWidth(), fotoPaths.get(i).getHeight());
-                clAdicionarFotos.set(bitmap);
+                Bitmap bitmap = Util.getBitmap(fotoPaths.get(i));
+                clAdicionarFotos.;
             }
-        }
+        }*/
 
         // Quando o usuário clicar no botão adicionar...
         Button btnPostarAvaliacao = findViewById(R.id.btnPostarAvaliacao);
@@ -131,7 +93,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                 //
                 // O método de addProduct retorna um LiveData, que na prática é um container que avisa
                 // quando o resultado do servidor chegou.
-                LiveData<Boolean> resultLD = cadastrarComentarioViewModel.cadastrarComentario( descricao, List<String> fotoPaths);
+                LiveData<Boolean> resultLD = cadastrarComentarioViewModel.cadastrarComentario(descricao, List<String> fotoPaths);
 
                 // Aqui nós observamos o LiveData. Quando o servidor responder, o resultado indicando
                 // se o cadastro do produto deu certo ou não será guardado dentro do LiveData. Neste momento o
@@ -168,13 +130,14 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
         // nós exibimos um menu que permite que ele escolha uma imagem tanto via câmera ou via
         // galeria.
         ConstraintLayout clAdicionarFotos = findViewById(R.id.clAdicionarFotos);
+        /*
         clAdicionarFotos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dispatchGalleryOrCameraIntent();
             }
         });
-    }
+    }*/
 
     /**
      * Esse método exibe um pequeno menu de opções que permite que o usuário escolha de onde virá
@@ -283,4 +246,4 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
             }
         }
     }*/
-}
+}}

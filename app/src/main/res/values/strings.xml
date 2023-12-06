@@ -28,14 +28,13 @@
     <string name="cadastrar_estabelecimento_hint_tipo_estabelecimento">Coloque o tipo do estabelecimento</string>
     <string-array name="tipos_estabelecimento">
         <item>Tipo de Estabelecimento</item>
-        <item>Hotel</item>
-        <item>Centro educativo</item>
-        <item>Saúde</item>
-        <item>Lazer e esporte</item>
-        <item>Loja</item>
         <item>Restaurantes</item>
-        <item>Eventos e festas</item>
-        <item>Exemplo grande pra teste</item>
+        <item>Hoteis</item>
+        <item>Centros educativos</item>
+        <item>Lazer e esporte</item>
+        <item>Lojas</item>
+        <item>Hospitais</item>
+        <item>Academias</item>
     </string-array>
 
     <string-array name="estados">
