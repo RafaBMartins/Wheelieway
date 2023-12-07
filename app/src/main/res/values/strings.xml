@@ -29,12 +29,21 @@
     <string-array name="tipos_estabelecimento">
         <item>Tipo de Estabelecimento</item>
         <item>Restaurantes</item>
-        <item>Hoteis</item>
-        <item>Centros educativos</item>
-        <item>Lazer e esporte</item>
-        <item>Lojas</item>
+        <item>Padarias</item>
+        <item>Cafeterias</item>
+        <item>Bares</item>
+        <item>Hotéis</item>
+        <item>Cinemas</item>
+        <item>Shoppings</item>
+        <item>Supermercados</item>
+        <item>Lojas de Roupa</item>
         <item>Hospitais</item>
+        <item>Farmácias</item>
         <item>Academias</item>
+        <item>Escolas</item>
+        <item>Bibliotecas</item>
+        <item>Museus</item>
+        <item>Outros</item>
     </string-array>
 
     <string-array name="estados">

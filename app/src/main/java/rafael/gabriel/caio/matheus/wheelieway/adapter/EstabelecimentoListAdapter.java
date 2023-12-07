@@ -7,17 +7,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.paging.PagingDataAdapter;
 import androidx.recyclerview.widget.DiffUtil;
+
+import java.text.DecimalFormat;
 
 import rafael.gabriel.caio.matheus.wheelieway.R;
 import rafael.gabriel.caio.matheus.wheelieway.activities.HomeActivity;
 import rafael.gabriel.caio.matheus.wheelieway.models.EstabelecimentoItem;
 import rafael.gabriel.caio.matheus.wheelieway.util.ImageCache;
 
-public class EstabelecimentoListAdapter extends PagingDataAdapter<EstabelecimentoItem, rafael.gabriel.caio.matheus.wheelieway.adapter.MyViewHolder> {
+public class EstabelecimentoListAdapter extends PagingDataAdapter<EstabelecimentoItem, MyViewHolder> {
 
     HomeActivity homeActivity;
+
+    DecimalFormat numberFormat = new DecimalFormat("#.00");
     public EstabelecimentoListAdapter(HomeActivity homeActivity, @NonNull DiffUtil.ItemCallback<EstabelecimentoItem> diffCallback) {
         super(diffCallback);
         this.homeActivity = homeActivity;
@@ -39,18 +44,14 @@ public class EstabelecimentoListAdapter extends PagingDataAdapter<Estabeleciment
         TextView tvNome = holder.itemView.findViewById(R.id.tvEstabelecimentoItem);
         tvNome.setText(estabelecimentoItem.nome);
 
-        TextView tvDistancia = holder.itemView.findViewById(R.id.tvDistanciaEstabelecimentoItem);
-        tvDistancia.setText(estabelecimentoItem.distancia);
-
-        int w = (int) homeActivity.getResources().getDimension(R.dimen.thumb_width);
-        int h = (int) homeActivity.getResources().getDimension(R.dimen.thumb_height);
         ImageView imgEstabelecimento = holder.itemView.findViewById(R.id.imvEstabelecimentoItem);
-        ImageCache.loadImageUrlToImageView(homeActivity, estabelecimentoItem.imgEstabelecimento, imgEstabelecimento, w, h);
+        ImageCache.loadImageUrlToImageView(homeActivity, estabelecimentoItem.imgEstabelecimento, imgEstabelecimento, 100, 100);
 
         TextView tvNota = holder.itemView.findViewById(R.id.tvNotaEstabelecimentoItem);
         tvNota.setText(estabelecimentoItem.nota);
 
-       holder.itemView.setOnClickListener(new View.OnClickListener(){
+        ConstraintLayout constraintLayout = holder.itemView.findViewById(R.id.clEstabelecimentoItem);
+       constraintLayout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 homeActivity.startViewEstabelecimentoActivity(estabelecimentoItem.id);

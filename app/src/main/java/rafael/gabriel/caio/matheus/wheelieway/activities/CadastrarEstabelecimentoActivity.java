@@ -191,8 +191,10 @@ public class CadastrarEstabelecimentoActivity extends AppCompatActivity {
                         if(aBoolean == true) {
                             Toast.makeText(CadastrarEstabelecimentoActivity.this, "Estabelecimento adicionado com sucesso", Toast.LENGTH_LONG).show();
                             // indica que a Activity terminou com resultado positivo e a finaliza
-                            setResult(RESULT_OK);
+                            Intent i = new Intent(CadastrarEstabelecimentoActivity.this, HomeActivity.class);
+                            startActivity(i);
                             finish();
+
                         }
                         else {
                             // Se o cadastro não deu certo, apenas continuamos na tela de cadastro e

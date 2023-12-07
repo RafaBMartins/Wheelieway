@@ -1,6 +1,7 @@
 
 package rafael.gabriel.caio.matheus.wheelieway.activities;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
 
@@ -24,8 +26,8 @@ import rafael.gabriel.caio.matheus.wheelieway.util.Util;
 public class CadastrarComentarioActivity extends AppCompatActivity {
 
     static int RESULT_TAKE_PICTURE = 1;
-
-    /*@Override
+/*
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_comentario);
@@ -47,10 +49,10 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                 Bitmap bitmap = Util.getBitmap(fotoPaths.get(i));
                 clAdicionarFotos.;
             }
-        }*/
+        }
 
         // Quando o usuário clicar no botão adicionar...
-        /*Button btnPostarAvaliacao = findViewById(R.id.btnPostarAvaliacao);
+        Button btnPostarAvaliacao = findViewById(R.id.btnPostarAvaliacao);
         btnPostarAvaliacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +67,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                 // preencher, habilitamos novamente o botão de adicionar e retornamos.
                 EditText etComentarioAvaliacao = findViewById(R.id.etComentarioAvaliacao);
                 String descricao = etComentarioAvaliacao.getText().toString();
-                if(descricao.isEmpty()) {
+                if (descricao.isEmpty()) {
                     Toast.makeText(CadastrarComentarioActivity.this, "A descriçao do comentário não foi preenchida", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
                     return;
@@ -73,7 +75,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
 
                 RatingBar rbAvaliacao = findViewById(R.id.rbAvaliacao);
                 String nota = String.valueOf(rbAvaliacao.getRating());
-                if(nota.isEmpty()) {
+                if (nota.isEmpty()) {
                     Toast.makeText(CadastrarComentarioActivity.this, "A nota do comentário não foi preenchida", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
                     return;
@@ -92,23 +94,23 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                 // A imagem é escalada de forma que sua altura fique em 300dp (tamanho do ImageView
                 // que exibe os detalhes de um produto. A largura vai possuir
                 // um tamanho proporcional ao tamamnho original.
-2
-                /*try {
+/*
+                try {
                     int h = (int) getResources().getDimension(R.dimen.img_height);
                     Util.scaleImage(fotoPaths.get(i), -1, 2*h);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                     return;
-                }*/
-
-                // O ViewModel possui o método addProduct, que envia os dados do novo produto para o
-                // servidor web.O servidor web recebe esses dados e cadastra um novo produto. Se o
-                // produto foi cadastrado com sucesso, a app recebe o valor true. Se não o servidor
-                // retorna o valor false.
-                //
-                // O método de addProduct retorna um LiveData, que na prática é um container que avisa
-                // quando o resultado do servidor chegou.
-                LiveData<Boolean> resultLD = cadastrarComentarioViewModel.cadastrarComentario("https://s3.wasabisys.com/instax/74/instax/2023/03/foto-de-por-do-sol-1678156462-2048x1365.jpeg", "Zeca", descricao, fotoPaths, String.valueOf(rbAvaliacao));
+                }
+*/
+    // O ViewModel possui o método addProduct, que envia os dados do novo produto para o
+    // servidor web.O servidor web recebe esses dados e cadastra um novo produto. Se o
+    // produto foi cadastrado com sucesso, a app recebe o valor true. Se não o servidor
+    // retorna o valor false.
+    //
+    // O método de addProduct retorna um LiveData, que na prática é um container que avisa
+    // quando o resultado do servidor chegou.
+               /* LiveData<Boolean> resultLD = cadastrarComentarioViewModel.cadastrarComentario("https://s3.wasabisys.com/instax/74/instax/2023/03/foto-de-por-do-sol-1678156462-2048x1365.jpeg", "Zeca", descricao, fotoPaths, String.valueOf(rbAvaliacao));
 
                 // Aqui nós observamos o LiveData. Quando o servidor responder, o resultado indicando
                 // se o cadastro do produto deu certo ou não será guardado dentro do LiveData. Neste momento o
@@ -121,13 +123,12 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                         // através de uma mensagem do tipo toast e finalizamos a Activity. Quando
                         // finalizamos a Activity, voltamos para a tela home, que mostra a lista de
                         // produtos.
-                        if(aBoolean == true) {
+                        if (aBoolean == true) {
                             Toast.makeText(CadastrarComentarioActivity.this, "Comentário adicionado com sucesso", Toast.LENGTH_LONG).show();
                             // indica que a Activity terminou com resultado positivo e a finaliza
                             setResult(RESULT_OK);
                             finish();
-                        }
-                        else {
+                        } else {
                             // Se o cadastro não deu certo, apenas continuamos na tela de cadastro e
                             // indicamos com uma mensagem ao usuário que o cadastro não deu certo.
                             // Reabilitamos também o botão de adicionar, para permitir que o usuário
@@ -139,12 +140,11 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
                     }
                 });
             }
-        });
 
-        // Quando o usuário clica no ImageView que mostra a imagem do produto a ser cadastrado,
-        // nós exibimos um menu que permite que ele escolha uma imagem tanto via câmera ou via
-        // galeria.
-        ConstraintLayout clAdicionarFotos = findViewById(R.id.clAdicionarFotos);
+            // Quando o usuário clica no ImageView que mostra a imagem do produto a ser cadastrado,
+            // nós exibimos um menu que permite que ele escolha uma imagem tanto via câmera ou via
+            // galeria.
+            /*ConstraintLayout clAdicionarFotos = findViewById(R.id.clAdicionarFotos);*/
         /*
         clAdicionarFotos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,7 +158,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
      * Esse método exibe um pequeno menu de opções que permite que o usuário escolha de onde virá
      * a imagem do produto: câmera ou galeria.
      */
-    /*
+/*
     private void dispatchGalleryOrCameraIntent() {
 
         // Primeiro, criamos o arquivo que irá guardar a imagem.
@@ -206,7 +206,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
      * data e hora do momento da criação do arquivo. Isso garante que sempre que esse método for
      * chamado, não haverá risco de sobrescrever o arquivo anterior.
      */
-    /*
+/*
     private File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp;
@@ -218,7 +218,7 @@ public class CadastrarComentarioActivity extends AppCompatActivity {
     /**
      * Esse método é chamado depois que o usuário escolhe a foto
      */
-    /*
+/*
    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

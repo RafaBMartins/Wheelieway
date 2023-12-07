@@ -34,8 +34,6 @@ import rafael.gabriel.caio.matheus.wheelieway.models.HomeViewModel;
  */
 public class PrincipalFragment extends Fragment {
 
-    HomeActivity homeActivity;
-
     private HomeViewModel homeViewModel;
 
     private View view;
@@ -63,7 +61,7 @@ public class PrincipalFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
         homeViewModel = new ViewModelProvider(getActivity()).get(HomeViewModel.class);
-        EstabelecimentoListAdapter listAdapter = new EstabelecimentoListAdapter(homeActivity, new EstabelecimentoComparator());
+        EstabelecimentoListAdapter listAdapter = new EstabelecimentoListAdapter((HomeActivity) getActivity(), new EstabelecimentoComparator());
         LiveData<PagingData<EstabelecimentoItem>> liveData = homeViewModel.getPageEi();
         liveData.observe(getViewLifecycleOwner(), new Observer<PagingData<EstabelecimentoItem>>() {
             @Override
@@ -82,6 +80,7 @@ public class PrincipalFragment extends Fragment {
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), CadastrarEstabelecimentoActivity.class);
                 startActivity(i);
+                getActivity().finish();
             }
         });
     }

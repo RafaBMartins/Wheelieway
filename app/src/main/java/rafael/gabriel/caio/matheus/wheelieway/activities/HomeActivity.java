@@ -9,11 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import rafael.gabriel.caio.matheus.wheelieway.R;
+import rafael.gabriel.caio.matheus.wheelieway.adapter.EstabelecimentoListAdapter;
 import rafael.gabriel.caio.matheus.wheelieway.fragments.FavoritosFragment;
 import rafael.gabriel.caio.matheus.wheelieway.fragments.PrincipalFragment;
 import rafael.gabriel.caio.matheus.wheelieway.fragments.MapaFragment;
@@ -31,9 +33,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-
-
         final HomeViewModel vm = new ViewModelProvider(this).get(HomeViewModel.class);
 
         bottomNavigationView = findViewById(R.id.bnvHome);
@@ -42,33 +41,31 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 vm.setNavigationOpSelected(item.getItemId());
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.optHome:
                         PrincipalFragment homeFragment = PrincipalFragment.newInstance();
                         setFragment(homeFragment);
                         break;
                     case R.id.optMap:
-                        MapaFragment mapaFragment= MapaFragment.newInstance();
+                        MapaFragment mapaFragment = MapaFragment.newInstance();
                         setFragment(mapaFragment);
                         break;
                     case R.id.optFav:
-                        if(Config.getLogin(HomeActivity.this).isEmpty()) {
+                        if (Config.getLogin(HomeActivity.this).isEmpty()) {
                             Intent i = new Intent(HomeActivity.this, LoginActivity.class);
                             startActivity(i);
                             finish();
-                        }
-                        else {
+                        } else {
                             FavoritosFragment favoritosFragment = FavoritosFragment.newInstance();
                             setFragment(favoritosFragment);
                         }
                         break;
                     case R.id.optPerfil:
-                        if(Config.getLogin(HomeActivity.this).isEmpty()) {
+                        if (Config.getLogin(HomeActivity.this).isEmpty()) {
                             Intent i = new Intent(HomeActivity.this, LoginActivity.class);
                             startActivity(i);
                             finish();
-                        }
-                        else {
+                        } else {
                             PerfilFragment perfilFragment = PerfilFragment.newInstance();
                             setFragment(perfilFragment);
                         }
@@ -77,6 +74,7 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             }
         });
+        bottomNavigationView.setSelectedItemId(R.id.optHome);
     }
 
     void setFragment(Fragment fragment) {

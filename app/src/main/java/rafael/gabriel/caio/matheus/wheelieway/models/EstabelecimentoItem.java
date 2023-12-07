@@ -10,8 +10,6 @@ public class EstabelecimentoItem {
 
     public String selo;
 
-    public String distancia;
-
     public String tipoEstabelecimento;
 
     public String imgEstabelecimento;

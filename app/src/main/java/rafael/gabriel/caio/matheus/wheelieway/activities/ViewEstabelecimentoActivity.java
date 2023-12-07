@@ -65,9 +65,6 @@ public class ViewEstabelecimentoActivity extends AppCompatActivity {
                     TextView tvNome = findViewById(R.id.tvEstabelecimentoItem);
                     tvNome.setText(estabelecimento.nome);
 
-                    TextView tvDistancia = findViewById(R.id.tvDistanciaEstabelecimentoItem);
-                    tvDistancia.setText(estabelecimento.cidade);
-
                     TextView tvNota = findViewById(R.id.tvNotaEstabelecimentoItem);
                     tvNota.setText(estabelecimento.nota);
 

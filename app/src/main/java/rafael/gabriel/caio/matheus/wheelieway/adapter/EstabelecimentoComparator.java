@@ -15,9 +15,6 @@ public class EstabelecimentoComparator extends DiffUtil.ItemCallback<Estabelecim
     public boolean areContentsTheSame(@NonNull EstabelecimentoItem oldItem, @NonNull EstabelecimentoItem newItem) {
         return oldItem.id.equals(newItem.id) &&
                 oldItem.nome.equals(newItem.nome) &&
-                oldItem.distancia.equals(newItem.distancia) &&
-                oldItem.tipoEstabelecimento.equals(newItem.tipoEstabelecimento) &&
-                oldItem.nota.equals(newItem.nota) &&
-                oldItem.selo.equals(newItem.selo);
+                oldItem.nota.equals(newItem.nota);
     }
 }

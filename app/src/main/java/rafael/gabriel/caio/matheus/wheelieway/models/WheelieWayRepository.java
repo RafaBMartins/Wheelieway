@@ -217,7 +217,7 @@ public class WheelieWayRepository {
 
         List<EstabelecimentoItem> estabelecimentosList = new ArrayList<>();
 
-        Location gps_loc;
+        /*Location gps_loc;
         Location network_loc;
         Location final_loc;
         double longitude;
@@ -248,15 +248,13 @@ public class WheelieWayRepository {
         } catch (Exception e) {
             e.printStackTrace();
             return estabelecimentosList;
-        }
+        }*/
 
 
 
         HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL +"phpMobile/carregaEstabelecimentos.php", "GET", "UTF-8");
         httpRequest.addParam("limit", limit.toString());
         httpRequest.addParam("offset", offSet.toString());
-        httpRequest.addParam("latitude", String.valueOf(latitude));
-        httpRequest.addParam("longitude", String.valueOf(longitude));
 
 
 
@@ -286,7 +284,6 @@ public class WheelieWayRepository {
                     String nome = jEstabelecimento.getString("nome_estabelecimento");
                     String nota_media = jEstabelecimento.getString("nota_media");
                     String uri_image = jEstabelecimento.getString("foto_estabelecimento");
-                    String distancia = jEstabelecimento.getString("distancia");
                     String tipoEstabelecimento = jEstabelecimento.getString("tipo_estabelecimento");
                     String cidade = jEstabelecimento.getString("cidade");
                     String logradouro = jEstabelecimento.getString("logradouro");
@@ -297,7 +294,6 @@ public class WheelieWayRepository {
                     estabelecimento.id = id;
                     estabelecimento.nome = nome;
                     estabelecimento.tipoEstabelecimento = tipoEstabelecimento;
-                    estabelecimento.distancia = distancia;
                     estabelecimento.imgEstabelecimento = uri_image;
                     estabelecimento.nota = nota_media;
                     estabelecimento.cidade = cidade;
@@ -434,7 +430,6 @@ public class WheelieWayRepository {
                 estabelecimento.nome = nome;
                 estabelecimento.selo = selo;
                 estabelecimento.tipoEstabelecimento = tipoEstabelecimento;
-                estabelecimento.distancia = distancia;
                 estabelecimento.imgEstabelecimento = imgEstabelecimento;
                 estabelecimento.nota = nota;
                 estabelecimento.tipologradouro = tipoLogradouro;
